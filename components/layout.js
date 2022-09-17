@@ -41,8 +41,8 @@ export default function Layout(props) {
           cardType: "summary_large_image"
         }}
       />
-
-      <div className="antialiased text-gray-800 dark:bg-black dark:text-gray-400">
+      {/* dark:bg-black dark:text-gray-400  */}
+      <div className="antialiased text-gray-800">
         <Navbar {...props} />
         <div className="mamain">{children}</div>
 
