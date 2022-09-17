@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { NextSeo } from "next-seo";
+// import { NextSeo } from "next-seo";
 import GetImage from "@utils/getImage";
 import Navbar from "@components/navbar";
 // import defaultOG from "../public/img/og-default.jpg";
@@ -17,7 +17,7 @@ export default function Layout(props) {
         <link rel="preconnect" href="https://cdn.sanity.io/" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io//" />
       </Head>
-      <NextSeo
+      {/* <NextSeo
         title={props.title}
         description={props.description}
         canonical={props.url}
@@ -40,7 +40,7 @@ export default function Layout(props) {
           site: "@surjithctly",
           cardType: "summary_large_image"
         }}
-      />
+      /> */}
 
       <div className="antialiased text-gray-800 dark:bg-black dark:text-gray-400">
         <Navbar {...props} />
