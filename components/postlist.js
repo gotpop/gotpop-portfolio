@@ -6,7 +6,7 @@ import { parseISO, format } from "date-fns";
 import { PhotographIcon } from "@heroicons/react/outline";
 import CategoryLabel from "@components/blog/category";
 
-export default function PostList({ post, aspect, preloadImage }) {
+export default function PostList({ post, aspect, preloadImage, objectFit = 'cover' }) {
   const imageProps = post?.mainImage
     ? GetImage(post.mainImage)
     : null;
@@ -30,10 +30,11 @@ export default function PostList({ post, aspect, preloadImage }) {
                   blurDataURL={imageProps.blurDataURL}
                   alt={post.mainImage.alt || "Thumbnail"}
                   placeholder="blur"
-                  sizes="80vw"
-                  //sizes="(max-width: 640px) 90vw, 480px"
+                  // sizes="80vw"
+                  sizes="(max-width: 640px) 90vw, 480px"
                   layout="fill"
-                  objectFit="cover"
+                  objectFit={objectFit}
+                  objectPosition= "0 0"
                   priority={preloadImage ? true : false}
                   className="transition-all"
                 />
@@ -45,7 +46,7 @@ export default function PostList({ post, aspect, preloadImage }) {
             </a>
           </Link>
         </div>
-        <CategoryLabel categories={post.categories} />
+        {/* <CategoryLabel categories={post.categories} />
         <h2 className="mt-2 text-lg font-semibold tracking-normal text-brand-primary dark:text-white">
           <Link href={`/post/${post.slug.current}`}>
             <span
@@ -59,7 +60,7 @@ export default function PostList({ post, aspect, preloadImage }) {
               {post.title}
             </span>
           </Link>
-        </h2>
+        </h2> */}
 
         <div className="hidden">
           {post.excerpt && (
@@ -71,7 +72,7 @@ export default function PostList({ post, aspect, preloadImage }) {
           )}
         </div>
 
-        <div className="flex items-center mt-3 space-x-3 text-gray-500 dark:text-gray-400">
+        {/* <div className="flex items-center mt-3 space-x-3 text-gray-500 dark:text-gray-400">
           <div className="flex items-center gap-3">
             <div className="relative flex-shrink-0 w-5 h-5">
               {post.author.image && (
@@ -101,7 +102,7 @@ export default function PostList({ post, aspect, preloadImage }) {
               "MMMM dd, yyyy"
             )}
           </time>
-        </div>
+        </div> */}
       </div>
     </>
   );

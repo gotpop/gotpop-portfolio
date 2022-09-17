@@ -7,6 +7,7 @@ import defaultOG from "../public/img/opengraph.jpg";
 import { postquery, configQuery } from "@lib/groq";
 import GetImage from "@utils/getImage";
 import PostList from "@components/postlist";
+import Head from 'next/head'
 
 export default function Post(props) {
   const { postdata, siteconfig, preview } = props;
@@ -29,6 +30,10 @@ export default function Post(props) {
     : defaultOG.src;
   return (
     <>
+     <Head>
+        <title>My page title</title>
+        <meta property="og:title" content="My new title" key="title" />
+      </Head>
       {posts && siteConfig && (
         <Layout {...siteConfig}>
           <NextSeo
@@ -61,14 +66,16 @@ export default function Post(props) {
                   post={post}
                   aspect="landscape"
                   preloadImage={true}
-                />
-              ))}
+                  objectFit={'cover'}
+                  />
+                  ))}
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {posts.slice(2).map(post => (
                 <PostList
                   key={post._id}
                   post={post}
+                  objectFit={'cover'}
                   aspect="square"
                 />
               ))}
@@ -83,7 +90,8 @@ export default function Post(props) {
 export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
-
+  
+  console.log('config :', config);
   // const categories = (await client.fetch(catquery)) || null;
 
   return {

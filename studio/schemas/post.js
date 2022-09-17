@@ -75,7 +75,13 @@ export default {
       name: "body",
       title: "Body",
       type: "blockContent"
-    }
+    },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
+    },
   ],
 
   preview: {

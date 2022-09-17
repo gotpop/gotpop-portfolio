@@ -1,28 +1,31 @@
 {
   "root": true,
-  "project": {
-    "name": "Stablo Template",
-    "basePath": "/studio"
-  },
   "api": {
-    "projectId": "",
+    "projectId": "vgmuq0y3",
     "dataset": "production"
+  },
+  "project": {
+    "name": "GotPop",
+    "basePath": "/studio"
   },
   "plugins": [
     "@sanity/base",
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "asset-source-unsplash"
+    "asset-source-unsplash",
+    "order-documents"
   ],
   "env": {
     "development": {
       "plugins": [
-        "@sanity/vision"
+        "@sanity/vision",
+        "order-documents"
       ]
     }
   },
-  "parts": [{
+  "parts": [
+    {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
     },
