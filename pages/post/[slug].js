@@ -95,18 +95,30 @@ export default function Post(props) {
               </h1>
             </Container>
           </div> */}
-
-          <Container className="!pt-0">
-            <div className="max-w-screen-md mx-auto ">
-              <div className="text-center">
-                <CategoryLabel categories={post.categories} />
-              </div>
-
+          <Container>
+            <article className="max-w-screen-md mx-auto ">
               <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
                 {post.title}
               </h1>
+              <div className="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500">
+                {post.body && <PortableText value={post.body} />}
+              </div>
 
-              <div className="flex justify-center mt-3 space-x-3 text-gray-500 ">
+              {/* {post.author && <AuthorCard author={post.author} />} */}
+            </article>
+          </Container>
+
+          <Container className="!pt-0">
+            <div className="max-w-screen-md mx-auto ">
+              {/* <div className="text-center">
+                <CategoryLabel categories={post.categories} />
+              </div> */}
+
+              {/* <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
+                {post.title}
+              </h1> */}
+
+              {/* <div className="flex justify-center mt-3 space-x-3 text-gray-500 ">
                 <div className="flex items-center gap-3">
                   <div className="relative flex-shrink-0 w-10 h-10">
                     {AuthorimageProps && (
@@ -145,7 +157,7 @@ export default function Post(props) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Container>
 
@@ -163,13 +175,8 @@ export default function Post(props) {
               />
             )}
           </div>
-
-          {/* {post?.mainImage && <MainImage image={post.mainImage} />} */}
           <Container>
             <article className="max-w-screen-md mx-auto ">
-              <div className="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500">
-                {post.body && <PortableText value={post.body} />}
-              </div>
               <div className="flex justify-center mt-7 mb-7">
                 <Link href="/">
                   <a className="px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
