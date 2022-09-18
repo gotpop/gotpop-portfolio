@@ -1,4 +1,11 @@
-import S from "@sanity/desk-tool/structure-builder";
+// ./src/desk-structure/index.js (or similar)
+
+import S from '@sanity/desk-tool/structure-builder'
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list'
+
+
+
+// import S from "@sanity/desk-tool/structure-builder";
 import {
   HiOutlineCog,
   HiOutlineClipboardList,
@@ -16,8 +23,12 @@ const hiddenDocTypes = listItem =>
 
 export default () =>
   S.list()
-    .title("Content Manager")
+    .title("GP Content Manager")
     .items([
+      orderableDocumentListDeskItem({
+        type: 'post',
+        // icon: Paint
+      }),
       S.listItem()
         .title("Site Config")
         .icon(HiOutlineCog)

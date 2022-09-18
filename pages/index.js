@@ -91,7 +91,6 @@ export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
   
-  console.log('config :', config);
   // const categories = (await client.fetch(catquery)) || null;
 
   return {
