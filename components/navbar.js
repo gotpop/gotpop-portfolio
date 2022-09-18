@@ -76,7 +76,7 @@ export default function Navbar(props) {
                       )}
                     </a> */}
                   </Link>
-                  <Link href="/">
+                  {/* <Link href="/">
                     <a className="hidden w-28 dark:block">
                       {props.logoalt ? (
                         <Image
@@ -91,7 +91,7 @@ export default function Navbar(props) {
                         </span>
                       )}
                     </a>
-                  </Link>
+                  </Link> */}
                   <Disclosure.Button
                     aria-label="Toggle Menu"
                     className="px-2 py-1 ml-auto text-gray-500 rounded-md md:hidden focus:text-blue-500 focus:outline-none dark:text-gray-300 ">

@@ -10,7 +10,7 @@
 }
 
 @keyframes logoStartUp {
-  0 % {
+  0% {
     fillopacity: 0;
     fill: rgb(63, 62, 62);
     stroke-dashoffset: 1000;
@@ -42,6 +42,43 @@
   stroke-width: 0.2px;
 }
 
+@keyframes logoStartUpDark {
+  0% {
+    fillopacity: 0;
+    fill: rgb(255, 255, 255);
+    stroke-dashoffset: 1000;
+  }
+
+  20% {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+  }
+
+  80% {
+    stroke-opacity: 0;
+  }
+
+  100% {
+    fill-opacity: 1;
+    stroke-dashoffset: 0;
+    stroke-opacity: 0;
+  }
+}
+
+.dark .he-logo__path {
+  animation-delay: 0.5s;
+  animation: logoStartUpDark 6s linear forwards;
+  fill-opacity: 0;
+  fill: rgb(255, 255, 255);
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  stroke-width: 0.2px;
+}
+
 .mamain {
   background-color: aliceblue;
+}
+
+.dark .mamain {
+  background-color: black;
 }
