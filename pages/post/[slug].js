@@ -108,59 +108,6 @@ export default function Post(props) {
             </article>
           </Container>
 
-          <Container className="!pt-0">
-            <div className="max-w-screen-md mx-auto ">
-              {/* <div className="text-center">
-                <CategoryLabel categories={post.categories} />
-              </div> */}
-
-              {/* <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-                {post.title}
-              </h1> */}
-
-              {/* <div className="flex justify-center mt-3 space-x-3 text-gray-500 ">
-                <div className="flex items-center gap-3">
-                  <div className="relative flex-shrink-0 w-10 h-10">
-                    {AuthorimageProps && (
-                      <Image
-                        src={AuthorimageProps.src}
-                        blurDataURL={AuthorimageProps.blurDataURL}
-                        loader={AuthorimageProps.loader}
-                        objectFit="cover"
-                        alt={post?.author?.name}
-                        placeholder="blur"
-                        layout="fill"
-                        className="rounded-full"
-                      />
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-gray-800 dark:text-gray-400">
-                      {post.author.name}
-                    </p>
-                    <div className="flex items-center space-x-2 text-sm">
-                      <time
-                        className="text-gray-500 dark:text-gray-400"
-                        dateTime={
-                          post?.publishedAt || post._createdAt
-                        }>
-                        {format(
-                          parseISO(
-                            post?.publishedAt || post._createdAt
-                          ),
-                          "MMMM dd, yyyy"
-                        )}
-                      </time>
-                      <span>
-                        · {post.estReadingTime || "5"} min read
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-            </div>
-          </Container>
-
           <div className="relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video">
             {imageProps && (
               <Image
@@ -171,7 +118,7 @@ export default function Post(props) {
                 placeholder="blur"
                 layout="fill"
                 loading="eager"
-                objectFit="cover"
+                objectFit="unset"
               />
             )}
           </div>
@@ -184,7 +131,7 @@ export default function Post(props) {
                   </a>
                 </Link>
               </div>
-              {post.author && <AuthorCard author={post.author} />}
+              {/* {post.author && <AuthorCard author={post.author} />} */}
             </article>
           </Container>
         </Layout>
