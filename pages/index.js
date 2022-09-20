@@ -6,7 +6,7 @@ import { getClient, usePreviewSubscription } from "@lib/sanity";
 import defaultOG from "../public/img/opengraph.jpg";
 import { postquery, configQuery } from "@lib/groq";
 import GetImage from "@utils/getImage";
-import PostList from "@components/postlist";
+import ProjectList from "@components/projectlist";
 import Head from 'next/head'
 
 export default function Post(props) {
@@ -61,7 +61,7 @@ export default function Post(props) {
           <Container>
             <div className="grid gap-10 lg:gap-10 md:grid-cols-2 ">
               {posts.slice(0, 2).map(post => (
-                <PostList
+                <ProjectList
                   key={post._id}
                   post={post}
                   aspect="landscape"
@@ -72,7 +72,7 @@ export default function Post(props) {
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {posts.slice(2).map(post => (
-                <PostList
+                <ProjectList
                   key={post._id}
                   post={post}
                   objectFit={'cover'}

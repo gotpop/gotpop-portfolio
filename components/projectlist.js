@@ -6,7 +6,7 @@ import { parseISO, format } from "date-fns";
 import { PhotographIcon } from "@heroicons/react/outline";
 import CategoryLabel from "@components/blog/category";
 
-export default function PostList({ post, aspect, preloadImage, objectFit = 'cover' }) {
+export default function ProjectList({ post, aspect, preloadImage, objectFit = 'cover' }) {
   const imageProps = post?.mainImage
     ? GetImage(post.mainImage)
     : null;
@@ -21,7 +21,7 @@ export default function PostList({ post, aspect, preloadImage, objectFit = 'cove
             "relative overflow-hidden transition-all bg-gray-100 rounded-md dark:bg-gray-800   hover:scale-105",
             aspect === "landscape" ? "aspect-video" : "aspect-square"
           )}>
-          <Link href={`/post/${post.slug.current}`}>
+          <Link href={`/project/${post.slug.current}`}>
             <a>
               {imageProps ? (
                 <Image

@@ -11,7 +11,7 @@ import { getClient, usePreviewSubscription } from "@lib/sanity";
 import defaultOG from "../public/img/opengraph.jpg";
 import { postquery, configQuery } from "@lib/groq";
 import GetImage from "@utils/getImage";
-import PostList from "@components/postlist";
+import ProjectList from "@components/projectlist";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview } = props;
@@ -69,7 +69,7 @@ export default function Post(props) {
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {posts.map(post => (
-                <PostList
+                <ProjectList
                   key={post._id}
                   post={post}
                   aspect="square"
