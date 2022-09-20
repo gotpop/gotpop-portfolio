@@ -18,12 +18,11 @@ import {
 
 // import DocumentsPane from "sanity-plugin-documents-pane";
 
-const hiddenDocTypes = listItem =>
-  !["siteconfig"].includes(listItem.getId());
+const hiddenDocTypes = listItem => !["siteconfig", "project"].includes(listItem.getId());
 
 export default () =>
   S.list()
-    .title("GP Content Manager")
+    .title("GotPop Content Manager")
     .items([
       S.listItem()
         .title("Site Config")
@@ -35,7 +34,8 @@ export default () =>
       ...S.documentTypeListItems().filter(hiddenDocTypes),
       orderableDocumentListDeskItem({
         type: 'project',
-        // icon: Paint
+        title: 'Projects',
+        icon: HiOutlineClipboardList
       }),
     ]);
 

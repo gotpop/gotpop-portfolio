@@ -16,8 +16,8 @@ import { NextSeo } from "next-seo";
 import defaultOG from "/public/img/opengraph.jpg";
 
 import { singlequery, configQuery, pathquery } from "@lib/groq";
-import CategoryLabel from "@components/blog/category";
-import AuthorCard from "@components/blog/authorCard";
+// import CategoryLabel from "@components/blog/category";
+// import AuthorCard from "@components/blog/authorCard";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview } = props;
