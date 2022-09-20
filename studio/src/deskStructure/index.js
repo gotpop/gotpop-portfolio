@@ -25,10 +25,6 @@ export default () =>
   S.list()
     .title("GP Content Manager")
     .items([
-      orderableDocumentListDeskItem({
-        type: 'post',
-        // icon: Paint
-      }),
       S.listItem()
         .title("Site Config")
         .icon(HiOutlineCog)
@@ -36,7 +32,11 @@ export default () =>
           S.editor().schemaType("siteconfig").documentId("siteconfig")
         ),
       S.divider(),
-      ...S.documentTypeListItems().filter(hiddenDocTypes)
+      ...S.documentTypeListItems().filter(hiddenDocTypes),
+      orderableDocumentListDeskItem({
+        type: 'post',
+        // icon: Paint
+      }),
     ]);
 
 // export const getDefaultDocumentNode = props => {
