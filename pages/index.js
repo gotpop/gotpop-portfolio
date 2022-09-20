@@ -15,7 +15,7 @@ export default function Post(props) {
   const router = useRouter();
   //console.log(router.query.category);
 
-  const { data: posts } = usePreviewSubscription(postquery, {
+  const { data: projects } = usePreviewSubscription(postquery, {
     initialData: postdata,
     enabled: preview || router.query.preview !== undefined
   });
@@ -24,7 +24,7 @@ export default function Post(props) {
     initialData: siteconfig,
     enabled: preview || router.query.preview !== undefined
   });
-  //console.log(posts);
+  //console.log(projects);
   const ogimage = siteConfig?.openGraphImage
     ? GetImage(siteConfig?.openGraphImage).src
     : defaultOG.src;
@@ -34,7 +34,7 @@ export default function Post(props) {
         <title>My page title</title>
         <meta property="og:title" content="My new title" key="title" />
       </Head>
-      {posts && siteConfig && (
+      {projects && siteConfig && (
         <Layout {...siteConfig}>
           <NextSeo
             title={`${siteConfig?.title}`}
@@ -60,10 +60,10 @@ export default function Post(props) {
           />
           <Container>
             <div className="grid gap-10 lg:gap-10 md:grid-cols-2 ">
-              {posts.slice(0, 2).map(post => (
+              {projects.slice(0, 2).map(project => (
                 <ProjectList
-                  key={post._id}
-                  post={post}
+                  key={project._id}
+                  project={project}
                   aspect="landscape"
                   preloadImage={true}
                   objectFit={'cover'}
@@ -71,10 +71,10 @@ export default function Post(props) {
                   ))}
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
-              {posts.slice(2).map(post => (
+              {projects.slice(2).map(project => (
                 <ProjectList
-                  key={post._id}
-                  post={post}
+                  key={project._id}
+                  project={project}
                   objectFit={'cover'}
                   aspect="square"
                 />
@@ -88,14 +88,14 @@ export default function Post(props) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const post = await getClient(preview).fetch(postquery);
+  const project = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
   
   // const categories = (await client.fetch(catquery)) || null;
 
   return {
     props: {
-      postdata: post,
+      postdata: project,
       // categories: categories,
       siteconfig: { ...config },
       preview

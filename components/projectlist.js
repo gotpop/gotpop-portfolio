@@ -6,13 +6,13 @@ import { parseISO, format } from "date-fns";
 import { PhotographIcon } from "@heroicons/react/outline";
 import CategoryLabel from "@components/blog/category";
 
-export default function ProjectList({ post, aspect, preloadImage, objectFit = 'cover' }) {
-  const imageProps = post?.mainImage
-    ? GetImage(post.mainImage)
+export default function ProjectList({ project, aspect, preloadImage, objectFit = 'cover' }) {
+  const imageProps = project?.mainImage
+    ? GetImage(project.mainImage)
     : null;
-  const AuthorimageProps = post?.author?.image
-    ? GetImage(post.author.image)
-    : null;
+  // const AuthorimageProps = project?.author?.image
+  //   ? GetImage(project.author.image)
+  //   : null;
   return (
     <>
       <div className="cursor-pointer group">
@@ -21,14 +21,14 @@ export default function ProjectList({ post, aspect, preloadImage, objectFit = 'c
             "relative overflow-hidden transition-all bg-gray-100 rounded-md dark:bg-gray-800   hover:scale-105",
             aspect === "landscape" ? "aspect-video" : "aspect-square"
           )}>
-          <Link href={`/project/${post.slug.current}`}>
+          <Link href={`/project/${project.slug.current}`}>
             <a>
               {imageProps ? (
                 <Image
                   src={imageProps.src}
                   loader={imageProps.loader}
                   blurDataURL={imageProps.blurDataURL}
-                  alt={post.mainImage.alt || "Thumbnail"}
+                  alt={project.mainImage.alt || "Thumbnail"}
                   placeholder="blur"
                   // sizes="80vw"
                   sizes="(max-width: 640px) 90vw, 480px"
@@ -46,9 +46,9 @@ export default function ProjectList({ post, aspect, preloadImage, objectFit = 'c
             </a>
           </Link>
         </div>
-        {/* <CategoryLabel categories={post.categories} />
+        {/* <CategoryLabel categories={project.categories} />
         <h2 className="mt-2 text-lg font-semibold tracking-normal text-brand-primary dark:text-white">
-          <Link href={`/post/${post.slug.current}`}>
+          <Link href={`/project/${project.slug.current}`}>
             <span
               className="     bg-gradient-to-r from-green-200 to-green-100 dark:from-purple-800 dark:to-purple-900
           bg-[length:0px_10px]
@@ -57,16 +57,16 @@ export default function ProjectList({ post, aspect, preloadImage, objectFit = 'c
           transition-[background-size]
           duration-500
           hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]">
-              {post.title}
+              {project.title}
             </span>
           </Link>
         </h2> */}
 
         <div className="hidden">
-          {post.excerpt && (
+          {project.excerpt && (
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
-              <Link href={`/post/${post.slug.current}`}>
-                {post.excerpt}
+              <Link href={`/project/${project.slug.current}`}>
+                {project.excerpt}
               </Link>
             </p>
           )}
@@ -75,30 +75,30 @@ export default function ProjectList({ post, aspect, preloadImage, objectFit = 'c
         {/* <div className="flex items-center mt-3 space-x-3 text-gray-500 dark:text-gray-400">
           <div className="flex items-center gap-3">
             <div className="relative flex-shrink-0 w-5 h-5">
-              {post.author.image && (
+              {project.author.image && (
                 <Image
                   src={AuthorimageProps.src}
                   blurDataURL={AuthorimageProps.blurDataURL}
                   loader={AuthorimageProps.loader}
                   objectFit="cover"
                   layout="fill"
-                  alt={post?.author?.name}
+                  alt={project?.author?.name}
                   placeholder="blur"
                   sizes="30px"
                   className="rounded-full"
                 />
               )}
             </div>
-            <span className="text-sm">{post.author.name}</span>
+            <span className="text-sm">{project.author.name}</span>
           </div>
           <span className="text-xs text-gray-300 dark:text-gray-600">
             &bull;
           </span>
           <time
             className="text-sm"
-            dateTime={post?.publishedAt || post._createdAt}>
+            dateTime={project?.publishedAt || project._createdAt}>
             {format(
-              parseISO(post?.publishedAt || post._createdAt),
+              parseISO(project?.publishedAt || project._createdAt),
               "MMMM dd, yyyy"
             )}
           </time>

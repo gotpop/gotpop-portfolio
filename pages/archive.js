@@ -19,7 +19,7 @@ export default function Post(props) {
   const router = useRouter();
   //console.log(router.query.category);
 
-  const { data: posts } = usePreviewSubscription(postquery, {
+  const { data: projects } = usePreviewSubscription(postquery, {
     initialData: postdata,
     enabled: preview || router.query.preview !== undefined
   });
@@ -28,13 +28,13 @@ export default function Post(props) {
     initialData: siteconfig,
     enabled: preview || router.query.preview !== undefined
   });
-  //console.log(posts);
+  //console.log(projects);
   const ogimage = siteConfig?.openGraphImage
     ? GetImage(siteConfig?.openGraphImage).src
     : defaultOG.src;
   return (
     <>
-      {posts && siteConfig && (
+      {projects && siteConfig && (
         <Layout {...siteConfig}>
           <NextSeo
             title={`Blog — ${siteConfig?.title}`}
@@ -64,14 +64,14 @@ export default function Post(props) {
             </h1>
             <div className="text-center">
               <p className="mt-2 text-lg">
-                See all posts we have ever written.
+                See all projects we have ever written.
               </p>
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
-              {posts.map(post => (
+              {projects.map(project => (
                 <ProjectList
-                  key={post._id}
-                  post={post}
+                  key={project._id}
+                  project={project}
                   aspect="square"
                 />
               ))}

@@ -4,12 +4,12 @@ import {
 } from '@sanity/orderable-document-list';
 
 export default {
-  name: "post",
-  title: "Post",
+  name: "project",
+  title: "Project",
   type: "document",
   fields: [
     orderRankField({
-      type: 'post'
+      type: 'project'
     }),
     {
       name: "title",

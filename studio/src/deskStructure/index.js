@@ -34,7 +34,7 @@ export default () =>
       S.divider(),
       ...S.documentTypeListItems().filter(hiddenDocTypes),
       orderableDocumentListDeskItem({
-        type: 'post',
+        type: 'project',
         // icon: Paint
       }),
     ]);
