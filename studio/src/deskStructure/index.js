@@ -8,7 +8,7 @@ import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list'
 // import S from "@sanity/desk-tool/structure-builder";
 import {
   HiOutlineCog,
-  HiOutlineClipboardList,
+  HiCube,
   HiOutlineFilter,
   HiOutlineNewspaper
 } from "react-icons/hi";
@@ -35,7 +35,7 @@ export default () =>
       orderableDocumentListDeskItem({
         type: 'project',
         title: 'Projects',
-        icon: HiOutlineClipboardList
+        icon: HiCube
       }),
     ]);
 
