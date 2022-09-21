@@ -55,11 +55,10 @@ export default function Contact({ siteconfig }) {
         <div className="grid my-10 md:grid-cols-2">
           <div className="my-10">
             <h2 className="text-2xl font-semibold dark:text-white">
-              Contact GotPop
+              Contact GotPop Web Development
             </h2>
             <p className="max-w-sm mt-5">
-              Have something to say? We are here to help. Fill up the
-              form or send email.
+              What to know how I can help you with your next project? Get in touch using the form here.
             </p>
 
             <div className="mt-5">
