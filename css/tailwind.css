@@ -82,3 +82,21 @@
 .dark .mamain {
   background-color: black;
 }
+
+
+@keyframes project {
+  0% {
+    translate: -200px;
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+    translate: 0px;
+  }
+}
+
+
+.project {
+  animation: project .3s linear forwards;
+}

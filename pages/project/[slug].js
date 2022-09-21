@@ -35,15 +35,15 @@ export default function Post(props) {
       {post && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <div className="flex justify-center rounded-lg bg-white">
+            <div className="project flex justify-center rounded-lg">
               <div className="block p-6 max-w-sm">
                 <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">{post.title}</h5>
                 <div className="text-gray-700 text-base mb-6">
-                {post.body && <PortableText value={post.body} />}
+                  {post.body && <PortableText value={post.body} />}
                 </div>
                 <a className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">View on LinkedIn</a>
               </div>
-              <div className="relative z-0 max-w-screen-lg shadow-md overflow-hidden lg:rounded-lg aspect-video m-6">
+              <div className="bg-white relative z-0 max-w-screen-lg shadow-md overflow-hidden lg:rounded-lg aspect-video m-6">
                 {post.imageUrl && <img src={post.imageUrl} alt="main image" />}
               </div>
             </div>
