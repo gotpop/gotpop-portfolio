@@ -47,64 +47,64 @@ export default {
       description: "Enter company name to appear in footer after ©"
     },
 
-    {
-      title: "Main logo",
-      description: "Upload your main logo here. SVG preferred. ",
-      name: "logo",
-      type: "image",
-      fieldset: "logos",
-      fields: [
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative text",
-          description: "Important for SEO and accessiblity.",
-          options: {
-            isHighlighted: true
-          }
-        }
-      ]
-    },
+    // {
+    //   title: "Main logo",
+    //   description: "Upload your main logo here. SVG preferred. ",
+    //   name: "logo",
+    //   type: "image",
+    //   fieldset: "logos",
+    //   fields: [
+    //     {
+    //       name: "alt",
+    //       type: "string",
+    //       title: "Alternative text",
+    //       description: "Important for SEO and accessiblity.",
+    //       options: {
+    //         isHighlighted: true
+    //       }
+    //     }
+    //   ]
+    // },
 
-    {
-      title: "Alternate logo (optional)",
-      description:
-        "Upload alternate logo here. it can be light / dark variation ",
-      name: "logoalt",
-      type: "image",
-      fieldset: "logos",
-      fields: [
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative text",
-          description: "Important for SEO and accessiblity.",
-          options: {
-            isHighlighted: true
-          }
-        }
-      ]
-    },
+    // {
+    //   title: "Alternate logo (optional)",
+    //   description:
+    //     "Upload alternate logo here. it can be light / dark variation ",
+    //   name: "logoalt",
+    //   type: "image",
+    //   fieldset: "logos",
+    //   fields: [
+    //     {
+    //       name: "alt",
+    //       type: "string",
+    //       title: "Alternative text",
+    //       description: "Important for SEO and accessiblity.",
+    //       options: {
+    //         isHighlighted: true
+    //       }
+    //     }
+    //   ]
+    // },
 
-    {
-      name: "email",
-      type: "string",
-      title: "Support Email",
-      validation: Rule =>
-        Rule.regex(
-          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-          {
-            name: "email", // Error message is "Does not match email-pattern"
-            invert: false // Boolean to allow any value that does NOT match pattern
-          }
-        )
-    },
+    // {
+    //   name: "email",
+    //   type: "string",
+    //   title: "Support Email",
+    //   validation: Rule =>
+    //     Rule.regex(
+    //       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+    //       {
+    //         name: "email", // Error message is "Does not match email-pattern"
+    //         invert: false // Boolean to allow any value that does NOT match pattern
+    //       }
+    //     )
+    // },
 
-    {
-      name: "phone",
-      type: "string",
-      title: "Support Phone"
-    },
+    // {
+    //   name: "phone",
+    //   type: "string",
+    //   title: "Support Phone"
+    // },
 
     {
       name: "w3ckey",
@@ -130,11 +130,9 @@ export default {
               title: "Choose Social Media",
               options: {
                 list: [
-                  { title: "Twitter", value: "twitter" },
-                  { title: "Facebook", value: "facebook" },
-                  { title: "Instagram", value: "instagram" },
-                  { title: "Linkedin", value: "linkedin" },
-                  { title: "Youtube", value: "youtube" }
+                  { title: "LinkedIn", value: "linkedin" },
+                  { title: "GitHub", value: "github" },
+                  { title: "CodePen", value: "codepen" }
                 ]
               }
             },
