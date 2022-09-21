@@ -19,6 +19,12 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      title: 'SVG',
+      name: 'svg',
+      type: 'text',
+      // validation: Rule => Rule.required().min(2),
+    },
+    {
       name: "color",
       title: "Color",
       type: "string",
