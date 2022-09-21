@@ -45,15 +45,15 @@ export default {
       title: "Main image",
       type: "image",
       fields: [
-        // {
-        //   name: "caption",
-        //   type: "string",
-        //   title: "Image caption",
-        //   description: "Appears below image.",
-        //   options: {
-        //     isHighlighted: true
-        //   }
-        // },
+        {
+          name: "caption",
+          type: "string",
+          title: "Image caption",
+          description: "Appears below image.",
+          options: {
+            isHighlighted: true
+          }
+        },
         {
           name: "alt",
           type: "string",
@@ -74,11 +74,11 @@ export default {
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }]
     },
-    {
-      name: "publishedAt",
-      title: "Published at",
-      type: "datetime"
-    },
+    // {
+    //   name: "publishedAt",
+    //   title: "Published at",
+    //   type: "datetime"
+    // },
     {
       name: "body",
       title: "Body",
