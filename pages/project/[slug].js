@@ -35,18 +35,19 @@ export default function Post(props) {
       {post && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <article className="max-w-screen-md mx-auto ">
-              <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-                {post.title}
-              </h1>
-              <div className="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500">
+            <div className="flex justify-center rounded-lg shadow-lg bg-white">
+              <div className="block p-6 max-w-sm">
+                <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">{post.title}</h5>
+                <div className="text-gray-700 text-base mb-6">
                 {post.body && <PortableText value={post.body} />}
+                </div>
+                <a className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">View on LinkedIn</a>
               </div>
-            </article>
+              <div className="relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video m-6">
+                {post.imageUrl && <img src={post.imageUrl} alt="main image" />}
+              </div>
+            </div>
           </Container>
-          <div className="relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video">
-            {post.imageUrl && <img src={post.imageUrl} alt="main image" />}
-          </div>
           <Container>
             <article className="max-w-screen-md mx-auto ">
               <div className="flex justify-center mt-7 mb-7">
