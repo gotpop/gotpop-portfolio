@@ -11,6 +11,29 @@ import Head from 'next/head'
 
 export default function Post(props) {
   const { postdata, siteconfig, preview } = props;
+  const githubUser = 'gotpop';
+  const url ="https://api.github.com/users/gotpop/repos"
+
+  const fetchData = () => {
+    return fetch(`https://api.github.com/users/${githubUser}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('ello', data);
+      });
+  }
+
+  fetchData()
+
+  const fetchData2 = () => {
+    return fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('oi', data);
+      });
+  }
+
+  fetchData2()
+  
 
   const router = useRouter();
   //console.log(router.query.category);
