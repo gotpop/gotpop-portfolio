@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import Layout from "@components/layout";
 import Container from "@components/container";
@@ -10,18 +8,10 @@ import client, {
   PortableText
 } from "@lib/sanity";
 import ErrorPage from "next/error";
-import GetImage from "@utils/getImage";
-import { parseISO, format } from "date-fns";
-import { NextSeo } from "next-seo";
-import defaultOG from "/public/img/opengraph.jpg";
-
 import { singlequery, configQuery, pathquery } from "@lib/groq";
-// import CategoryLabel from "@components/blog/category";
-// import AuthorCard from "@components/blog/authorCard";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview } = props;
-
   const router = useRouter();
   const { slug } = router.query;
 
@@ -39,62 +29,11 @@ export default function Post(props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  const imageProps = post?.mainImage
-    ? GetImage(post?.mainImage)
-    : null;
-
-  const AuthorimageProps = post?.author?.image
-    ? GetImage(post.author.image)
-    : null;
-
-  const ogimage = siteConfig?.openGraphImage
-    ? GetImage(siteConfig?.openGraphImage).src
-    : defaultOG.src;
 
   return (
     <>
       {post && siteConfig && (
         <Layout {...siteConfig}>
-          <NextSeo
-            title={`${post.title} - ${siteConfig.title}`}
-            description={post.excerpt || ""}
-            canonical={`${siteConfig?.url}/post/${post.slug.current}`}
-            openGraph={{
-              url: `${siteConfig?.url}/post/${post.slug.current}`,
-              title: `${post.title} - ${siteConfig.title}`,
-              description: post.excerpt || "",
-              images: [
-                {
-                  url: GetImage(post?.mainImage).src || ogimage,
-                  width: 800,
-                  height: 600,
-                  alt: ""
-                }
-              ],
-              site_name: siteConfig.title
-            }}
-            twitter={{
-              cardType: "summary_large_image"
-            }}
-          />
-          {/*
-          <div className="relative bg-white/20">
-            <div className="absolute w-full h-full -z-10">
-              {post?.mainImage && (
-                <Image
-                  {...GetImage(post.mainImage)}
-                  alt={post.mainImage?.alt || "Thumbnail"}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              )}
-            </div>
-            <Container className="py-48">
-              <h1 className="relative max-w-3xl mx-auto mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl after:absolute after:w-full after:h-full after:bg-white after:inset-0 after:-z-10 after:blur-2xl after:scale-150">
-                {post.title}
-              </h1>
-            </Container>
-          </div> */}
           <Container>
             <article className="max-w-screen-md mx-auto ">
               <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
@@ -103,24 +42,10 @@ export default function Post(props) {
               <div className="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500">
                 {post.body && <PortableText value={post.body} />}
               </div>
-
-              {/* {post.author && <AuthorCard author={post.author} />} */}
             </article>
           </Container>
-
           <div className="relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video">
-            {imageProps && (
-              <Image
-                src={imageProps.src}
-                loader={imageProps.loader}
-                blurDataURL={imageProps.blurDataURL}
-                alt={post.mainImage?.alt || "Thumbnail"}
-                placeholder="blur"
-                layout="fill"
-                loading="eager"
-                objectFit="unset"
-              />
-            )}
+            {post.imageUrl && <img src={post.imageUrl} alt="main image" />}
           </div>
           <Container>
             <article className="max-w-screen-md mx-auto ">
@@ -131,7 +56,6 @@ export default function Post(props) {
                   </a>
                 </Link>
               </div>
-              {/* {post.author && <AuthorCard author={post.author} />} */}
             </article>
           </Container>
         </Layout>
@@ -140,23 +64,7 @@ export default function Post(props) {
   );
 }
 
-const MainImage = ({ image }) => {
-  return (
-    <div className="mt-12 mb-12 ">
-      <Image {...GetImage(image)} alt={image.alt || "Thumbnail"} />
-      <figcaption className="text-center ">
-        {image.caption && (
-          <span className="text-sm italic text-gray-600 dark:text-gray-400">
-            {image.caption}
-          </span>
-        )}
-      </figcaption>
-    </div>
-  );
-};
-
 export async function getStaticProps({ params, preview = false }) {
-  //console.log(params);
   const post = await getClient(preview).fetch(singlequery, {
     slug: params.slug
   });
