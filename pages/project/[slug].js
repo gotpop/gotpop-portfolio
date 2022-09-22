@@ -12,7 +12,6 @@ import { singlequery, configQuery, pathquery, postquery } from "@lib/groq";
 import React, { useEffect } from 'react';
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@heroicons/react/outline";
 import CategoryLabel from "@components/projects/category";
-import { stringify } from "postcss";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview, projectdata } = props;

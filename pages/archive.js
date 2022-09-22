@@ -4,8 +4,6 @@ import Link from "next/link";
 import { NextSeo } from "next-seo";
 import Layout from "@components/layout";
 import Container from "@components/container";
-// import Subpagehero from "@components/sections/subpagehero";
-// import Categories from "@components/categories";
 import { useRouter } from "next/router";
 import { getClient, usePreviewSubscription } from "@lib/sanity";
 import defaultOG from "../public/img/opengraph.jpg";
@@ -15,9 +13,7 @@ import ProjectList from "@components/projectlist";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview } = props;
-
   const router = useRouter();
-  //console.log(router.query.category);
 
   const { data: projects } = usePreviewSubscription(postquery, {
     initialData: postdata,
@@ -28,7 +24,7 @@ export default function Post(props) {
     initialData: siteconfig,
     enabled: preview || router.query.preview !== undefined
   });
-  //console.log(projects);
+
   const ogimage = siteConfig?.openGraphImage
     ? GetImage(siteConfig?.openGraphImage).src
     : defaultOG.src;
@@ -88,12 +84,9 @@ export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
 
-  // const categories = (await client.fetch(catquery)) || null;
-
   return {
     props: {
       postdata: post,
-      // categories: categories,
       siteconfig: { ...config },
       preview
     },

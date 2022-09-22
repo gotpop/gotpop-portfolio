@@ -34,19 +34,13 @@ export default function Post(props) {
   // }
 
   // fetchData2()
-  
 
   const router = useRouter();
-  //console.log(router.query.category);
 
   const { data: projects } = usePreviewSubscription(postquery, {
     initialData: postdata,
     enabled: preview || router.query.preview !== undefined
   });
-
-  // useEffect(() => {
-  //   console.log('projects :', projects);
-  // }, [projects])
   
   const { data: siteConfig } = usePreviewSubscription(configQuery, {
     initialData: siteconfig,
@@ -118,13 +112,10 @@ export default function Post(props) {
 export async function getStaticProps({ params, preview = false }) {
   const project = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
-  
-  // const categories = (await client.fetch(catquery)) || null;
 
   return {
     props: {
       postdata: project,
-      // categories: categories,
       siteconfig: { ...config },
       preview
     },

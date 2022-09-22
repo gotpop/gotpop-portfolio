@@ -2,9 +2,6 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import Container from "@components/container";
 import Link from "next/link";
-import Image from "next/image";
-import GetImage from "@utils/getImage";
-import { myLoader } from "@utils/all";
 
 export default function Navbar(props) {
   const leftmenu = [
