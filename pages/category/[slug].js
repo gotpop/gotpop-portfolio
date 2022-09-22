@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import client, { getClient, usePreviewSubscription } from "@lib/sanity";
 import ErrorPage from "next/error";
 import { configQuery, pathquery, catquery } from "@lib/groq";
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ProjectList from "@components/projectlist";
 
 export default function Post(props) {
