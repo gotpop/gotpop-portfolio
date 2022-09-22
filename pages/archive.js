@@ -52,7 +52,7 @@ export default function Post(props) {
                   alt: ""
                 }
               ],
-              site_name: "Stablo"
+              site_name: "GotPop"
             }}
             twitter={{
               cardType: "summary_large_image"
@@ -64,7 +64,7 @@ export default function Post(props) {
             </h1>
             <div className="text-center">
               <p className="mt-2 text-lg">
-                See all projects we have ever written.
+                See all projects.
               </p>
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
@@ -87,12 +87,12 @@ export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
 
-  // const categories = (await client.fetch(catquery)) || null;
+  const categories = (await client.fetch(catquery)) || null;
 
   return {
     props: {
       postdata: post,
-      // categories: categories,
+      categories: categories,
       siteconfig: { ...config },
       preview
     },
