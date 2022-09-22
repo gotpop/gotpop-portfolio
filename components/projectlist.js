@@ -14,7 +14,7 @@ export default function ProjectList({ project, aspect, preloadImage, objectFit =
       <div className="cursor-pointer group">
         <div
           className={cx(
-            "relative overflow-hidden transition-all bg-gray-100 rounded-md dark:bg-gray-800   hover:scale-105",
+            "relative overflow-hidden shadow-md transition-all bg-gray-100 rounded-md dark:bg-gray-800   hover:scale-105",
             aspect === "landscape" ? "aspect-video" : "aspect-square"
           )}>
           <Link href={`/project/${project.slug.current}`}>
