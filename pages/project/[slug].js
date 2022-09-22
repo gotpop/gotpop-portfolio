@@ -8,12 +8,15 @@ import client, {
   PortableText
 } from "@lib/sanity";
 import ErrorPage from "next/error";
-import { singlequery, configQuery, pathquery } from "@lib/groq";
+import { singlequery, configQuery, pathquery, postquery } from "@lib/groq";
+import React, { useEffect } from 'react';
 
 export default function Post(props) {
-  const { postdata, siteconfig, preview } = props;
+  const { postdata, siteconfig, preview, projectdata } = props;
   const router = useRouter();
   const { slug } = router.query;
+  const [next, setNext] = React.useState();
+  const [previous, setPrevious] = React.useState();
 
   const { data: post } = usePreviewSubscription(singlequery, {
     params: { slug: slug },
@@ -21,6 +24,29 @@ export default function Post(props) {
     enabled: preview || router.query.preview !== undefined
   });
 
+  const { data: projects } = usePreviewSubscription(postquery, {
+    initialData: projectdata,
+    enabled: preview || router.query.preview !== undefined
+  });
+
+  useEffect(() => {    
+    projects?.forEach((project, index) => {
+      if (post._id !== project._id) return
+
+      let positionPrev
+      let positionNext
+      
+      index === 0 ? positionPrev = projects.length - 1 : positionPrev = index - 1
+      index === projects.length - 1 ? positionNext = 0: positionNext = index + 1
+      
+      const previous = projects[positionPrev].slug.current
+      const next = projects[positionNext].slug.current
+      
+      setPrevious(previous)
+      setNext(next)
+    })
+  })
+  
   const { data: siteConfig } = usePreviewSubscription(configQuery, {
     initialData: siteconfig,
     enabled: preview || router.query.preview !== undefined
@@ -51,9 +77,14 @@ export default function Post(props) {
           <Container>
             <article className="max-w-screen-md mx-auto ">
               <div className="flex justify-center mt-7 mb-7">
-                <Link href="/">
+                <Link href={`/project/${previous}`}>
                   <a className="px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
-                    ← View all posts
+                    ← Previous
+                  </a>
+                </Link>
+                <Link href={`/project/${next}`}>
+                  <a className="px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
+                    ← Next
                   </a>
                 </Link>
               </div>
@@ -70,10 +101,13 @@ export async function getStaticProps({ params, preview = false }) {
     slug: params.slug
   });
 
+  const project = await getClient(preview).fetch(postquery);
+  
   const config = await getClient(preview).fetch(configQuery);
 
   return {
     props: {
+      projectdata: project,
       postdata: { ...post },
       siteconfig: { ...config },
       preview
