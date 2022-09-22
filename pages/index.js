@@ -44,6 +44,10 @@ export default function Post(props) {
     enabled: preview || router.query.preview !== undefined
   });
 
+  // useEffect(() => {
+  //   console.log('projects :', projects);
+  // }, [projects])
+  
   const { data: siteConfig } = usePreviewSubscription(configQuery, {
     initialData: siteconfig,
     enabled: preview || router.query.preview !== undefined
@@ -76,7 +80,7 @@ export default function Post(props) {
                   alt: ""
                 }
               ],
-              site_name: "Stablo"
+              site_name: "GotPop"
             }}
             twitter={{
               cardType: "summary_large_image"
@@ -115,12 +119,12 @@ export async function getStaticProps({ params, preview = false }) {
   const project = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
   
-  // const categories = (await client.fetch(catquery)) || null;
+  const categories = (await client.fetch(catquery)) || null;
 
   return {
     props: {
       postdata: project,
-      // categories: categories,
+      categories: categories,
       siteconfig: { ...config },
       preview
     },
