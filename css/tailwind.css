@@ -100,3 +100,8 @@
 .project {
   animation: project .3s linear forwards;
 }
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
