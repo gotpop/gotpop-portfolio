@@ -1,19 +1,17 @@
-import Link from "next/link";
 import Layout from "@components/layout";
 import Container from "@components/container";
 import { useRouter } from "next/router";
 import client, { getClient, usePreviewSubscription } from "@lib/sanity";
-import ErrorPage from "next/error";
-import { configQuery, pathquery, catquery } from "@lib/groq";
-import React, { useEffect } from 'react';
+import { configQuery, pathquery, catquery, allcatquery } from "@lib/groq";
+import { useEffect, useState } from 'react';
 import ProjectList from "@components/projectlist";
+import CategoryLabel from "@components/projects/category";
 
 export default function Post(props) {
-  const { postdata, siteconfig, preview, projectdata } = props;
+  const { siteconfig, preview, projectdata, categorydata } = props;
   const router = useRouter();
   const { slug } = router.query;
-  const [next, setNext] = React.useState();
-  const [previous, setPrevious] = React.useState();
+  const [title, setTitle] = useState();
 
   const { data: projects } = usePreviewSubscription(catquery, {
     params: { slug: slug },
@@ -26,16 +24,26 @@ export default function Post(props) {
     enabled: preview || router.query.preview !== undefined
   });
 
-  // if (!router.iFallback && !post?.slug) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
+  const { data: categories } = usePreviewSubscription(allcatquery, {
+    initialData: categorydata,
+    enabled: preview || router.query.preview !== undefined
+  });
+
+  useEffect(() => {
+    categories?.forEach(category => {
+      if (category.slug.current !== slug) return
+      
+      setTitle(category.title)
+    });
+  }, [categories, slug])
 
   return (
     <>
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <h1>Category</h1>
+            <h1>{title}</h1>
+            <CategoryLabel categories={categories} />
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
                 <ProjectList
@@ -54,6 +62,7 @@ export default function Post(props) {
 
 export async function getStaticProps({ params, preview = false }) {
   const config = await getClient(preview).fetch(configQuery);
+  const categoriesList = await getClient(preview).fetch(allcatquery);
   const projects = await getClient(preview).fetch(catquery, {
     slug: params.slug
   });
@@ -61,6 +70,7 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       projectdata: projects,
+      categorydata: categoriesList,
       siteconfig: { ...config },
       preview
     },

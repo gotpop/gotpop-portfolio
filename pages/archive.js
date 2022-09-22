@@ -1,14 +1,8 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { NextSeo } from "next-seo";
 import Layout from "@components/layout";
 import Container from "@components/container";
 import { useRouter } from "next/router";
 import { getClient, usePreviewSubscription } from "@lib/sanity";
-import defaultOG from "../public/img/opengraph.jpg";
 import { postquery, configQuery } from "@lib/groq";
-import GetImage from "@utils/getImage";
 import ProjectList from "@components/projectlist";
 
 export default function Post(props) {
@@ -25,36 +19,10 @@ export default function Post(props) {
     enabled: preview || router.query.preview !== undefined
   });
 
-  const ogimage = siteConfig?.openGraphImage
-    ? GetImage(siteConfig?.openGraphImage).src
-    : defaultOG.src;
-
   return (
     <>
       {projects && siteConfig && (
         <Layout {...siteConfig}>
-          <NextSeo
-            title={`Blog — ${siteConfig?.title}`}
-            description={siteConfig?.description || ""}
-            canonical={siteConfig?.url}
-            openGraph={{
-              url: siteConfig?.url,
-              title: `Blog — ${siteConfig?.title}`,
-              description: siteConfig?.description || "",
-              images: [
-                {
-                  url: ogimage,
-                  width: 800,
-                  height: 600,
-                  alt: ""
-                }
-              ],
-              site_name: "GotPop"
-            }}
-            twitter={{
-              cardType: "summary_large_image"
-            }}
-          />
           <Container>
             <h1 className="text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
               Archive
