@@ -4,7 +4,7 @@ import { cx } from "@utils/all";
 import GetImage from "@utils/getImage";
 import { parseISO, format } from "date-fns";
 import { PhotographIcon } from "@heroicons/react/outline";
-import CategoryLabel from "@components/blog/category";
+import CategoryLabel from "@components/projects/category";
 
 export default function ProjectList({ project, aspect, preloadImage, objectFit = 'cover' }) {
   const imageProps = project?.mainImage

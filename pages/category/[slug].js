@@ -11,7 +11,7 @@ import ErrorPage from "next/error";
 import { singlequery, configQuery, pathquery, postquery, catquery } from "@lib/groq";
 import React, { useEffect } from 'react';
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@heroicons/react/outline";
-import CategoryLabel from "@components/blog/category";
+import CategoryLabel from "@components/projects/category";
 import ProjectList from "@components/projectlist";
 
 export default function Post(props) {
