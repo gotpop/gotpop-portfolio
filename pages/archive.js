@@ -32,6 +32,7 @@ export default function Post(props) {
   const ogimage = siteConfig?.openGraphImage
     ? GetImage(siteConfig?.openGraphImage).src
     : defaultOG.src;
+
   return (
     <>
       {projects && siteConfig && (

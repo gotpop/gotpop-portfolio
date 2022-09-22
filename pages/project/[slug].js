@@ -10,6 +10,7 @@ import client, {
 import ErrorPage from "next/error";
 import { singlequery, configQuery, pathquery, postquery } from "@lib/groq";
 import React, { useEffect } from 'react';
+import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@heroicons/react/outline";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview, projectdata } = props;
@@ -78,13 +79,13 @@ export default function Post(props) {
             <article className="max-w-screen-md mx-auto ">
               <div className="flex justify-center mt-7 mb-7">
                 <Link href={`/project/${previous}`}>
-                  <a className="px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
-                    ← Previous
+                  <a className="flex px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
+                  <ArrowCircleLeftIcon className="w-5 h-5 mr-2" /> Previous       
                   </a>
                 </Link>
                 <Link href={`/project/${next}`}>
-                  <a className="px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
-                    ← Next
+                  <a className="flex px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
+                    Next <ArrowCircleRightIcon className="w-5 h-5 mr-2" />
                   </a>
                 </Link>
               </div>
