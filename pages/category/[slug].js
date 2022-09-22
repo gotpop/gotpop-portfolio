@@ -42,7 +42,7 @@ export default function Post(props) {
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <h1>{title}</h1>
+            <h2 className="text-gray-900 text-xl leading-tight font-medium mb-2">{title}</h2>
             <CategoryLabel categories={categories} />
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
