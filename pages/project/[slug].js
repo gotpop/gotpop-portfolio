@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Layout from "@components/layout";
 import Container from "@components/container";
 import { useRouter } from "next/router";
@@ -9,16 +8,13 @@ import client, {
 } from "@lib/sanity";
 import ErrorPage from "next/error";
 import { singlequery, configQuery, pathquery, postquery } from "@lib/groq";
-import React, { useEffect } from 'react';
-import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@heroicons/react/outline";
 import CategoryLabel from "@components/projects/category";
+import Pagination from "@components/pagination";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview, projectdata } = props;
   const router = useRouter();
   const { slug } = router.query;
-  const [next, setNext] = React.useState();
-  const [previous, setPrevious] = React.useState();
 
   const { data: post } = usePreviewSubscription(singlequery, {
     params: { slug: slug },
@@ -31,31 +27,33 @@ export default function Post(props) {
     enabled: preview || router.query.preview !== undefined
   });
   
-  useEffect(() => {    
-    projects?.forEach((project, index) => {
-      if (post._id !== project._id) return
-      
-      const { categories } = post
-      console.log('post :', categories)
-
-      let positionPrev
-      let positionNext
-      
-      index === 0 ? positionPrev = projects.length - 1 : positionPrev = index - 1
-      index === projects.length - 1 ? positionNext = 0: positionNext = index + 1
-      
-      const previous = projects[positionPrev].slug.current
-      const next = projects[positionNext].slug.current
-      
-      setPrevious(previous)
-      setNext(next)
-    })
-  })
-  
   const { data: siteConfig } = usePreviewSubscription(configQuery, {
     initialData: siteconfig,
     enabled: preview || router.query.preview !== undefined
   });
+
+  
+  // const prevNext = (projects) => {
+  //   projects?.forEach((project, index) => {
+  //     if (post._id !== project._id) return
+  
+  //     let positionPrev
+  //     let positionNext
+      
+  //     index === 0 ? positionPrev = projects.length - 1 : positionPrev = index - 1
+  //     index === projects.length - 1 ? positionNext = 0: positionNext = index + 1
+      
+  //     const previous = projects[positionPrev].slug.current
+  //     const next = projects[positionNext].slug.current
+      
+  //     setPrevious(previous)
+  //     setNext(next)
+  //   })
+  // }
+  
+  // useEffect(() => {   
+  //   prevNext(projects)
+  // })
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -82,7 +80,8 @@ export default function Post(props) {
               </div>
             </div>
           </Container>
-          <Container>
+          <Pagination projects={projects} post={post} />
+          {/* <Container>
             <article className="max-w-screen-md mx-auto ">
               <div className="flex justify-center mt-7 mb-7">
                 <Link href={`/project/${previous}`}>
@@ -97,7 +96,7 @@ export default function Post(props) {
                 </Link>
               </div>
             </article>
-          </Container>
+          </Container> */}
         </Layout>
       )}
     </>
