@@ -11,6 +11,8 @@ import ErrorPage from "next/error";
 import { singlequery, configQuery, pathquery, postquery } from "@lib/groq";
 import React, { useEffect } from 'react';
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@heroicons/react/outline";
+import CategoryLabel from "@components/blog/category";
+import { stringify } from "postcss";
 
 export default function Post(props) {
   const { postdata, siteconfig, preview, projectdata } = props;
@@ -29,10 +31,13 @@ export default function Post(props) {
     initialData: projectdata,
     enabled: preview || router.query.preview !== undefined
   });
-
+  
   useEffect(() => {    
     projects?.forEach((project, index) => {
       if (post._id !== project._id) return
+      
+      const { categories } = post
+      console.log('post :', categories)
 
       let positionPrev
       let positionNext
@@ -68,6 +73,9 @@ export default function Post(props) {
                 <div className="text-gray-700 text-base mb-6">
                   {post.body && <PortableText value={post.body} />}
                 </div>
+                  <div className="flex space-x-2 mt-6 mb-6">
+                    <CategoryLabel categories={post.categories} />
+                  </div>
                 <a className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">View on LinkedIn</a>
               </div>
               <div className="bg-white relative z-0 max-w-screen-lg shadow-md overflow-hidden lg:rounded-lg aspect-video m-6">
@@ -119,6 +127,7 @@ export async function getStaticProps({ params, preview = false }) {
 
 export async function getStaticPaths() {
   const allPosts = await client.fetch(pathquery);
+
   return {
     paths:
       allPosts?.map(page => ({
@@ -127,5 +136,5 @@ export async function getStaticPaths() {
         }
       })) || [],
     fallback: true
-  };
+  }
 }
