@@ -87,12 +87,12 @@ export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
 
-  const categories = (await client.fetch(catquery)) || null;
+  // const categories = (await client.fetch(catquery)) || null;
 
   return {
     props: {
       postdata: post,
-      categories: categories,
+      // categories: categories,
       siteconfig: { ...config },
       preview
     },
