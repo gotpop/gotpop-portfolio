@@ -1,11 +1,12 @@
+import Head from 'next/head';
 import Layout from "@components/layout";
 import Container from "@components/container";
+import ProjectList from "@components/projectlist";
+import CategoryLabel from "@components/projects/category";
 import { useRouter } from "next/router";
 import client, { getClient, usePreviewSubscription } from "@lib/sanity";
 import { configQuery, pathquery, catquery, allcatquery } from "@lib/groq";
 import { useEffect, useState } from 'react';
-import ProjectList from "@components/projectlist";
-import CategoryLabel from "@components/projects/category";
 
 export default function Post(props) {
   const { siteconfig, preview, projectdata, categorydata } = props;
@@ -39,6 +40,9 @@ export default function Post(props) {
 
   return (
     <>
+      <Head>
+        <title>Skills</title>
+      </Head>
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>

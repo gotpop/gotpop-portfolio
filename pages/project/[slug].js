@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from 'next/head';
 import Layout from "@components/layout";
 import Container from "@components/container";
 import ErrorPage from "next/error";
@@ -35,6 +36,9 @@ export default function Post(props) {
 
   return (
     <>
+      <Head>
+        <title>Projects</title>
+      </Head>
       {post && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
