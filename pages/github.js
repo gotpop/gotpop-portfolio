@@ -9,28 +9,28 @@ export default function GitHub(props) {
   const { postdata, siteconfig, preview } = props;
   const router = useRouter();
 
-  // const githubUser = 'gotpop';
-  // const url ="https://api.github.com/users/gotpop/repos"
+  const githubUser = 'gotpop';
+  const url ="https://api.github.com/users/gotpop/repos"
 
-  // const fetchData = () => {
-  //   return fetch(`https://api.github.com/users/${githubUser}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log('ello', data);
-  //     });
-  // }
+  const fetchData = () => {
+    return fetch(`https://api.github.com/users/${githubUser}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('ello', data);
+      });
+  }
 
-  // fetchData()
+  fetchData()
 
-  // const fetchData2 = () => {
-  //   return fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log('oi', data);
-  //     });
-  // }
+  const fetchData2 = () => {
+    return fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('oi', data);
+      });
+  }
 
-  // fetchData2()
+  fetchData2()
 
   const { data: siteConfig } = usePreviewSubscription(configQuery, {
     initialData: siteconfig,

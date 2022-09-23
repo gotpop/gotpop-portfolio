@@ -2,10 +2,10 @@ import Container from "@components/container";
 import Layout from "@components/layout";
 import Link from "next/link";
 import Head from 'next/head';
-import { authorsquery, configQuery } from "@lib/groq";
+import { configQuery } from "@lib/groq";
 import { getClient } from "@lib/sanity";
 
-export default function About({ authors, siteconfig }) {
+export default function About({ siteconfig }) {
   return (
     <>
       <Head>
@@ -31,12 +31,10 @@ export default function About({ authors, siteconfig }) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const authors = await getClient(preview).fetch(authorsquery);
   const config = await getClient(preview).fetch(configQuery);
 
   return {
     props: {
-      authors: authors,
       siteconfig: { ...config },
       preview
     },
