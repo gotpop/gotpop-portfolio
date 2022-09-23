@@ -1,27 +1,32 @@
 import Container from "@components/container";
 import Layout from "@components/layout";
+import Link from "next/link";
+import Head from 'next/head';
 import { authorsquery, configQuery } from "@lib/groq";
 import { getClient } from "@lib/sanity";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function About({ authors, siteconfig }) {
   return (
-    <Layout {...siteconfig}>
-      <Container>
-        <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-          About GotPop
-        </h1>
-        <div className="mx-auto prose text-center dark:prose-invert mt-14">
-          <p>
-            I build enterprise websites that perform well on all devices, focusing on responsive design, aesthetics, clean code & page speed.
-          </p>
-          <p>
-            <Link href="/contact">Get in touch</Link>
-          </p>
-        </div>
-      </Container>
-    </Layout>
+    <>
+      <Head>
+        <title>Contact</title>
+      </Head>
+      <Layout {...siteconfig}>
+        <Container>
+          <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
+            About GotPop
+          </h1>
+          <div className="mx-auto prose text-center dark:prose-invert mt-14">
+            <p>
+              I build enterprise websites that perform well on all devices, focusing on responsive design, aesthetics, clean code & page speed.
+            </p>
+            <p>
+              <Link href="/contact">Get in touch</Link>
+            </p>
+          </div>
+        </Container>
+      </Layout>
+    </>
   );
 }
 

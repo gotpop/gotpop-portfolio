@@ -3,7 +3,6 @@ import Container from "@components/container";
 import { useRouter } from "next/router";
 import { getClient, usePreviewSubscription } from "@lib/sanity";
 import { postquery, configQuery } from "@lib/groq";
-import ProjectList from "@components/projectlist";
 import Head from 'next/head'
 
 export default function GitHub(props) {
@@ -46,27 +45,7 @@ export default function GitHub(props) {
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container className="lg:pt-8 lg:pb-14">
-            <div className="grid gap-10 lg:gap-10 md:grid-cols-2 ">
-              {projects.slice(0, 2).map(project => (
-                <ProjectList
-                  key={project._id}
-                  project={project}
-                  aspect="landscape"
-                  preloadImage={true}
-                  objectFit={'cover'}
-                  />
-                  ))}
-            </div>
-            <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
-              {projects.slice(2).map(project => (
-                <ProjectList
-                  key={project._id}
-                  project={project}
-                  objectFit={'cover'}
-                  aspect="square"
-                />
-              ))}
-            </div>
+            <h1>Github</h1>
           </Container>
         </Layout>
       )}
