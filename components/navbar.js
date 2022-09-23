@@ -5,10 +5,10 @@ import Link from "next/link";
 
 export default function Navbar(props) {
   const leftmenu = [
-    {
-      label: "Home",
-      href: "/"
-    },
+    // {
+    //   label: "Home",
+    //   href: "/"
+    // },
     {
       label: "About",
       href: "/about"
@@ -26,14 +26,13 @@ export default function Navbar(props) {
     },
     {
       label: "Github",
-      href: "https://github.com/gotpop",
-      external: true
+      href: "/github"
     },
-    {
-      label: "LinkedIn",
-      href: "http://uk.linkedin.com/in/gotpop",
-      external: true
-    }
+    // {
+    //   label: "LinkedIn",
+    //   href: "http://uk.linkedin.com/in/gotpop",
+    //   external: true
+    // }
   ];
 
   const mobilemenu = [...leftmenu, ...rightmenu];

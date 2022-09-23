@@ -42,7 +42,7 @@ export default function GitHub(props) {
      <Head>
         <title>GitHub</title>
       </Head>
-      {projects && siteConfig && (
+      {siteConfig && (
         <Layout {...siteConfig}>
           <Container className="lg:pt-8 lg:pb-14">
             <h1>Github</h1>
