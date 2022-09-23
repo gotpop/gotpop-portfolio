@@ -2,11 +2,12 @@ import Layout from "@components/layout";
 import Container from "@components/container";
 import { useRouter } from "next/router";
 import { getClient, usePreviewSubscription } from "@lib/sanity";
-import { postquery, configQuery } from "@lib/groq";
+import { postquery, configQuery, allcatquery } from "@lib/groq";
 import ProjectList from "@components/projectlist";
+import CategoryLabel from "@components/projects/category";
 
-export default function Post(props) {
-  const { postdata, siteconfig, preview } = props;
+export default function Skills(props) {
+  const { postdata, siteconfig, preview, categorydata } = props;
   const router = useRouter();
 
   const { data: projects } = usePreviewSubscription(postquery, {
@@ -19,18 +20,19 @@ export default function Post(props) {
     enabled: preview || router.query.preview !== undefined
   });
 
+  const { data: categories } = usePreviewSubscription(allcatquery, {
+    initialData: categorydata,
+    enabled: preview || router.query.preview !== undefined
+  });
+
   return (
     <>
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <h1 className="text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-              Archive
-            </h1>
-            <div className="text-center">
-              <p className="mt-2 text-lg">
-                See all projects.
-              </p>
+          <h2 className="text-gray-900 text-xl leading-tight font-medium mb-2">Skills</h2>
+            <div className="flex my-6">
+              <CategoryLabel categories={categories} />
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
@@ -51,10 +53,12 @@ export default function Post(props) {
 export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
+  const categoriesList = await getClient(preview).fetch(allcatquery);
 
   return {
     props: {
       postdata: post,
+      categorydata: categoriesList,
       siteconfig: { ...config },
       preview
     },
