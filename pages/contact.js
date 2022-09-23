@@ -48,9 +48,9 @@ export default function Contact({ siteconfig }) {
         <Container>
           <div className="grid my-10 md:grid-cols-2">
             <div className="my-10">
-              <h2 className="text-2xl font-semibold dark:text-white">
+              <h1 className="text-gray-900 dark:text-white text-xl leading-tight font-medium mb-2">
                 Contact GotPop Web Development
-              </h2>
+              </h1>
               <p className="max-w-sm mt-5">
                 What to know how I can help you with your next project? Get in touch using the form here.
               </p>

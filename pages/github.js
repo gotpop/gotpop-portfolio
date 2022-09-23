@@ -39,13 +39,15 @@ export default function GitHub(props) {
 
   return (
     <>
-     <Head>
+      <Head>
         <title>GitHub</title>
       </Head>
       {siteConfig && (
         <Layout {...siteConfig}>
           <Container className="lg:pt-8 lg:pb-14">
-            <h1>Github</h1>
+            <h1 className="text-gray-900 dark:text-gray-400 text-xl leading-tight font-medium mb-2">
+              Github
+            </h1>
           </Container>
         </Layout>
       )}

@@ -44,7 +44,8 @@ export default function Post(props) {
           <Container>
             <div className="project flex flex-wrap md:flex-nowrap">
               <div className="p-6 max-w-sm">
-                <h5 className="text-gray-900 dark:text-gray-400 text-xl leading-tight font-medium mb-2">{post.title}</h5>
+                <h1 className="text-gray-900 dark:text-white text-xl leading-tight font-medium mb-2">
+                  {post.title}</h1>
                 <div className="text-gray-700 dark:text-gray-400 text-base mb-6">
                   {post.body && <PortableText value={post.body} />}
                 </div>

@@ -13,7 +13,7 @@ export default function About({ authors, siteconfig }) {
       </Head>
       <Layout {...siteconfig}>
         <Container>
-          <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
+          <h1 className="text-gray-900 dark:text-gray-400 text-xl leading-tight font-medium mb-2">
             About GotPop
           </h1>
           <div className="mx-auto prose text-center dark:prose-invert mt-14">
