@@ -44,7 +44,7 @@ export default function Post(props) {
                 <div className="text-gray-700 text-base mb-6">
                   {post.body && <PortableText value={post.body} />}
                 </div>
-                <div className="flex space-x-2 mt-6 mb-6">
+                <div className="flex my-6">
                   <CategoryLabel categories={post.categories} />
                 </div>
                 {post.linkedin.displaylinkedin && (
