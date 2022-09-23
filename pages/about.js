@@ -9,7 +9,7 @@ export default function About({ authors, siteconfig }) {
   return (
     <>
       <Head>
-        <title>GotPop | About</title>
+        <title>About</title>
       </Head>
       <Layout {...siteconfig}>
         <Container>
