@@ -9,7 +9,7 @@ export default function CategoryLabel({ categories }) {
           <Link
             href={`/skills/${category.slug.current}`}
             key={index}>
-            <a className="flex mr-2">
+            <a className="flex mr-2 mb-2">
               <Label color={category.color}>{category.title}</Label>
             </a>
           </Link>

@@ -43,7 +43,7 @@ export default function Post(props) {
         <Layout {...siteConfig}>
           <Container>
             <h2 className="text-gray-900 text-xl leading-tight font-medium mb-2">{title}</h2>
-            <div className="flex my-6">
+            <div className="flex flex-wrap my-6">
               <CategoryLabel categories={categories} />
             </div>
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
