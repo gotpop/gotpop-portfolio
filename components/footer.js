@@ -10,7 +10,7 @@ export default function Footer(props) {
         Copyright © {new Date().getFullYear()} {props?.copyright}. All
         rights reserved.
       </div>
-      <div className="flex items-center justify-end mt-2">
+      <div className="flex items-center justify-end pt-8 border-t border-gray-100 dark:border-gray-800">
         <ThemeSwitch />
       </div>
     </Container>
