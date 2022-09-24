@@ -77,17 +77,62 @@ export default function GitHub(props) {
                 <Link key={index} href={repo.html_url}>
                   <a>
                     <div className="bg-white p-4 rounded" key={index}>
-                      <h2 className="text-gray-900 dark:text-gray-400 text-xl leading-tight font-medium mb-2">
+                      <h2 className="capitalize  text-gray-900 dark:text-gray-400 text-xl leading-tight font-medium mb-2">
                         {repo.name}
                       </h2>
                       <p>{repo.description}</p>
-                      <p>SSH: {repo.git_url}</p>
-                      <p>Licence: {repo?.license?.name}</p>
-                      {/* {repo.topics.map((topic, index) => (
-                        <>
-                          <span key={index}>{topic}</span>
-                        </>
-                      ))} */}
+                      <p className="text-sm">Licence: {repo?.license?.name}</p>
+                      <div className="flex flex-wrap gap-1 mb-4">
+                        {repo.topics.map((topic, index) => {
+                          const list = (
+                            <span key={index} className="block-inline rounded bg-gray-100 py-1 px-4 text-sm">{topic}</span>
+                          )
+                          return list;
+                        })}
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div className="m-1 bg-gray-800 shadow-2xl rounded-lg overflow-hidden">
+                          <div id="header-buttons" className="py-3 px-4 flex">
+                            <div className="rounded-full w-3 h-3 bg-red-500 mr-2"></div>
+                            <div className="rounded-full w-3 h-3 bg-yellow-500 mr-2"></div>
+                            <div className="rounded-full w-3 h-3 bg-green-500"></div>
+                          </div>
+                          <div id="code-area" className="py-4 px-4 mt-1 text-white text-sm">
+                          <p>git clone {repo.ssh_url}</p>
+                          </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                   </a>
                 </Link>
