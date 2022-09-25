@@ -54,13 +54,13 @@ export default function About({ siteconfig, profile }) {
             <div className="relative clippy w-3/6 flex flex-col items-end bg-red-500 justify-end p-4">
               {/* <p className="text-xs mb-4 text-white font-bold">Location: {profile.location} {profile.hireable && <Hire color={'green'} />}</p> */}
               {/* <Link href={'https://www.' + profile.blog}>{profile.blog}</Link> */}
-              <Link href={profile.html_url}>
+              <Link href={'/contact'}>
                 <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                   Get in touch
                           <MailIcon className="w-6 h-6 ml-2" />
                 </a>
               </Link>
-              <Link href="https://gist.github.com/gotpop">
+              <Link href="skills">
                 <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                   View projects
                           <CodeIcon className="w-6 h-6 ml-2" />
