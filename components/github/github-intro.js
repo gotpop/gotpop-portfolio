@@ -27,8 +27,8 @@ export default function GitHubIntro(props) {
             <p className="text-gray-500 mb-2 max-w-prose">{profile.bio}</p>
 
           </div>
-          <div className="w-3/6 flex flex-col justify-between">
-            <p className="text-xs mb-2">Location: {profile.location} {profile.hireable && <Hire color={'green'} />}</p>
+          <div className="w-2/6 flex flex-col items-start justify-between">
+            
             <Link href={profile.html_url}>
               <a className="flex items-center  mb-3 justify-between px-6 py-2 border-2 border-slate-300 text-gray-800 font-medium text-xs leading-tight rounded bg-cool hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                 View profile on GitHub
@@ -41,6 +41,10 @@ export default function GitHubIntro(props) {
                 <IconGitHub color={'green'} />
               </a>
             </Link>
+          </div>
+          <div className="w-1/6 flex flex-col">
+          <p className="text-xs mb-2">Location: {profile.location} {profile.hireable && <Hire color={'green'} />}</p>
+          <Link href={'https://www.' + profile.blog}>{profile.blog}</Link>
           </div>
         </div>
       </div>
