@@ -3,9 +3,9 @@ import Layout from "@components/layout";
 import Link from "next/link";
 import Head from 'next/head';
 import Image from 'next/image';
-import IconGitHub from "@components/icons/github";
 import { configQuery } from "@lib/groq";
 import { getClient } from "@lib/sanity";
+import { SunIcon } from "@heroicons/react/outline";
 
 export default function About({ siteconfig, profile }) {
   return (
@@ -57,13 +57,13 @@ export default function About({ siteconfig, profile }) {
               <Link href={profile.html_url}>
                 <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                   Get in touch
-                  <IconGitHub color={'green'} />
+                          <SunIcon className="w-8 h-8 mr-2" />
                 </a>
               </Link>
               <Link href="https://gist.github.com/gotpop">
                 <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                   View projects
-                  <IconGitHub color={'green'} />
+                          <SunIcon className="w-8 h-8 mr-2" />
                 </a>
               </Link>
               {/* <Image
