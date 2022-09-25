@@ -4,37 +4,7 @@
 
 /*Custom Styles Here*/
 
-.he-logo {
-  width: 100%;
-  max-width: 180px;
-}
-
-@keyframes logoStartUp {
-  0% {
-    fillopacity: 0;
-    fill: rgb(63, 62, 62);
-    stroke-dashoffset: 1000;
-  }
-
-  20% {
-    fill-opacity: 1;
-    stroke-opacity: 1;
-  }
-
-  80% {
-    stroke-opacity: 0;
-  }
-
-  100% {
-    fill-opacity: 1;
-    stroke-dashoffset: 0;
-    stroke-opacity: 0;
-  }
-}
-
 .he-logo__path {
-  animation-delay: 0.5s;
-  animation: logoStartUp 6s linear forwards;
   fill-opacity: 0;
   fill: rgb(63, 62, 62);
   stroke-dasharray: 1000;
@@ -42,67 +12,6 @@
   stroke-width: 0.2px;
 }
 
-@keyframes logoStartUpDark {
-  0% {
-    fillopacity: 0;
-    fill: rgb(255, 255, 255);
-    stroke-dashoffset: 1000;
-  }
-
-  20% {
-    fill-opacity: 1;
-    stroke-opacity: 1;
-  }
-
-  80% {
-    stroke-opacity: 0;
-  }
-
-  100% {
-    fill-opacity: 1;
-    stroke-dashoffset: 0;
-    stroke-opacity: 0;
-  }
-}
-
 .dark .he-logo__path {
-  animation-delay: 0.5s;
-  animation: logoStartUpDark 6s linear forwards;
-  fill-opacity: 0;
   fill: rgb(255, 255, 255);
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  stroke-width: 0.2px;
-}
-
-.mamain {
-  background-color: #f9f9f9;
-  min-height: 60vh;
-}
-
-.dark .mamain {
-  background-color: black;
-}
-
-
-@keyframes project {
-  0% {
-    translate: -200px;
-    opacity: 0;
-  }
-  
-  100% {
-    opacity: 1;
-    translate: 0px;
-  }
-}
-
-
-.project {
-  animation: project .3s linear forwards;
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
 }
