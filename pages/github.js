@@ -32,11 +32,11 @@ export default function GitHub(props) {
         <Layout {...siteConfig}>
           <Container className="lg:pt-8 lg:pb-14">
             <GitHubIntro profile={profile} />
-            <div className="grid gap-10 lg:gap-10 md:grid-cols-2 ">
+            {/* <div className="grid gap-10 lg:gap-10 md:grid-cols-2 ">
               {repos.map((repo, index) => (
                 <GitHubRepo repo={repo} key={index}/>
               ))}
-            </div>
+            </div> */}
           </Container>
         </Layout>
       )}

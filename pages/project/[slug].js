@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Head from 'next/head';
+import Image from 'next/image';
 import Layout from "@components/layout";
 import Container from "@components/container";
 import ErrorPage from "next/error";
@@ -62,7 +63,15 @@ export default function Post(props) {
                 )}
               </div>
               <div className="bg-white relative z-0 max-w-screen-lg shadow-md overflow-hidden lg:rounded-lg aspect-video m-6">
-                {post.imageUrl && <img src={post.imageUrl} alt="main image" />}
+                { post.imageUrl && (<Image
+                    // loader={myLoader}
+                    // className=""
+                    src={post.imageUrl}
+                    alt="Profile avatar"
+                    width={1001}
+                    height={569}
+                  />)
+                  }
               </div>
             </div>
           </Container>
