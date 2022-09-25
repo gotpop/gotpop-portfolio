@@ -15,3 +15,9 @@
 .dark .he-logo__path {
   fill: rgb(255, 255, 255);
 }
+
+
+.clippy {
+  clip-path: polygon(26.46% -2%, 100.63% -1.17%, 99.79% 98.67%, 0.21% 99.33%);
+  background-color: red;
+}
