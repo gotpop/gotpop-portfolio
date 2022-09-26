@@ -8,7 +8,7 @@ import { getClient, usePreviewSubscription } from "@lib/sanity";
 import { postquery, configQuery, allcatquery } from "@lib/groq";
 
 export default function Skills(props) {
-  const { postdata, siteconfig, preview, categorydata } = props;
+  const { postdata, siteconfig, preview, categorydata, profile } = props;
   const router = useRouter();
 
   const { data: projects } = usePreviewSubscription(postquery, {
@@ -32,7 +32,8 @@ export default function Skills(props) {
         <Layout {...siteConfig}>
           <Container>
             <Intro
-              title={'GotPop / Skills'}
+              title={'Skills'}
+              profile={profile}
               left={<CategoryLabel categories={categories} />} />
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
@@ -55,9 +56,14 @@ export async function getStaticProps({ params, preview = false }) {
   const config = await getClient(preview).fetch(configQuery);
   const categoriesList = await getClient(preview).fetch(allcatquery);
 
+  const url = "https://api.github.com/users/gotpop"
+  const getProfile = await fetch(url)
+  const getProfileData = await getProfile.json()
+
   return {
     props: {
       postdata: post,
+      profile: getProfileData,
       categorydata: categoriesList,
       siteconfig: { ...config },
       preview
