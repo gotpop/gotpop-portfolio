@@ -42,16 +42,6 @@ export default function ProjectList({ project, aspect, preloadImage, objectFit =
             </a>
           </Link>
         </div>
-
-        <div className="hidden">
-          {project.excerpt && (
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
-              <Link href={`/project/${project.slug.current}`}>
-                {project.excerpt}
-              </Link>
-            </p>
-          )}
-        </div>
       </div>
     </>
   );

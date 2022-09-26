@@ -1,10 +1,11 @@
 import Layout from "@components/layout";
 import Container from "@components/container";
+import ProjectList from "@components/projectlist";
+import CategoryLabel from "@components/projects/category";
+import Intro from "@components/ui/intro";
 import { useRouter } from "next/router";
 import { getClient, usePreviewSubscription } from "@lib/sanity";
 import { postquery, configQuery, allcatquery } from "@lib/groq";
-import ProjectList from "@components/projectlist";
-import CategoryLabel from "@components/projects/category";
 
 export default function Skills(props) {
   const { postdata, siteconfig, preview, categorydata } = props;
@@ -30,10 +31,9 @@ export default function Skills(props) {
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-          <h2 className="text-gray-900 text-xl leading-tight font-medium mb-2">Skills</h2>
-            <div className="flex my-6">
-              <CategoryLabel categories={categories} />
-            </div>
+            <Intro
+              title={'GotPop / Skills'}
+              left={<CategoryLabel categories={categories} />} />
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
                 <ProjectList

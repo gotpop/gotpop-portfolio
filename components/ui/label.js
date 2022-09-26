@@ -13,7 +13,7 @@ export default function Label(props) {
     <span
       className={cx(
         "inline-flex text-xs font-medium tracking-wider uppercase text-white px-2 rounded",
-        color[props.color] || color[pink]
+        color[props.color] || "bg-pink-600"
       )}>
       {props.children}
     </span>

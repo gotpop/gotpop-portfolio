@@ -3,6 +3,7 @@ import Layout from "@components/layout";
 import Container from "@components/container";
 import ProjectList from "@components/projectlist";
 import CategoryLabel from "@components/projects/category";
+import Intro from "@components/ui/intro";
 import { useRouter } from "next/router";
 import client, { getClient, usePreviewSubscription } from "@lib/sanity";
 import { configQuery, pathquery, catquery, allcatquery } from "@lib/groq";
@@ -46,10 +47,7 @@ export default function Post(props) {
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <h2 className="text-gray-900 text-xl leading-tight font-medium mb-2">{title}</h2>
-            <div className="flex flex-wrap my-6">
-              <CategoryLabel categories={categories} />
-            </div>
+            <Intro title={title} left={<CategoryLabel categories={categories} />} />
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
                 <ProjectList
