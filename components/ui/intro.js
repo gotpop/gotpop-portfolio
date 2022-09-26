@@ -6,7 +6,7 @@ export default function Intro(props) {
     return (
         <div className="mb-8 bg-white rounded flex justify-between">
             <div className="flex flex-wrap w-3/6 p-6">
-                <div className="flex basis-[100%] mb-4">
+                <div className="flex basis-[100%] items-center mb-4">
                     {profile && <Image
                       // loader={myLoader}
                       className="rounded-full"
