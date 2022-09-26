@@ -16,8 +16,9 @@ export default function About({ siteconfig, profile }) {
       <Layout {...siteconfig}>
         <Container>
           <Intro
-            title={`${profile.company} / About`}
+            title={'About'}
             profile={profile}
+            // skills={false}
             left={
               <p className="text-gray-500 mb-2 max-w-prose">I build enterprise websites that perform well on all devices, focusing on responsive design, aesthetics, clean code & page speed.</p>
             }
@@ -29,7 +30,7 @@ export default function About({ siteconfig, profile }) {
                     <MailIcon className="w-6 h-6 ml-2" />
                   </a>
                 </Link>
-                <Link href="skills">
+                <Link href={"/skills"}>
                   <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                     View projects
                     <CodeIcon className="w-6 h-6 ml-2" />

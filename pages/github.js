@@ -27,7 +27,7 @@ export default function GitHub(props) {
         <Layout {...siteConfig}>
           <Container className="lg:pt-8 lg:pb-14">
             <Intro
-              title={`${profile.company} / GitHub`}
+              title={'GitHub'}
               profile={profile}
               left={
                 <p className="text-gray-500 mb-2 max-w-prose">{profile.bio}</p>
@@ -62,9 +62,9 @@ export default function GitHub(props) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const url = "https://api.github.com/users/gotpop"
   const config = await getClient(preview).fetch(configQuery)
-
+  
+  const url = "https://api.github.com/users/gotpop"
   const getProfile = await fetch(url)
   const getProfileData = await getProfile.json()
 
