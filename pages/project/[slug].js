@@ -62,7 +62,7 @@ export default function Post(props) {
                   </Link>
                 )}
               </div>
-              <div className="bg-white relative z-0 max-w-screen-lg shadow-md overflow-hidden lg:rounded-lg aspect-video m-6">
+              <div className="bg-white relative z-0 max-w-screen-lg shadow-md overflow-hidden rounded-lg aspect-video m-6">
                 { post.imageUrl && (<Image
                     // loader={myLoader}
                     // className=""
