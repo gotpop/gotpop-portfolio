@@ -4,21 +4,20 @@
 
 /*Custom Styles Here*/
 
-.he-logo__path {
+.logo-path {
   fill-opacity: 0;
-  fill: rgb(63, 62, 62);
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   stroke-width: 0.2px;
 }
 
-.dark .he-logo__path {
-  fill: rgb(255, 255, 255);
-}
-
-
-.clippy {
-  clip-path: polygon(26.46% -2%, 100.63% -1.17%, 99.79% 98.67%, 0.21% 99.33%);
-  /* background-color: red; */
-  background-color: #00b7ff;
+@media screen and (min-width: 800px) {
+  .clip {
+    clip-path: polygon(
+      26.46% -2%,
+      100.63% -1.17%,
+      99.79% 98.67%,
+      0.21% 99.33%
+    );
+  }
 }

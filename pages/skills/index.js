@@ -34,7 +34,8 @@ export default function Skills(props) {
             <Intro
               title={'Skills'}
               profile={profile}
-              left={<CategoryLabel categories={categories} />} />
+              left={<CategoryLabel categories={categories} />}
+            />
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
                 <ProjectList

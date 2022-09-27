@@ -4,8 +4,8 @@ export default function Intro(props) {
     const { title, profile, skills, left, right } = props;
 
     return (
-        <div className="mb-8 bg-white rounded flex justify-between">
-            <div className="flex flex-wrap w-3/6 p-6">
+        <div className="flex flex-wrap justify-between mb-8 bg-white rounded">
+            <div className="basis-[100%] md:basis-[50%] flex flex-wrap w-3/6 p-6">
                 <div className="flex basis-[100%] items-center mb-4">
                     {profile && <Image
                       // loader={myLoader}
@@ -22,7 +22,7 @@ export default function Intro(props) {
                 </div>
                 {left}
             </div>
-            <div className="relative clippy w-3/6 flex flex-col items-end bg-red-500 justify-end p-4">
+            <div className="basis-[100%] md:basis-[50%] relative clip bg-cyan-500 flex flex-col items-end justify-end p-4">
                 {right}
             </div>
         </div>
