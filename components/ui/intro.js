@@ -8,13 +8,16 @@ export default function Intro(props) {
         <div className="flex flex-wrap justify-between mb-8 bg-white rounded overflow-hidden">
             <div className="basis-[100%] md:basis-[50%] flex flex-wrap w-3/6 p-6">
                 <div className="flex basis-[100%] items-center mb-4">
-                    {profile && <Image
-                        // loader={myLoader}
-                        className="rounded-full"
-                        src={profile.avatar_url}
-                        alt="Profile avatar"
-                        width={30}
-                        height={30} />}
+                    {profile &&
+                        <Link href="/"><a className='flex items-center'>
+                            <Image
+                                // loader={myLoader}
+                                className="rounded-full"
+                                src={profile.avatar_url}
+                                alt="Profile avatar"
+                                width={30}
+                                height={30} />
+                        </a></Link>}
                     <div>
                         <h1 className="block ml-2 text-gray-900 dark:text-gray-400 text-xl leading-tight font-medium">
                             <Link href="/">
