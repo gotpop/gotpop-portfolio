@@ -56,7 +56,7 @@ export default function Contact({ siteconfig }) {
                 What to know how I can help you with your next project? Get in touch using the form here.
               </p>
 
-              <a className="hidden md:flex mt-4" href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I'm messaging you from www.gotpop.net`} rel='noreferrer' target="_blank">Message GotPop from What's App web.</a>
+              <a className="hidden md:flex mt-4" href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I am messaging you from www.gotpop.net`} rel='noreferrer' target="_blank">Message GotPop from WhatsApp web.</a>
 
               <div className="mt-5">
                 <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
