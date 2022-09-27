@@ -4,7 +4,7 @@ export default function Intro(props) {
     const { title, profile, skills, left, right } = props;
 
     return (
-        <div className="flex flex-wrap justify-between mb-8 bg-white rounded">
+        <div className="flex flex-wrap justify-between mb-8 bg-white rounded overflow-hidden">
             <div className="basis-[100%] md:basis-[50%] flex flex-wrap w-3/6 p-6">
                 <div className="flex basis-[100%] items-center mb-4">
                     {profile && <Image
