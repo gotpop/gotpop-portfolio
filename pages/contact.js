@@ -40,10 +40,6 @@ export default function Contact({ siteconfig }) {
     }
   });
 
-  const liam = () => {
-    window.open(`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=This is whatsapp sharing example using button`)
-  }
-
   return (
     <>
       <Head>
