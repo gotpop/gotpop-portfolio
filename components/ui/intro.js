@@ -21,7 +21,7 @@ export default function Intro(props) {
                                 <a>{profile?.company}</a>
                             </Link>
 
-                            {skills && <Link href="/skills"><a>/ Skills</a></Link>} / {title}
+                            {skills && <Link href="/skills"><a> / Skills</a></Link>} / {title}
                         </h1>
                     </div>
                 </div>
