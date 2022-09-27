@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from "next/link";
 
 export default function Intro(props) {
     const { title, profile, skills, left, right } = props;
@@ -8,15 +9,19 @@ export default function Intro(props) {
             <div className="basis-[100%] md:basis-[50%] flex flex-wrap w-3/6 p-6">
                 <div className="flex basis-[100%] items-center mb-4">
                     {profile && <Image
-                      // loader={myLoader}
-                      className="rounded-full"
-                      src={profile.avatar_url}
-                      alt="Profile avatar"
-                      width={30}
-                      height={30} />}
+                        // loader={myLoader}
+                        className="rounded-full"
+                        src={profile.avatar_url}
+                        alt="Profile avatar"
+                        width={30}
+                        height={30} />}
                     <div>
                         <h1 className="block ml-2 text-gray-900 dark:text-gray-400 text-xl leading-tight font-medium">
-                            {profile?.company} {skills && '/ Skills'} / {title}
+                            <Link href="/">
+                                <a>{profile?.company}</a>
+                            </Link>
+
+                            {skills && <Link href="/skills"><a>/ Skills</a></Link>} / {title}
                         </h1>
                     </div>
                 </div>
