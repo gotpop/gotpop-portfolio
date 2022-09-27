@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { configQuery } from "@lib/groq";
 import { LocationMarkerIcon, MailIcon, PhoneIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 export default function Contact({ siteconfig }) {
   const {
@@ -39,6 +40,10 @@ export default function Contact({ siteconfig }) {
     }
   });
 
+  const liam = () => {
+    window.open(`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=This is whatsapp sharing example using button`)
+  }
+
   return (
     <>
       <Head>
@@ -49,11 +54,13 @@ export default function Contact({ siteconfig }) {
           <div className="grid my-10 md:grid-cols-2">
             <div className="my-10">
               <h1 className="text-gray-900 dark:text-white text-xl leading-tight font-medium mb-2">
-                Contact GotPop Web Development
+                Contact GotPop 
               </h1>
               <p className="max-w-sm mt-5">
                 What to know how I can help you with your next project? Get in touch using the form here.
               </p>
+
+              <a className="hidden md:flex mt-4" href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I'm messaging you from www.gotpop.net`} rel='noreferrer' target="_blank">Message GotPop from What's App web.</a>
 
               <div className="mt-5">
                 <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
@@ -68,14 +75,14 @@ export default function Contact({ siteconfig }) {
                     </a>
                   </div>
                 )}
-                {siteconfig?.phone && (
+                {/* {siteconfig?.phone && (
                   <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
                     <PhoneIcon className="w-4 h-4" />
                     <a href={`tel:${siteconfig.phone}`}>
                       {siteconfig.phone}
                     </a>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
             <div>

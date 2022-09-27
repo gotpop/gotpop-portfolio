@@ -46,66 +46,13 @@ export default {
       title: "Copyright Name",
       description: "Enter company name to appear in footer after ©"
     },
-
-    // {
-    //   title: "Main logo",
-    //   description: "Upload your main logo here. SVG preferred. ",
-    //   name: "logo",
-    //   type: "image",
-    //   fieldset: "logos",
-    //   fields: [
-    //     {
-    //       name: "alt",
-    //       type: "string",
-    //       title: "Alternative text",
-    //       description: "Important for SEO and accessiblity.",
-    //       options: {
-    //         isHighlighted: true
-    //       }
-    //     }
-    //   ]
-    // },
-
-    // {
-    //   title: "Alternate logo (optional)",
-    //   description:
-    //     "Upload alternate logo here. it can be light / dark variation ",
-    //   name: "logoalt",
-    //   type: "image",
-    //   fieldset: "logos",
-    //   fields: [
-    //     {
-    //       name: "alt",
-    //       type: "string",
-    //       title: "Alternative text",
-    //       description: "Important for SEO and accessiblity.",
-    //       options: {
-    //         isHighlighted: true
-    //       }
-    //     }
-    //   ]
-    // },
-
-    // {
-    //   name: "email",
-    //   type: "string",
-    //   title: "Support Email",
-    //   validation: Rule =>
-    //     Rule.regex(
-    //       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-    //       {
-    //         name: "email", // Error message is "Does not match email-pattern"
-    //         invert: false // Boolean to allow any value that does NOT match pattern
-    //       }
-    //     )
-    // },
-
-    // {
-    //   name: "phone",
-    //   type: "string",
-    //   title: "Support Phone"
-    // },
-
+    {
+      name: "phone",
+      type: "string",
+      title: "What's App Business Phone",
+      description:
+        "Enter full number with country code, minus spaces or zeros."
+    },
     {
       name: "w3ckey",
       type: "string",
@@ -113,7 +60,6 @@ export default {
       description:
         "Enter Access key obtained from web3forms.com. It is required to make the form work."
     },
-
     {
       name: "social",
       type: "array",
@@ -151,7 +97,6 @@ export default {
         }
       ]
     },
-
     {
       title: "Meta Description",
       name: "description",
@@ -161,7 +106,6 @@ export default {
       validation: Rule => Rule.min(20).max(200),
       description: "Enter SEO Meta Description"
     },
-
     {
       name: "openGraphImage",
       type: "image",
