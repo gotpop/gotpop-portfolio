@@ -1,3 +1,3 @@
 # GotPop
 
-A NextJS portfolio application.
+A Next.js portfolio application. Built with Tailwind and Sanity headless CMS.
