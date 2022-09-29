@@ -8,8 +8,10 @@ import { useForm } from "react-hook-form";
 import { configQuery } from "@lib/groq";
 import { LocationMarkerIcon, MailIcon, PhoneIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import Intro from "@components/ui/intro";
+import IconWhatsApp from "@components/icons/whatsapp";
 
-export default function Contact({ siteconfig }) {
+export default function Contact({ siteconfig, profile }) {
   const {
     register,
     handleSubmit,
@@ -47,39 +49,24 @@ export default function Contact({ siteconfig }) {
       </Head>
       <Layout {...siteconfig}>
         <Container>
+          <Intro
+            title={'Contact'}
+            profile={profile}
+            left={
+              <p className="text-gray-500 mb-2 max-w-prose">What to know how I can help you with your next project? Get in touch using the form here.</p>
+            }
+            right={
+              <a
+                href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I am messaging you from www.gotpop.net`}
+                rel='noreferrer' target="_blank" 
+                className="hidden md:flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                Whats App Web
+                <IconWhatsApp color={'green'} />
+              </a>
+            } />
           <div className="grid my-10 md:grid-cols-2">
             <div className="my-10">
-              <h1 className="text-gray-900 dark:text-white text-xl leading-tight font-medium mb-2">
-                Contact GotPop 
-              </h1>
-              <p className="max-w-sm mt-5">
-                What to know how I can help you with your next project? Get in touch using the form here.
-              </p>
 
-              <a className="hidden md:flex mt-4" href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I am messaging you from www.gotpop.net`} rel='noreferrer' target="_blank">Message GotPop from WhatsApp web.</a>
-
-              <div className="mt-5">
-                <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
-                  <LocationMarkerIcon className="w-4 h-4" />
-                  <span>London, UK</span>
-                </div>
-                {siteconfig?.email && (
-                  <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
-                    <MailIcon className="w-4 h-4" />
-                    <a href={`mailto:${siteconfig.email}`}>
-                      {siteconfig.email}
-                    </a>
-                  </div>
-                )}
-                {/* {siteconfig?.phone && (
-                  <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
-                    <PhoneIcon className="w-4 h-4" />
-                    <a href={`tel:${siteconfig.phone}`}>
-                      {siteconfig.phone}
-                    </a>
-                  </div>
-                )} */}
-              </div>
             </div>
             <div>
               <form onSubmit={handleSubmit(onSubmit)} className="my-10">
@@ -208,9 +195,14 @@ export default function Contact({ siteconfig }) {
 export async function getStaticProps({ params, preview = false }) {
   const config = await getClient(preview).fetch(configQuery);
 
+  const url = "https://api.github.com/users/gotpop"
+  const getProfile = await fetch(url)
+  const getProfileData = await getProfile.json()
+
   return {
     props: {
       siteconfig: { ...config },
+      profile: getProfileData,
       preview
     },
     revalidate: 100
