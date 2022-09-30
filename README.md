@@ -6,4 +6,4 @@ A Next.js portfolio application. Built with Tailwind and Sanity headless CMS.
 
  View live website at: https://www.gotpop.net
 
- ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app={gotpop-teamgotpop})
+ ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=gotpop-teamgotpop)
