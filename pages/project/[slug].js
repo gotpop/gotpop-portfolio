@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { singlequery, configQuery, pathquery, postquery } from "@lib/groq";
 import client, { getClient, usePreviewSubscription, PortableText } from "@lib/sanity";
 
-export default function Post(props) {
+export default function Project(props) {
   const { postdata, siteconfig, preview, projectdata } = props;
   const router = useRouter();
   const { slug } = router.query;
