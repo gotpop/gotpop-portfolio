@@ -1,7 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import "../css/tailwind.css";
 
-function MyApp({ Component, pageProps }) {
+function GotPop({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
       <Component {...pageProps} />
@@ -9,4 +9,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default GotPop;
