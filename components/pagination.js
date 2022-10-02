@@ -37,6 +37,8 @@ export default function Pagination({ projects, post }) {
   })
 
   const routerPush = route => {
+    if (route === undefined) return
+
     router.push({
       pathname: `/project/${route}`
     })
