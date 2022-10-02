@@ -70,7 +70,7 @@ export default function Pagination({ projects, post }) {
   };
 
   useEffect(() => {
-    const debouncedCb = debounce(handleKeyDown.bind(null, previous, next), 1500);
+    const debouncedCb = debounce(handleKeyDown.bind(null, previous, next), 500);
     
     document.addEventListener("keydown", debouncedCb);
 
