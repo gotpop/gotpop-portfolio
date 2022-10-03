@@ -2,14 +2,17 @@ const debounce = (func, wait, immediate) => {
     let timeout
 
     return function () {
-        var context = this, args = arguments;
+        const context = this
+        const args = arguments;
 
-        var later = function () {
+        console.log('arguments :', arguments, args);
+
+        const later = function () {
             timeout = null
             if (!immediate) func.apply(context, args)
         }
 
-        var callNow = immediate && !timeout
+        const callNow = immediate && !timeout
         
         clearTimeout(timeout)
         timeout = setTimeout(later, wait)
