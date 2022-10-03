@@ -22,16 +22,13 @@ export default function Pagination({ projects, post }) {
       }
     })
   }
-
+  
   useEffect(() => {
     prevNext(projects, post)
-  }, [projects, post])
-
-  useEffect(() => {
     document.addEventListener("keydown", handleKeyDown.bind(null, previous, next, router));
 
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [previous, next, router])
+    return () => document.removeEventListener("keydown", handleKeyDown.bind(null, previous, next, router));
+  })
 
   return (
     <Container>

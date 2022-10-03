@@ -1,4 +1,4 @@
-import debounce from '@utils/debounce'
+// import debounce from '@utils/debounce'
 
 export const setPrevNext = (projects, project, post, index) => {
     if (post._id !== project._id) return
@@ -19,8 +19,12 @@ export const setPrevNext = (projects, project, post, index) => {
     }
 }
 
-export const routerPush = (router, route) => {
+
+
+export function routerPush(router, route) {
     if (route === undefined) return
+
+    console.log('routerPush :', route);
 
     router.push({
         pathname: `/project/${route}`
@@ -29,9 +33,9 @@ export const routerPush = (router, route) => {
 
 export const handleKeyDown = (previous, next, router, e) => {
     if (e.key === 'ArrowLeft') {
-        debounce(routerPush(router, previous), 2000, true)
+        routerPush(router, previous)
     } else if (e.key === 'ArrowRight') {
-        debounce(routerPush(router, next), 2000)
+        routerPush(router, next)
     } else {
         return
     }
