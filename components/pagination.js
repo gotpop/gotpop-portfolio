@@ -1,10 +1,9 @@
 import Container from '@components/container'
 import Link from 'next/link'
-
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from '@heroicons/react/outline'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { setPrevNext, routerPush, handleKeyDown } from '@utils/pagination'
+import { setPrevNext, handleKeyDown } from '@utils/pagination'
 
 export default function Pagination({ projects, post }) {
   const [next, setNext] = useState()
@@ -26,13 +25,13 @@ export default function Pagination({ projects, post }) {
 
   useEffect(() => {
     prevNext(projects, post)
-  }, [projects])
+  }, [projects, post])
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown.bind(null, previous, next, router));
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [previous, next])
+  }, [previous, next, router])
 
   return (
     <Container>

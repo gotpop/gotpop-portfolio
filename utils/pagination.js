@@ -29,9 +29,9 @@ export const routerPush = (router, route) => {
 
 export const handleKeyDown = (previous, next, router, e) => {
     if (e.key === 'ArrowLeft') {
-        debounce(routerPush(router, previous), 1000, true)
+        debounce(routerPush(router, previous), 2000, true)
     } else if (e.key === 'ArrowRight') {
-        debounce(routerPush(router, next), 1000)
+        debounce(routerPush(router, next), 2000)
     } else {
         return
     }
