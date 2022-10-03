@@ -1,13 +1,14 @@
-import Container from "@components/container";
-import Link from "next/link";
-import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@heroicons/react/outline";
-import { useEffect, useState } from 'react';
+import Container from '@components/container'
+import Link from 'next/link'
+import debounce from '@utils/debounce'
+import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from '@heroicons/react/outline'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 export default function Pagination({ projects, post }) {
-  const [next, setNext] = useState();
-  const [previous, setPrevious] = useState();
-  const router = useRouter();
+  const [next, setNext] = useState()
+  const [previous, setPrevious] = useState()
+  const router = useRouter()
 
   const setPrevNext = (project, index) => {
     if (post._id !== project._id) return
@@ -32,18 +33,15 @@ export default function Pagination({ projects, post }) {
     projects?.forEach((project, index) => setPrevNext(project, index))
   }
 
-  useEffect(() => {
-    prevNext(projects, post)
-  })
-
+  
   const routerPush = route => {
     if (route === undefined) return
-
+    
     router.push({
       pathname: `/project/${route}`
     })
   }
-
+  
   const handleKeyDown = (previous, next, e) => {
     if (e.key !== 'ArrowLeft') {
       routerPush(previous)
@@ -54,28 +52,17 @@ export default function Pagination({ projects, post }) {
     }
   }
 
-  function debounce(func, wait, immediate) {
-    var timeout;
-    return function () {
-      var context = this, args = arguments;
-      var later = function () {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  };
+  useEffect(() => {
+    prevNext(projects, post)
+  })
 
   useEffect(() => {
-    const debouncedCb = debounce(handleKeyDown.bind(null, previous, next), 500);
-    
+    const debouncedCb = debounce(handleKeyDown.bind(null, previous, next), 100);
+
     document.addEventListener("keydown", debouncedCb);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [previous]);
+  }, [previous])
 
   return (
     <Container>
@@ -96,5 +83,5 @@ export default function Pagination({ projects, post }) {
         </div>
       </article>
     </Container>
-  );
+  )
 }
