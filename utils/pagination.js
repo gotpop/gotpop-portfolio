@@ -44,9 +44,9 @@ export function routerPush(router, route) {
 
     console.log('routerPush :', route);
 
-    router.push({
-        pathname: `/project/${route}`
-    })
+    // router.push({
+    //     pathname: `/project/${route}`
+    // })
 }
 
 export const handleKeyDown = (previous, next, router, e) => {
