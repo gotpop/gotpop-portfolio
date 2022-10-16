@@ -1,5 +1,3 @@
-// import debounce from '@utils/debounce'
-
 export const setPrevNext = (projects, project, post, index) => {
     if (post._id !== project._id) return
 
@@ -19,44 +17,7 @@ export const setPrevNext = (projects, project, post, index) => {
     }
 }
 
-function debounce(func, wait) {
-    // console.log('func :', func, wait);
-
-    let timeout;
-    return function () {
-        const context = this;
-        const args = arguments;
-
-        console.log('args :', args);
-
-        const later = function () {
-            timeout = null;
-            func.apply(context, args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-};
-
-
-export function routerPush(router, route) {
-    if (route === undefined) return
-
-    console.log('routerPush :', route);
-
-    router.push(`/project/${route}`)
-
-    // router.push({
-    //     pathname: `/project/${route}`
-    // })
-}
-
 export const handleKeyDown = (previous, next, router, e) => {
-    // console.log('handleKeyDown')
-
-    // const cb1 = routerPush(router, previous)
-    // const cb2 = routerPush(router, next)
-
     if (e.key === 'ArrowLeft') {
         router.push(`/project/${previous}`)
     } else if (e.key === 'ArrowRight') {

@@ -12,11 +12,9 @@ export default function Pagination({ projects, post }) {
 
   const prevNext = (projects, post) => {
     if (post === undefined) return
-    console.log('Useeffect');
 
     projects?.forEach((project, index) => {
       if (setPrevNext(projects, project, post, index) !== undefined) {
-        // console.log('index :', index);
         const { previous, next } = setPrevNext(projects, project, post, index)
 
         setPrevious(previous)
@@ -26,16 +24,14 @@ export default function Pagination({ projects, post }) {
   }
 
   useEffect(() => {
-    // console.log('post :', post);
     prevNext(projects, post)
-  }, [post, post._id, projects])
+  }, [post, projects])
 
   useEffect(() => {
-    // console.log('Post: ', post.title);
-    const liam = handleKeyDown.bind(null, previous, next, router)
-    document.addEventListener("keydown", liam);
+    const keyDownBound = handleKeyDown.bind(null, previous, next, router)
+    document.addEventListener("keydown", keyDownBound);
 
-    return () => document.removeEventListener("keydown", liam);
+    return () => document.removeEventListener("keydown", keyDownBound);
   })
 
   return (
