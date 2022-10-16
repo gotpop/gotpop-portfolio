@@ -6,10 +6,6 @@ import IconGotPop from "./icons/gotpop";
 
 export default function Navbar(props) {
   const leftmenu = [
-    // {
-    //   label: "Home",
-    //   href: "/"
-    // },
     {
       label: "About",
       href: "/about"
@@ -29,11 +25,6 @@ export default function Navbar(props) {
       label: "Github",
       href: "/github"
     },
-    // {
-    //   label: "LinkedIn",
-    //   href: "http://uk.linkedin.com/in/gotpop",
-    //   external: true
-    // }
   ];
 
   const mobilemenu = [...leftmenu, ...rightmenu];
