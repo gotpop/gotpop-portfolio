@@ -30,18 +30,18 @@ export default function GitHub(props) {
               title={'GitHub'}
               profile={profile}
               left={
-                <p className="text-gray-500 mb-2 max-w-prose">{profile.bio}</p>
+                <p className="mb-2 text-gray-500 max-w-prose">{profile.bio}</p>
               }
               right={
                 <>
                   <Link href={profile.html_url}>
-                    <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                    <a className="flex items-center justify-between px-6 py-2 mb-3 text-xs font-medium leading-tight text-gray-800 transition duration-150 ease-in-out bg-white rounded hover:bg-cool focus:outline-none focus:ring-0">
                       View profile on GitHub
                       <IconGitHub color={'green'} />
                     </a>
                   </Link>
                   <Link href="https://gist.github.com/gotpop">
-                    <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                    <a className="flex items-center justify-between px-6 py-2 mb-3 text-xs font-medium leading-tight text-gray-800 transition duration-150 ease-in-out bg-white rounded hover:bg-cool focus:outline-none focus:ring-0">
                       View {profile.public_gists} Gists on GitHub
                       <IconGitHub color={'green'} />
                     </a>

@@ -43,11 +43,11 @@ export default function Project(props) {
       {post && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <div className="animate-project flex flex-wrap md:flex-nowrap">
-              <div className="p-6 max-w-sm">
-                <h1 className="text-gray-900 dark:text-white text-xl leading-tight font-medium mb-2">
+            <div className="flex flex-wrap animate-project md:flex-nowrap">
+              <div className="max-w-sm p-6">
+                <h1 className="mb-2 text-xl font-medium leading-tight text-gray-900 dark:text-white">
                   {post.title}</h1>
-                <div className="text-gray-700 dark:text-gray-400 text-base mb-6">
+                <div className="mb-6 text-base text-gray-700 dark:text-gray-400">
                   {post.body && <PortableText value={post.body} />}
                 </div>
                 <div className="flex flex-wrap my-6 mb-6">
@@ -57,12 +57,12 @@ export default function Project(props) {
                   <Link href={post.linkedin.href}>
                     <a className="inline-flex items-center px-4 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                       View on LinkedIn
-                      <span className="w-5 h-5 ml-4 flex"><svg width="100%" height="100%" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" name="linkedin"><path fill="currentColor" d="M46.3 0H3.7C1.7 0 0 1.6 0 3.6v42.8c0 2 1.7 3.6 3.7 3.6h42.6c2 0 3.7-1.6 3.7-3.6V3.6c0-2-1.7-3.6-3.7-3.6zM14.8 42.6H7.4V18.7h7.4v23.9zm-3.7-27.1c-2.4 0-4.3-1.9-4.3-4.3s1.9-4.3 4.3-4.3 4.3 1.9 4.3 4.3-1.9 4.3-4.3 4.3zm31.5 27.1h-7.4V31c0-2.8-.1-6.3-3.9-6.3-3.9 0-4.5 3-4.5 6.1v11.8h-7.4V18.7h7.1V22h.1c1-1.9 3.4-3.9 7-3.9 7.5 0 8.9 4.9 8.9 11.4v13.1z"></path></svg></span>
+                      <span className="flex w-5 h-5 ml-4"><svg width="100%" height="100%" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" name="linkedin"><path fill="currentColor" d="M46.3 0H3.7C1.7 0 0 1.6 0 3.6v42.8c0 2 1.7 3.6 3.7 3.6h42.6c2 0 3.7-1.6 3.7-3.6V3.6c0-2-1.7-3.6-3.7-3.6zM14.8 42.6H7.4V18.7h7.4v23.9zm-3.7-27.1c-2.4 0-4.3-1.9-4.3-4.3s1.9-4.3 4.3-4.3 4.3 1.9 4.3 4.3-1.9 4.3-4.3 4.3zm31.5 27.1h-7.4V31c0-2.8-.1-6.3-3.9-6.3-3.9 0-4.5 3-4.5 6.1v11.8h-7.4V18.7h7.1V22h.1c1-1.9 3.4-3.9 7-3.9 7.5 0 8.9 4.9 8.9 11.4v13.1z"></path></svg></span>
                     </a>
                   </Link>
                 )}
               </div>
-              <div className="bg-white relative z-0 max-w-screen-lg shadow-md overflow-hidden rounded-lg aspect-video m-6">
+              <div className="relative z-0 max-w-screen-lg m-6 overflow-hidden bg-white rounded-lg shadow-md aspect-video">
                 {post.imageUrl && (<Image
                   src={post.imageUrl}
                   alt="Profile avatar"

@@ -53,13 +53,13 @@ export default function Contact({ siteconfig, profile }) {
             title={'Contact'}
             profile={profile}
             left={
-              <p className="text-gray-500 mb-2 max-w-prose">What to know how I can help you with your next project? Get in touch using the form here.</p>
+              <p className="mb-2 text-gray-500 max-w-prose">What to know how I can help you with your next project? Get in touch using the form here.</p>
             }
             right={
               <a
                 href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I am messaging you from www.gotpop.net`}
                 rel='noreferrer' target="_blank"
-                className="hidden md:flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                className="items-center justify-between hidden px-6 py-2 mb-3 text-xs font-medium leading-tight text-gray-800 transition duration-150 ease-in-out bg-white rounded md:flex hover:bg-cool focus:outline-none focus:ring-0">
                 Whats App Web
                 <IconWhatsApp color={'green'} />
               </a>

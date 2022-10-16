@@ -45,7 +45,7 @@ export default function Navbar(props) {
                     </Link>
                   ))}
                 </div>
-                <div className="flex justify-between items-center w-full md:w-auto">
+                <div className="flex items-center justify-between w-full md:w-auto">
                   <IconGotPop />
                   <Disclosure.Button
                     aria-label="Toggle Menu"

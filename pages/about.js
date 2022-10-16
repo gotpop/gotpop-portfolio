@@ -20,18 +20,18 @@ export default function About({ siteconfig, profile }) {
             profile={profile}
             // skills={false}
             left={
-              <p className="text-gray-500 mb-2 max-w-prose">I build enterprise websites that perform well on all devices, focusing on responsive design, aesthetics, clean code & page speed.</p>
+              <p className="mb-2 text-gray-500 max-w-prose">I build enterprise websites that perform well on all devices, focusing on responsive design, aesthetics, clean code & page speed.</p>
             }
             right={
               <>
                 <Link href={'/contact'}>
-                  <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                  <a className="flex items-center justify-between px-6 py-2 mb-3 text-xs font-medium leading-tight text-gray-800 transition duration-150 ease-in-out bg-white rounded hover:bg-cool focus:outline-none focus:ring-0">
                     Get in touch
                     <MailIcon className="w-6 h-6 ml-2" />
                   </a>
                 </Link>
                 <Link href={"/skills"}>
-                  <a className="flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                  <a className="flex items-center justify-between px-6 py-2 mb-3 text-xs font-medium leading-tight text-gray-800 transition duration-150 ease-in-out bg-white rounded hover:bg-cool focus:outline-none focus:ring-0">
                     View projects
                     <CodeIcon className="w-6 h-6 ml-2" />
                   </a>

@@ -36,15 +36,15 @@ export default function Pagination({ projects, post }) {
       <article className="max-w-screen-md mx-auto ">
         <div className="flex justify-center mt-7 mb-7">
           <Link href={`/project/${previous}`}>
-            <a className="flex items-center px-4 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
-              <ArrowCircleLeftIcon className="w-7 h-7 mr-2" />
+            <a className="flex items-center px-4 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20">
+              <ArrowCircleLeftIcon className="mr-2 w-7 h-7" />
               <span className="uppercase">Prev</span>
             </a>
           </Link>
           <Link href={`/project/${next}`}>
-            <a className="flex items-center px-4 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20 ">
+            <a className="flex items-center px-4 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500 bg-brand-secondary/20">
               <span className="uppercase">Next</span>
-              <ArrowCircleRightIcon className="w-7 h-7 ml-2" />
+              <ArrowCircleRightIcon className="ml-2 w-7 h-7" />
             </a>
           </Link>
         </div>
