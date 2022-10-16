@@ -10,26 +10,6 @@ export default function Pagination({ projects, post }) {
   const [previous, setPrevious] = useState()
   const router = useRouter()
 
-  // function debounce(func, wait) {
-  //   // console.log('func :', func, wait);
-
-  //   let timeout;
-  //   return function () {
-  //     const context = this;
-  //     const args = arguments;
-
-  //     console.log('args :', args);
-
-  //     const later = function () {
-  //       timeout = null;
-  //       func.apply(context, args);
-  //     };
-  //     clearTimeout(timeout);
-  //     timeout = setTimeout(later, wait);
-  //   };
-  // };
-
-
   const prevNext = (projects, post) => {
     if (post === undefined) return
     console.log('Useeffect');
@@ -46,7 +26,7 @@ export default function Pagination({ projects, post }) {
   }
 
   useEffect(() => {
-    console.log('post :', post);
+    // console.log('post :', post);
     prevNext(projects, post)
   }, [post])
 

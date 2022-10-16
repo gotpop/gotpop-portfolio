@@ -20,7 +20,7 @@ export const setPrevNext = (projects, project, post, index) => {
 }
 
 function debounce(func, wait) {
-    console.log('func :', func, wait);
+    // console.log('func :', func, wait);
 
     let timeout;
     return function () {
@@ -44,22 +44,23 @@ export function routerPush(router, route) {
 
     console.log('routerPush :', route);
 
+    router.push(`/project/${route}`)
+
     // router.push({
     //     pathname: `/project/${route}`
     // })
 }
 
 export const handleKeyDown = (previous, next, router, e) => {
-    console.log('handleKeyDown')
+    // console.log('handleKeyDown')
 
-    const cb1 = routerPush(router, previous)
-    const cb2 = routerPush(router, next)
+    // const cb1 = routerPush(router, previous)
+    // const cb2 = routerPush(router, next)
 
     if (e.key === 'ArrowLeft') {
-        debounce(cb1, 5000)
+        router.push(`/project/${previous}`)
     } else if (e.key === 'ArrowRight') {
-        debounce(cb2, 5000)
-        // routerPush(router, next)
+        router.push(`/project/${next}`)
     } else {
         return
     }
