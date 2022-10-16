@@ -28,14 +28,15 @@ export default function Pagination({ projects, post }) {
   useEffect(() => {
     // console.log('post :', post);
     prevNext(projects, post)
-  }, [post])
+  }, [post, post._id, projects])
 
   useEffect(() => {
     // console.log('Post: ', post.title);
-    document.addEventListener("keydown", handleKeyDown.bind(null, previous, next, router));
+    const liam = handleKeyDown.bind(null, previous, next, router)
+    document.addEventListener("keydown", liam);
 
-    return () => document.removeEventListener("keydown", handleKeyDown.bind(null, previous, next, router));
-  }, [next, previous, router])
+    return () => document.removeEventListener("keydown", liam);
+  })
 
   return (
     <Container>
