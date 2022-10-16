@@ -10,11 +10,8 @@ export default function Pagination({ projects, post }) {
   const [previous, setPrevious] = useState()
   const router = useRouter()
 
-  const prevNext = (projects, post) => {
-    if ((projects || post) === undefined) return
-
-    projects.forEach((project, index) => setPrevNext(project, index))
-  }
+  const prevNext = projects =>
+    projects?.forEach((project, index) => setPrevNext(project, index))
 
   const setPrevNext = (project, index) => {
     if (post._id !== project._id) return
@@ -27,8 +24,8 @@ export default function Pagination({ projects, post }) {
 
   useEffect(() => {
     const keyDownBound = handleKeyDown.bind(null, previous, next, router)
-    
-    prevNext(projects, post)
+
+    prevNext(projects)
     document.addEventListener("keydown", keyDownBound)
 
     return () => document.removeEventListener("keydown", keyDownBound)
