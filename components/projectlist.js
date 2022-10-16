@@ -26,7 +26,6 @@ export default function ProjectList({ project, aspect, preloadImage, objectFit =
                   blurDataURL={imageProps.blurDataURL}
                   alt={project.mainImage.alt || "Thumbnail"}
                   placeholder="blur"
-                  // sizes="80vw"
                   sizes="(max-width: 640px) 90vw, 480px"
                   layout="fill"
                   objectFit={objectFit}
