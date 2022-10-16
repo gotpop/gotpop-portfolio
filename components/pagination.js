@@ -10,7 +10,7 @@ export default function Pagination({ projects, post }) {
   const [previous, setPrevious] = useState()
   const router = useRouter()
 
-  const prevNext = projects =>
+  const loopOver = projects =>
     projects?.forEach((project, index) => setPrevNext(project, index))
 
   const setPrevNext = (project, index) => {
@@ -25,7 +25,7 @@ export default function Pagination({ projects, post }) {
   useEffect(() => {
     const keyDownBound = handleKeyDown.bind(null, previous, next, router)
 
-    prevNext(projects)
+    loopOver(projects)
     document.addEventListener("keydown", keyDownBound)
 
     return () => document.removeEventListener("keydown", keyDownBound)
