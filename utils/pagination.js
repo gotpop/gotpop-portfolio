@@ -1,6 +1,4 @@
-export const setPrevNext = (projects, project, post, index) => {
-    if (post._id !== project._id) return
-
+export const calculatePrevNext = (projects, index) => {
     const end = projects.length - 1
     let positionPrev
     let positionNext

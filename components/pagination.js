@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from '@heroicons/react/outline'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { setPrevNext, handleKeyDown } from '@utils/pagination'
+import { calculatePrevNext, handleKeyDown } from '@utils/pagination'
 
 export default function Pagination({ projects, post }) {
   const [next, setNext] = useState()
@@ -11,16 +11,18 @@ export default function Pagination({ projects, post }) {
   const router = useRouter()
 
   const prevNext = (projects, post) => {
-    if (post === undefined) return
+    if ((projects || post) === undefined) return
 
-    projects?.forEach((project, index) => {
-      if (setPrevNext(projects, project, post, index) !== undefined) {
-        const { previous, next } = setPrevNext(projects, project, post, index)
+    projects.forEach((project, index) => setPrevNext(project, index))
+  }
 
-        setPrevious(previous)
-        setNext(next)
-      }
-    })
+  const setPrevNext = (project, index) => {
+    if (post._id !== project._id) return
+
+    const { previous, next } = calculatePrevNext(projects, index)
+
+    setPrevious(previous)
+    setNext(next)
   }
 
   useEffect(() => {
