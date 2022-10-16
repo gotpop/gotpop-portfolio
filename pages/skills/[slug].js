@@ -47,7 +47,7 @@ export default function Post(props) {
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
-            <Intro 
+            <Intro
               title={title}
               profile={profile}
               skills={true}

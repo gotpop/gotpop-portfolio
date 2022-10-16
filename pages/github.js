@@ -49,6 +49,7 @@ export default function GitHub(props) {
                 </>
               }
             />
+            {/* TODO: Complete development of GH repos */}
             {/* <div className="grid gap-10 lg:gap-10 md:grid-cols-2 ">
               {repos.map((repo, index) => (
                 <GitHubRepo repo={repo} key={index}/>

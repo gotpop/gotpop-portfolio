@@ -58,7 +58,7 @@ export default function Contact({ siteconfig, profile }) {
             right={
               <a
                 href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I am messaging you from www.gotpop.net`}
-                rel='noreferrer' target="_blank" 
+                rel='noreferrer' target="_blank"
                 className="hidden md:flex items-center mb-3 justify-between px-6 py-2 text-gray-800 font-medium text-xs leading-tight rounded bg-white hover:bg-cool focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                 Whats App Web
                 <IconWhatsApp color={'green'} />

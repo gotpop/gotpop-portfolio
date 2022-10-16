@@ -63,15 +63,13 @@ export default function Project(props) {
                 )}
               </div>
               <div className="bg-white relative z-0 max-w-screen-lg shadow-md overflow-hidden rounded-lg aspect-video m-6">
-                { post.imageUrl && (<Image
-                    // loader={myLoader}
-                    // className=""
-                    src={post.imageUrl}
-                    alt="Profile avatar"
-                    width={1001}
-                    height={569}
-                  />)
-                  }
+                {post.imageUrl && (<Image
+                  src={post.imageUrl}
+                  alt="Profile avatar"
+                  width={1001}
+                  height={569}
+                />)
+                }
               </div>
             </div>
           </Container>
