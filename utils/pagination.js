@@ -15,8 +15,7 @@ export const calculatePrevNext = (projects, index) => {
     }
 }
 
-export const handleKeyDown = (previous, next, router, e) => {
+export const handleKeyDown = (previous, next, router, e) =>
     e.key === 'ArrowLeft' ? router.push(`/project/${previous}`)
         : e.key === 'ArrowRight' ? router.push(`/project/${next}`)
             : null
-}
