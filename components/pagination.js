@@ -26,14 +26,12 @@ export default function Pagination({ projects, post }) {
   }
 
   useEffect(() => {
-    prevNext(projects, post)
-  }, [post, projects])
-
-  useEffect(() => {
     const keyDownBound = handleKeyDown.bind(null, previous, next, router)
-    document.addEventListener("keydown", keyDownBound);
+    
+    prevNext(projects, post)
+    document.addEventListener("keydown", keyDownBound)
 
-    return () => document.removeEventListener("keydown", keyDownBound);
+    return () => document.removeEventListener("keydown", keyDownBound)
   })
 
   return (
