@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import { Disclosure } from "@headlessui/react";
 import Container from "@components/container";
+import { Disclosure } from "@headlessui/react";
 import IconGotPop from "./icons/gotpop";
+import Link from "next/link";
+import React from "react";
 
 export default function Navbar(props) {
   const leftmenu = [
@@ -24,7 +24,7 @@ export default function Navbar(props) {
     {
       label: "Github",
       href: "/github"
-    },
+    }
   ];
 
   const mobilemenu = [...leftmenu, ...rightmenu];
@@ -38,10 +38,11 @@ export default function Navbar(props) {
               <div className="flex flex-wrap justify-between md:gap-10 md:flex-nowrap">
                 <div className="flex-col items-center justify-start order-1 hidden w-full md:flex md:flex-row md:justify-end md:w-auto md:order-none md:flex-1">
                   {leftmenu.map((item, index) => (
-                    <Link href={item.href} key={index}>
-                      <a className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500">
-                        {item.label}
-                      </a>
+                    <Link
+                      className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
+                      href={item.href}
+                      key={index}>
+                      {item.label}
                     </Link>
                   ))}
                 </div>
@@ -72,13 +73,13 @@ export default function Navbar(props) {
                 </div>
                 <div className="flex-col items-center justify-start order-2 hidden w-full md:flex md:flex-row md:w-auto md:flex-1 md:order-none">
                   {rightmenu.map((item, index) => (
-                    <Link href={item.href} key={index}>
-                      <a
-                        className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
-                        target={item.external ? "_blank" : ""}
-                        rel={item.external ? "noopener" : ""}>
-                        {item.label}
-                      </a>
+                    <Link
+                      href={item.href}
+                      key={index}
+                      className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
+                      target={item.external ? "_blank" : ""}
+                      rel={item.external ? "noopener" : ""}>
+                      {item.label}
                     </Link>
                   ))}
                 </div>
@@ -86,13 +87,13 @@ export default function Navbar(props) {
               <Disclosure.Panel>
                 <div className="flex flex-col items-center justify-start order-2 w-full md:hidden">
                   {mobilemenu.map((item, index) => (
-                    <Link href={item.href} key={index}>
-                      <a
-                        className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
-                        target={item.external ? "_blank" : ""}
-                        rel={item.external ? "noopener" : ""}>
-                        {item.label}
-                      </a>
+                    <Link
+                      href={item.href}
+                      key={index}
+                      className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
+                      target={item.external ? "_blank" : ""}
+                      rel={item.external ? "noopener" : ""}>
+                      {item.label}
                     </Link>
                   ))}
                 </div>

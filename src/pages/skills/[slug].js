@@ -1,18 +1,24 @@
-import Layout from "@components/layout";
-import Container from "@components/container";
-import ProjectList from "@components/projectlist";
+import { allcatquery, catquery, configQuery, pathquery } from "@lib/groq";
+import client, { getClient, usePreviewSubscription } from "@lib/sanity";
+import { useEffect, useState } from 'react';
+
 import CategoryLabel from "@components/projects/category";
+import Container from "@components/container";
+import Head from 'next/head';
 import Intro from "@components/ui/intro";
+import Layout from "@components/layout";
+import ProjectList from "@components/projectlist";
 import { useRouter } from "next/router";
-import { getClient, usePreviewSubscription } from "@lib/sanity";
-import { postquery, configQuery, allcatquery } from "@lib/groq";
 
-export default function Skills(props) {
-  const { postdata, siteconfig, preview, categorydata, profile } = props;
+export default function Post(props) {
+  const { siteconfig, preview, projectdata, categorydata, profile } = props;
   const router = useRouter();
+  const { slug } = router.query;
+  const [title, setTitle] = useState();
 
-  const { data: projects } = usePreviewSubscription(postquery, {
-    initialData: postdata,
+  const { data: projects } = usePreviewSubscription(catquery, {
+    params: { slug: slug },
+    initialData: projectdata,
     enabled: preview || router.query.preview !== undefined
   });
 
@@ -26,16 +32,27 @@ export default function Skills(props) {
     enabled: preview || router.query.preview !== undefined
   });
 
+  useEffect(() => {
+    categories?.forEach(category => {
+      if (category.slug.current !== slug) return
+
+      setTitle(category.title)
+    });
+  }, [categories, slug])
+
   return (
     <>
+      <Head>
+        <title>Skills</title>
+      </Head>
       {projects && siteConfig && (
         <Layout {...siteConfig}>
           <Container>
             <Intro
-              title={'Skills'}
+              title={title}
               profile={profile}
-              left={<CategoryLabel categories={categories} />}
-            />
+              skills={true}
+              left={<CategoryLabel categories={categories} />} />
             <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3 ">
               {projects.map(project => (
                 <ProjectList
@@ -53,9 +70,11 @@ export default function Skills(props) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const post = await getClient(preview).fetch(postquery);
   const config = await getClient(preview).fetch(configQuery);
   const categoriesList = await getClient(preview).fetch(allcatquery);
+  const projects = await getClient(preview).fetch(catquery, {
+    slug: params.slug
+  });
 
   const url = "https://api.github.com/users/gotpop"
   const getProfile = await fetch(url)
@@ -63,7 +82,7 @@ export async function getStaticProps({ params, preview = false }) {
 
   return {
     props: {
-      postdata: post,
+      projectdata: projects,
       profile: getProfileData,
       categorydata: categoriesList,
       siteconfig: { ...config },
@@ -71,4 +90,18 @@ export async function getStaticProps({ params, preview = false }) {
     },
     revalidate: 10
   };
+}
+
+export async function getStaticPaths({ params }) {
+  const allPosts = await client.fetch(pathquery);
+
+  return {
+    paths:
+      allPosts?.map(page => ({
+        params: {
+          slug: page.slug.current
+        }
+      })) || [],
+    fallback: true
+  }
 }

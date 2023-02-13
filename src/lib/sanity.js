@@ -1,12 +1,14 @@
-import Image from "next/image";
 import {
   createClient,
   createPreviewSubscriptionHook
 } from "next-sanity";
-import createImageUrlBuilder from "@sanity/image-url";
+
+import GetImage from "@utils/getImage";
+import Image from "next/image";
 import { PortableText as PortableTextComponent } from "@portabletext/react";
 import { config } from "./config";
-import GetImage from "@utils/getImage";
+import createImageUrlBuilder from "@sanity/image-url";
+import Link from "next/link";
 
 if (!config.projectId) {
   throw Error(
@@ -57,9 +59,9 @@ const components = {
       </span>
     ),
     link: props => (
-      <a href={props?.value?.href} target="_blank" rel="noopener">
+      <Link href={props?.value?.href} target="_blank" rel="noopener">
         {props.children}
-      </a>
+      </Link>
     )
   }
 };

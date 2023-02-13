@@ -1,15 +1,16 @@
-import Container from "@components/container";
-import Layout from "@components/layout";
-import Head from 'next/head'
-import useWeb3Forms from "use-web3forms";
-import { getClient } from "@lib/sanity";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { configQuery } from "@lib/groq";
 import { LocationMarkerIcon, MailIcon, PhoneIcon } from "@heroicons/react/outline";
-import Link from "next/link";
-import Intro from "@components/ui/intro";
+
+import Container from "@components/container";
+import Head from 'next/head'
 import IconWhatsApp from "@components/icons/whatsapp";
+import Intro from "@components/ui/intro";
+import Layout from "@components/layout";
+import Link from "next/link";
+import { configQuery } from "@lib/groq";
+import { getClient } from "@lib/sanity";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import useWeb3Forms from "use-web3forms";
 
 export default function Contact({ siteconfig, profile }) {
   const {
@@ -56,13 +57,13 @@ export default function Contact({ siteconfig, profile }) {
               <p className="mb-2 text-gray-500 max-w-prose">What to know how I can help you with your next project? Get in touch using the form here.</p>
             }
             right={
-              <a
+              <Link
                 href={`https://web.whatsapp.com:/send?phone=${siteconfig.phone}&text=Hi, I am messaging you from www.gotpop.net`}
                 rel='noreferrer' target="_blank"
                 className="items-center justify-between hidden px-6 py-2 mb-3 text-xs font-medium leading-tight text-gray-800 transition duration-150 ease-in-out bg-white rounded md:flex hover:bg-cool focus:outline-none focus:ring-0">
                 Whats App Web
                 <IconWhatsApp color={'green'} />
-              </a>
+              </Link>
             } />
           <div className="grid my-10 md:grid-cols-2">
             <div className="my-10">

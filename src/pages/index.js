@@ -1,10 +1,11 @@
-import Layout from "@components/layout";
-import Container from "@components/container";
-import { useRouter } from "next/router";
+import { configQuery, postquery } from "@lib/groq";
 import { getClient, usePreviewSubscription } from "@lib/sanity";
-import { postquery, configQuery } from "@lib/groq";
-import ProjectList from "@components/projectlist";
+
+import Container from "@components/container";
 import Head from 'next/head'
+import Layout from "@components/layout";
+import ProjectList from "@components/projectlist";
+import { useRouter } from "next/router";
 
 export default function Home(props) {
   const { projectsdata, siteconfig, preview } = props;

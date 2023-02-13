@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Label from "@components/ui/label";
+import Link from "next/link";
 
 export default function CategoryLabel({ categories }) {
   return (
@@ -8,10 +8,9 @@ export default function CategoryLabel({ categories }) {
         categories.slice(0).map((category, index) => (
           <Link
             href={`/skills/${category.slug.current}`}
+            className="flex mr-2 mb-2"
             key={index}>
-            <a className="flex mr-2 mb-2">
               <Label color={category.color}>{category.title}</Label>
-            </a>
           </Link>
         ))}
     </>
