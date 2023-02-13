@@ -42,3 +42,4 @@ yarn-error.log*
 # studio output
 public/studio
 studio/config/.checksums
+next-env.d.ts
