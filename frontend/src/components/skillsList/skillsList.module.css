@@ -1,0 +1,15 @@
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.link {
+    background-color: var(--white);
+    color: var(--grey-700);
+    padding: 1em 2em;
+    border-radius: 5px;
+    text-decoration: none;
+    /* font-size: var(--font-size-sm); */
+    font-size: 12px;
+}

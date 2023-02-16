@@ -1,0 +1,15 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.wrap a {
+    padding: 1rem 2rem;
+    background-color: var(--white);
+    border-radius: var(--radius);
+}
+
+.pagination {
+    display: flex;
+    gap: var(--spacing);
+}

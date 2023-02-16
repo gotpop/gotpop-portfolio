@@ -1,0 +1,11 @@
+.grid {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: var(--font-size-md);
+  margin: 1rem 0 2rem 0;
+}

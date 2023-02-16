@@ -1,0 +1,104 @@
+@custom-media --ipad (width > 600px);
+@custom-media --laptop (width > 1000px);
+@custom-media --desktop (width > 1200px);
+
+.header {
+  --local-position: sticky;
+  --local-bg-colour: var(--white);
+  --local-radius: var(--radius);
+  --local-border-radius: 0 0 var(--local-radius) var(--local-radius);
+
+  background-color: var(--local-bg-colour);
+  grid-area: head;
+
+  @media (--ipad) {
+    --local-bg-colour: hwb(0 100% 0% / 0.75);
+
+    backdrop-filter: blur(10px);
+    border-radius: var(--local-border-radius);
+    position: var(--local-position);
+    top: 0;
+    z-index: 9999;
+    width: calc(100vw - var(--scrollbar-width));
+  }
+
+  @media (--laptop) {
+    --local-radius: var(--radius-lg);
+  }
+
+  @media (--desktop) {
+    --local-radius: var(--radius-xl);
+  }
+}
+
+
+.nav {
+  --local-grid-column: 4 / 13;
+
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+  gap: calc(var(--padding) / 2);
+
+  @media (width > 600px) {
+    justify-self: initial;
+    align-self: center;
+    flex-direction: row;
+    grid-column: var(--local-grid-column);
+  }
+
+  @media (width > 800px) {
+    --local-grid-column: 12 / 13;
+  }
+
+  & button {
+    flex: auto;
+    background-color: var(--white);
+    border-color: var(--hwb-grape-5);
+    border: 1px solid;
+    color: var(--hwb-grape-5);
+    align-items: center;
+
+    & svg {
+      scale: 1.2;
+    }
+
+    & span {
+      color: var(--hwb-grape-5);
+    }
+
+    &:hover span {
+      color: var(--white);
+    }
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--white);
+    }
+  }
+
+  & a {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid;
+    border-color: inherit;
+    color: inherit;
+    display: inline-flex;
+    gap: calc(var(--padding-btn) / 2);
+    justify-content: space-between;
+    padding: calc(var(--padding-btn) / 2) var(--padding-btn);
+    transition: background-color var(--timing) ease;
+    flex: auto;
+    align-items: center;
+
+    & svg {
+      scale: 1.2;
+    }
+
+    &:hover {
+      background-color: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+  }
+}
