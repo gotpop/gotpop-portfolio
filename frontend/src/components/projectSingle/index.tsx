@@ -1,7 +1,5 @@
-import GetImage from "@/utils/getImage"
-import Image from "next/image"
-import Link from "next/link"
-import styles from "./projectSingle.module.css"
+import GetImage from '@/utils/getImage'
+import Image from 'next/image'
 
 type Props = {
   project: any
@@ -9,23 +7,20 @@ type Props = {
 
 export default function ProjectSingle({ project }: Props) {
   const { mainImage } = project
-  // console.log('mainImage :', mainImage);
-
-  const imageProps = project?.mainImage
-  ? GetImage(project.mainImage)
-  : null;
+  const imageProps = GetImage(project.mainImage)
 
   return (
     <>
+      {imageProps ? (
         <Image
           src={imageProps.src}
           loader={mainImage.loader}
           blurDataURL={mainImage.blurDataURL}
-          alt={mainImage.alt || "Thumbnail"}
-          width={"600"}
-          height={"400"}
+          alt={mainImage.alt || 'Thumbnail'}
+          width={'600'}
+          height={'400'}
         />
+      ) : null}
     </>
   )
 }
-

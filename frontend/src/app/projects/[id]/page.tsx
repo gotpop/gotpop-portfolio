@@ -1,12 +1,12 @@
-import GetImage from "@/utils/getImage"
-import Image from "next/image"
-import Pagination from "@/components/Pagination"
-import { PortableText } from "@portabletext/react"
-import ProjectSingle from "@/components/projectSingle"
-import SkillsList from "@/components/skillsList"
-import { client } from "client"
-import { groq } from "next-sanity"
-import styles from "./project.module.css"
+import GetImage from '@/utils/getImage'
+import Image from 'next/image'
+import Pagination from '@/components/Pagination'
+import { PortableText } from '@portabletext/react'
+import ProjectSingle from '@/components/projectSingle'
+import SkillsList from '@/components/skillsList'
+import { client } from 'client'
+import { groq } from 'next-sanity'
+import styles from './project.module.css'
 
 async function getProject(idVar: any) {
   const query = groq`*[_type == "project" && slug.current == "${idVar}" && !(_id in path("drafts.**"))]`
@@ -35,7 +35,7 @@ export default async function Project({ params }: any) {
   const singleProject = project[0]
 
   const projectSkills = await getProjectSkills(params.id)
-  const categories = projectSkills[0].categories
+  const categories = await projectSkills[0].categories
 
   const projects = await getProjects()
 
@@ -56,4 +56,13 @@ export default async function Project({ params }: any) {
       </div>
     </>
   )
+}
+
+export async function generateStaticParams() {
+  const query = groq`*[_type == "project"]`
+  const data = await client.fetch(query)
+
+  return data.map((project: { slug: any }) => ({
+    id: project.slug.current
+  }))
 }

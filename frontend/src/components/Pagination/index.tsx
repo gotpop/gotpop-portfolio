@@ -1,13 +1,11 @@
 "use client"
 
-// import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from "@heroicons/react/outline"
 import { calculatePrevNext, handleKeyDown } from "@/utils/pagination"
 import { useEffect, useState } from "react"
 
 // import Container from "@components/container"
 import Link from "next/link"
 import styles from "./Pagination.module.css"
-// import { useRouter } from "next/router"
 import { useRouter } from "next/navigation"
 
 type Props = {
@@ -31,14 +29,14 @@ export default function Pagination({ projects, post }: Props) {
     setNext(next)
   }
 
-  useEffect(() => {
-    const keyDownBound = handleKeyDown.bind(null, previous, next, router)
+  // useEffect(() => {
+  //   const keyDownBound = handleKeyDown.bind(null, previous, next, router)
 
-    loopOver(projects)
-    document.addEventListener("keydown", keyDownBound)
+  //   loopOver(projects)
+  //   document.addEventListener("keydown", keyDownBound)
 
-    return () => document.removeEventListener("keydown", keyDownBound)
-  })
+  //   return () => document.removeEventListener("keydown", keyDownBound)
+  // })
 
   return (
     <>

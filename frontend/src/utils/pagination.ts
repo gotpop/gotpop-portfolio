@@ -1,4 +1,4 @@
-export const calculatePrevNext = (projects, index) => {
+export const calculatePrevNext = (projects: string | any[], index: number) => {
     const end = projects.length - 1
     let positionPrev
     let positionNext
@@ -15,7 +15,8 @@ export const calculatePrevNext = (projects, index) => {
     }
 }
 
-export const handleKeyDown = (previous, next, router, e) =>
-    e.key === 'ArrowLeft' ? router.push(`/projects/${previous}`)
+export const handleKeyDown = (previous: any, next: any, router: string[], e: { key: string }) => {
+    return e.key === 'ArrowLeft' ? router.push(`/projects/${previous}`)
         : e.key === 'ArrowRight' ? router.push(`/projects/${next}`)
             : null
+}

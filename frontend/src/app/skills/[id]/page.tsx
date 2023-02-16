@@ -23,8 +23,8 @@ export default async function Skill({ params }: any) {
     <>
       <h2 className={styles.title}>{params.id}</h2>
       <div className={styles.grid}>
-        {projects.map((project: any) => (
-          <ProjectList key={project._id} project={project} />
+        {projects.map((project: any, i: number) => (
+          <ProjectList key={i} project={project} />
         ))}
       </div>
     </>
