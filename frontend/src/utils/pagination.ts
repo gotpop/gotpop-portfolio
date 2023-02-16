@@ -1,3 +1,6 @@
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context"
+import { Router } from "next/router"
+
 export const calculatePrevNext = (projects: string | any[], index: number) => {
     const end = projects.length - 1
     let positionPrev
@@ -15,7 +18,7 @@ export const calculatePrevNext = (projects: string | any[], index: number) => {
     }
 }
 
-export const handleKeyDown = (previous: any, next: any, router: string[], e: { key: string }) => {
+export const handleKeyDown = (previous: undefined, next: undefined, router: AppRouterInstance | string[]) => (e: any) => {
     return e.key === 'ArrowLeft' ? router.push(`/projects/${previous}`)
         : e.key === 'ArrowRight' ? router.push(`/projects/${next}`)
             : null
