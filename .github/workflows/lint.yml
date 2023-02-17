@@ -5,11 +5,6 @@ on:
     branches:
       - main
 
-env: # environment variables (available in any part of the action)
-  NODE_VERSION: 18
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  NEXT_PUBLIC_SANITY_PROJECT_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_DATASET }}
-
 jobs:
   linting:
     name: Linting
