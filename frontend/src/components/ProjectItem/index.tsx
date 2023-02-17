@@ -3,13 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from './project.module.css'
 
-type Props = {
+type PropsImport = {
   project: any
 }
 
-export default function ProjectList({ project }: Props) {
+export default function Project({ project }: PropsImport) {
   const { mainImage } = project
-  const imageProps = GetImage(project.mainImage) 
+  const imageProps = GetImage(project.mainImage)
 
   return (
     <>

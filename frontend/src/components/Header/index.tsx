@@ -1,11 +1,11 @@
-import { BiCode } from "react-icons/bi"
-import { CSSProperties } from "react"
-import Grid from "../Grid"
-import GridWrap from "../GridWrap"
-import Link from "next/link"
-import LogoSVG from "../LogoSVG"
-import { RiChatVoiceLine } from "react-icons/ri"
-import styles from "./Header.module.css"
+import { BiCode } from 'react-icons/bi'
+import { CSSProperties } from 'react'
+import Grid from '../Grid'
+import GridWrap from '../GridWrap'
+import Link from 'next/link'
+import LogoSVG from '../LogoSVG'
+import { RiChatVoiceLine } from 'react-icons/ri'
+import styles from './Header.module.css'
 
 type Props = {
   vars: CSSProperties | undefined
@@ -36,7 +36,7 @@ const Header = ({ vars }: Props) => {
 }
 
 Header.defaultProps = {
-  vars: undefined,
+  vars: undefined
 }
 
 export default Header

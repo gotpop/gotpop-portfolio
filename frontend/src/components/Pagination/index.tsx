@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import { calculatePrevNext, handleKeyDown } from "@/utils/pagination"
-import { useEffect, useState } from "react"
+import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr'
+import { calculatePrevNext, handleKeyDown } from '@/utils/pagination'
+import { useEffect, useState } from 'react'
 
-// import Container from "@components/container"
-import Link from "next/link"
-import styles from "./Pagination.module.css"
-import { useRouter } from "next/navigation"
+import Link from 'next/link'
+import styles from './Pagination.module.css'
+import { useRouter } from 'next/navigation'
 
 type Props = {
   projects: any
@@ -18,7 +18,8 @@ export default function Pagination({ projects, post }: Props) {
   const [previous, setPrevious] = useState()
   const router = useRouter()
 
-  const loopOver = (projects: any[]) => projects?.forEach((project, index) => setPrevNext(project, index))
+  const loopOver = (projects: any[]) =>
+    projects?.forEach((project, index) => setPrevNext(project, index))
 
   const setPrevNext = (project: { _id: any }, index: number) => {
     if (post._id !== project._id) return
@@ -33,9 +34,9 @@ export default function Pagination({ projects, post }: Props) {
     const keyDownBound = handleKeyDown(previous, next, router)
 
     loopOver(projects)
-    document.addEventListener("keydown", keyDownBound)
+    document.addEventListener('keydown', keyDownBound)
 
-    return () => document.removeEventListener("keydown", keyDownBound)
+    return () => document.removeEventListener('keydown', keyDownBound)
   })
 
   return (
@@ -43,12 +44,12 @@ export default function Pagination({ projects, post }: Props) {
       <article className={styles.wrap}>
         <div className={styles.pagination}>
           <Link className={styles.link} href={`/projects/${previous}`}>
-            {/* <ArrowCircleLeftIcon className="mr-2 w-7 h-7" /> */}
+            <GrLinkPrevious />
             <span className="uppercase">Prev</span>
           </Link>
           <Link className={styles.link} href={`/projects/${next}`}>
             <span className="uppercase">Next</span>
-            {/* <ArrowCircleRightIcon className="ml-2 w-7 h-7" /> */}
+            <GrLinkNext />
           </Link>
         </div>
       </article>

@@ -14,7 +14,7 @@ export const useScrollBarWidth = () => {
   useEffect(() => {
     getScrollBarWidth()
   }, [])
-  
+
   return {
     scrollBarWidth
   }

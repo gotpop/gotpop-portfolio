@@ -1,8 +1,5 @@
-import GridWrap from '@/components/GridWrap'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import { Key } from 'react'
-import ProjectList from '@/components/project'
+import Project from '@/components/ProjectItem'
 import { client } from 'client'
 import { groq } from 'next-sanity'
 import styles from './page.module.css'
@@ -22,7 +19,7 @@ export default async function Home() {
     <div className={styles.grid}>
       {projects.map((project: { _id: Key | null | undefined }) => (
         <>
-          <ProjectList key={project._id} project={project} />
+          <Project key={project._id} project={project} />
         </>
       ))}
     </div>
