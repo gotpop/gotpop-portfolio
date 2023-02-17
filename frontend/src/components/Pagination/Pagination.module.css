@@ -14,3 +14,10 @@
   gap: var(--spacing);
   margin-top: 2rem;
 }
+
+.link {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+  font-weight: 300;
+}
