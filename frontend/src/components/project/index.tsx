@@ -9,7 +9,7 @@ type Props = {
 
 export default function ProjectList({ project }: Props) {
   const { mainImage } = project
-  const imageProps = GetImage(project.mainImage) 
+  const imageProps = GetImage(project.mainImage)
 
   return (
     <>

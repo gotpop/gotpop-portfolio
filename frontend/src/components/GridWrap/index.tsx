@@ -7,9 +7,5 @@ type props = {
 }
 
 export default function GridWrap({ children }: props) {
-  return (
-    <div className={styles.gridwrap}>
-      {children}
-    </div>
-  )
+  return <div className={styles.gridwrap}>{children}</div>
 }

@@ -1,7 +1,7 @@
-import ProjectList from "@/components/project"
-import { client } from "client"
-import { groq } from "next-sanity"
-import styles from "./projects.module.css"
+import ProjectList from '@/components/Project'
+import { client } from 'client'
+import { groq } from 'next-sanity'
+import styles from './projects.module.css'
 
 async function getProjects() {
   const query = groq`*[_type == "project"] | order(orderRank)`

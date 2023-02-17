@@ -1,7 +1,7 @@
-import SkillsList from "@/components/skillsList"
-import { client } from "client"
-import { groq } from "next-sanity"
-import styles from "./skills.module.css"
+import SkillsList from '@/components/SkillsList'
+import { client } from 'client'
+import { groq } from 'next-sanity'
+import styles from './skills.module.css'
 
 async function getSkills() {
   const query = groq`*[_type == "category"]`
@@ -10,7 +10,11 @@ async function getSkills() {
   return data
 }
 
-export default async function SkillsLayout({ children }: { children: React.ReactNode }) {
+export default async function SkillsLayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
   const skills = await getSkills()
   return (
     <>
