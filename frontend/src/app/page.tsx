@@ -1,5 +1,5 @@
 import { Key } from 'react'
-import Project from '@/components/Project'
+import Project from '@/components/ProjectItem'
 import { client } from 'client'
 import { groq } from 'next-sanity'
 import styles from './page.module.css'

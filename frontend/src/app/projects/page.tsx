@@ -1,4 +1,4 @@
-import ProjectList from '@/components/Project'
+import ProjectList from '@/components/ProjectItem'
 import { client } from 'client'
 import { groq } from 'next-sanity'
 import styles from './projects.module.css'
