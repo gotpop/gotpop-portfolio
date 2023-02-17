@@ -1,16 +1,25 @@
-import "./globals.css"
-import "../styles/app.css"
+import './globals.css'
+import '../styles/app.css'
 
-import { JSXElementConstructor, ReactElement } from "react"
+import { JSXElementConstructor, ReactElement } from 'react'
 
-import Footer from "@/components/Footer"
-import Grid from "@/components/Grid"
-import GridWrap from "@/components/GridWrap"
-import Header from "@/components/Header"
-import siteStyles from './site.module.css';
-import styles from './layout.module.css';
+import Footer from '@/components/Footer'
+import Grid from '@/components/Grid'
+import GridWrap from '@/components/GridWrap'
+import Header from '@/components/Header'
+import { Inter } from '@next/font/google'
+import siteStyles from './site.module.css'
+import styles from './layout.module.css'
 
-export default function RootLayout({ children }: { children: ReactElement<any, string | JSXElementConstructor<any>> }) {  
+const inter = Inter({
+  subsets: ['latin']
+})
+
+export default function RootLayout({
+  children
+}: {
+  children: ReactElement<any, string | JSXElementConstructor<any>>
+}) {
   return (
     <html lang="en">
       {/*
@@ -18,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactElement<any, s
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
+      <body className={inter.className}>
         <div className={siteStyles.site}>
           <Header />
           <main className={styles.main}>
