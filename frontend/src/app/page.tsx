@@ -1,16 +1,16 @@
-import GridWrap from "@/components/GridWrap"
-import Image from "next/image"
-import { Inter } from "@next/font/google"
-import { Key } from "react"
-import ProjectList from "@/components/project"
-import { client } from "client"
-import { groq } from "next-sanity"
-import styles from "./page.module.css"
-
-const inter = Inter({ subsets: ["latin"] })
+import GridWrap from '@/components/GridWrap'
+import Image from 'next/image'
+import { Inter } from '@next/font/google'
+import { Key } from 'react'
+import ProjectList from '@/components/project'
+import { client } from 'client'
+import { groq } from 'next-sanity'
+import styles from './page.module.css'
 
 async function getProjects() {
-  const data = await client.fetch(groq`*[_type == "project"] | order(orderRank)`)
+  const data = await client.fetch(
+    groq`*[_type == "project"] | order(orderRank)`
+  )
 
   return data
 }
