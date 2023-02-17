@@ -23,6 +23,6 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
       - name: Install Dependencies
-        run: npm i
+        run: npm i --save --legacy-peer-deps
       - name: Code Linting
         run: npm run lint
