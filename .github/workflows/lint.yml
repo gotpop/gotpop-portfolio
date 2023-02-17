@@ -21,7 +21,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Install Dependencies
         run: npm i
-          working-directory: ./frontend
       - name: Code Linting
         run: npm run lint
-          working-directory: ./frontend
