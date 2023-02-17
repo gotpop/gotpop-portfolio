@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "Tomorrow Night Blue",
+		"eslint.workingDirectories": [
+			"./frontend",
+			"./portfolio"
+		]
+	}
+}

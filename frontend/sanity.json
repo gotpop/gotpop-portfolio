@@ -1,0 +1,11 @@
+{
+    "root": true,
+    "project": {
+      "name": "GotPop",
+      "basePath": "./"
+    },
+    "api": {
+      "projectId": "vgmuq0y3",
+      "dataset": "production"
+    }
+  }
