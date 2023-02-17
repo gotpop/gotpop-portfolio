@@ -67,7 +67,5 @@ export async function generateStaticParams() {
     slug: project.slug.current
   }))
 
-  console.log('theMap :', theMap)
-
   return theMap
 }
