@@ -12,6 +12,9 @@ jobs:
   linting:
     name: Linting
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
     steps:
       - name: Install NodeJS
         uses: actions/setup-node@v2
@@ -20,8 +23,6 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
       - name: Install Dependencies
-        working-directory: ./frontend
         run: npm i
       - name: Code Linting
-        working-directory: ./frontend
         run: npm run lint
