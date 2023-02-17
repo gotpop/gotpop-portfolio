@@ -7,7 +7,7 @@ type Props = {
   project: any
 }
 
-export default function ProjectList({ project }: Props) {
+export default function Project({ project }: Props) {
   const { mainImage } = project
   const imageProps = GetImage(project.mainImage)
 

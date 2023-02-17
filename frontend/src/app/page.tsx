@@ -1,5 +1,5 @@
 import { Key } from 'react'
-import ProjectList from '@/components/Project'
+import Project from '@/components/Project'
 import { client } from 'client'
 import { groq } from 'next-sanity'
 import styles from './page.module.css'
@@ -19,7 +19,7 @@ export default async function Home() {
     <div className={styles.grid}>
       {projects.map((project: { _id: Key | null | undefined }) => (
         <>
-          <ProjectList key={project._id} project={project} />
+          <Project key={project._id} project={project} />
         </>
       ))}
     </div>
