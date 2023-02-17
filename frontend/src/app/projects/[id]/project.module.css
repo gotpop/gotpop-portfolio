@@ -7,7 +7,7 @@
 
 .title {
   font-size: var(--font-size-md);
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
 }
 
 .content {
@@ -26,7 +26,6 @@
 
 .wrap {
   grid-column: span 12;
-  background-color: aqua;
   min-height: 57vh;
   display: flex;
   flex-direction: column;
