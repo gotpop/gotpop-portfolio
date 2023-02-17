@@ -1,6 +1,6 @@
 # GotPop 
 
-A Next.js portfolio application. Built with Tailwind and Sanity headless CMS.
+A Next.js portfolio application. Built with CSS Modules & Sanity headless CMS.
 
  Deployed on Vercel.
 
