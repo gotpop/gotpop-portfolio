@@ -1,4 +1,4 @@
-import SkillsList from '@/components/SkillsList'
+import SkillsList from '@/components/SkillsListItem'
 import { client } from 'client'
 import { groq } from 'next-sanity'
 import styles from './skills.module.css'
