@@ -1,4 +1,4 @@
-.site {
+/* .site {
   --local-columns: var(--menu-side-width) calc(100vw - var(--scrollbar-width));
   --local-rows: 1fr 1fr auto;
   --local-template: "head main" "head main" "head foot";
@@ -27,4 +27,8 @@
     --local-width: auto;
     --local-gap: 0;
   }
+} */
+
+.site {
+  background-color: var(--hwb-grey-1);
 }

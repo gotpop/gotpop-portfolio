@@ -1,8 +1,15 @@
+@custom-media --ipad (width > 600px);
+
 .grid {
-  gap: 4rem;
+  gap: 2rem;
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  margin: 4rem 0;
+  grid-template-columns: 1fr;
+
+  @media (--ipad) {
+    gap: 4rem;
+    margin: 4rem 0;
+    grid-template-columns: 2fr 3fr;
+  }
 }
 
 .title {
@@ -11,7 +18,9 @@
 }
 
 .content {
-  margin-bottom: 4rem;
+  @media (--ipad) {
+    margin-bottom: 4rem;
+  }
 }
 
 .content p {

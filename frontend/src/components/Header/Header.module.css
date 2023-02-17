@@ -1,3 +1,4 @@
+@custom-media --phone (width < 600px);
 @custom-media --ipad (width > 600px);
 @custom-media --laptop (width > 1000px);
 @custom-media --desktop (width > 1200px);
@@ -31,9 +32,8 @@
   }
 }
 
-
 .nav {
-  --local-grid-column: 4 / 13;
+  --local-grid-column: 10 / 13;
 
   display: flex;
   flex-direction: column;
@@ -45,6 +45,10 @@
     align-self: center;
     flex-direction: row;
     grid-column: var(--local-grid-column);
+  }
+
+  @media (--phone) {
+    margin-bottom: 3rem;
   }
 
   @media (width > 800px) {
