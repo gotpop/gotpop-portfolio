@@ -2,6 +2,7 @@
   gap: 4rem;
   display: grid;
   grid-template-columns: 2fr 3fr;
+  margin: 4rem 0;
 }
 
 .title {
@@ -25,4 +26,10 @@
 
 .wrap {
   grid-column: span 12;
+  background-color: aqua;
+  min-height: 57vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
