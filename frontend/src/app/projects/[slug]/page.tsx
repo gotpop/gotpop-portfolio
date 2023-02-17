@@ -31,10 +31,11 @@ async function getProjects() {
 }
 
 export default async function Project({ params }: any) {
-  const project = await getProject(params.id)
+  const { slug } = params
+  const project = await getProject(slug)
   const singleProject = project[0]
 
-  const projectSkills = await getProjectSkills(params.id)
+  const projectSkills = await getProjectSkills(slug)
   const categories = await projectSkills[0].categories
 
   const projects = await getProjects()
@@ -62,7 +63,11 @@ export async function generateStaticParams() {
   const query = groq`*[_type == "project"]`
   const data = await client.fetch(query)
 
-  return data.map((project: { slug: any }) => ({
-    id: project.slug.current
+  const theMap = data.map((project: { slug: any }) => ({
+    slug: project.slug.current
   }))
+
+  console.log('theMap :', theMap)
+
+  return theMap
 }
