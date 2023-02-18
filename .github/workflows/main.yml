@@ -5,11 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛒
-        uses:
-          actions/checkout@v2
-          # with:
-          #   working-directory: frontend
+        uses: actions/checkout@v2
       - name: Cypress build & run 🏗️
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+          NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
         uses: cypress-io/github-action@v4.2.0
         with:
           working-directory: ./frontend
