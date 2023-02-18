@@ -18,9 +18,10 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
       - name: Install Dependencies
-        run: npm i
-          with:
-            node-version: ${{ env.NODE_VERSION }}
-            working-directory: ./frontend
+        run:
+          cd ./frontend && npm i
+          # with:
+          #   node-version: ${{ env.NODE_VERSION }}
+          #   working-directory: ./frontend
       - name: Code Linting
         run: npm run lint
