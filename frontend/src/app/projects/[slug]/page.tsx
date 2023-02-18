@@ -1,29 +1,32 @@
+import {
+  getProjectDataBySlug,
+  getProjectDataSkills,
+  getProjectsData
+} from '@/lib/sanity.queries'
+
 import Pagination from '@/components/Pagination'
 import { PortableText } from '@portabletext/react'
 import ProjectSingle from '@/components/ProjectSingleItem'
 import SkillsList from '@/components/SkillsListItem'
-import { client } from 'client'
-import { groq } from 'next-sanity'
+import { client } from '@/lib/sanity.client'
 import styles from './project.module.css'
 
-async function getProject(idVar: any) {
-  const query = groq`*[_type == "project" && slug.current == "${idVar}" && !(_id in path("drafts.**"))]`
+async function getProject(slug: string) {
+  const query = getProjectDataBySlug(slug)
   const data = await client.fetch(query)
 
   return data
 }
 
-async function getProjectSkills(idVar: any) {
-  const query4 = groq`*[_type == "project" && slug.current == "${idVar}"]{categories[]->{title, slug {current}}}`
-
-  const data = await client.fetch(query4)
+async function getProjectSkills(slug: string) {
+  const query = getProjectDataSkills(slug)
+  const data = await client.fetch(query)
 
   return data
 }
 
 async function getProjects() {
-  const query = groq`*[_type == "project"]`
-  const data = await client.fetch(query)
+  const data = await client.fetch(getProjectsData)
 
   return data
 }
@@ -58,8 +61,7 @@ export default async function Project({ params }: any) {
 }
 
 export async function generateStaticParams() {
-  const query = groq`*[_type == "project"]`
-  const data = await client.fetch(query)
+  const data = await client.fetch(getProjectsData)
 
   const theMap = data.map((project: { slug: any }) => ({
     slug: project.slug.current

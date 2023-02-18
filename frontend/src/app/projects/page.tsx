@@ -1,11 +1,10 @@
 import ProjectList from '@/components/ProjectItem'
-import { client } from 'client'
-import { groq } from 'next-sanity'
+import { client } from '@/lib/sanity.client'
+import { getProjectsData } from '@/lib/sanity.queries'
 import styles from './projects.module.css'
 
 async function getProjects() {
-  const query = groq`*[_type == "project"] | order(orderRank)`
-  const data = await client.fetch(query)
+  const data = await client.fetch(getProjectsData)
 
   return data
 }
