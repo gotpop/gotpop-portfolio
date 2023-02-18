@@ -2,10 +2,10 @@ import {
   getCategoriesData,
   getSkillData,
   getTitleData
-} from '@/lib/sanity.queries'
+} from '@lib/sanity.queries'
 
-import ProjectList from '@/components/ProjectItem'
-import { client } from '@/lib/sanity.client'
+import ProjectList from '@components/ProjectItem'
+import { client } from '@lib/sanity.client'
 import styles from './skill.module.css'
 
 async function getSkill(slug: string) {

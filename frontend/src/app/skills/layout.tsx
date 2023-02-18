@@ -1,6 +1,6 @@
-import SkillsList from '@/components/SkillsListItem'
-import { client } from '@/lib/sanity.client'
-import { getCategoriesData } from '@/lib/sanity.queries'
+import SkillsList from '@components/SkillsListItem'
+import { client } from '@lib/sanity.client'
+import { getCategoriesData } from '@lib/sanity.queries'
 import styles from './skills.module.css'
 
 async function getSkills() {

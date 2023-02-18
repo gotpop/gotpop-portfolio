@@ -1,6 +1,6 @@
-import ProjectList from '@/components/ProjectItem'
-import { client } from '@/lib/sanity.client'
-import { getProjectsData } from '@/lib/sanity.queries'
+import ProjectList from '@components/ProjectItem'
+import { client } from '@lib/sanity.client'
+import { getProjectsData } from '@lib/sanity.queries'
 import styles from './projects.module.css'
 
 async function getProjects() {

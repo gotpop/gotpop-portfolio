@@ -1,7 +1,7 @@
 'use client'
 
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr'
-import { calculatePrevNext, handleKeyDown } from '@/utils/pagination'
+import { calculatePrevNext, handleKeyDown } from '@utils/pagination'
 import { useEffect, useState } from 'react'
 
 import Link from 'next/link'

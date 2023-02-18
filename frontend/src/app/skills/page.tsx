@@ -1,7 +1,7 @@
-import { getCategoriesData, getProjectsData } from '@/lib/sanity.queries'
+import { getCategoriesData, getProjectsData } from '@lib/sanity.queries'
 
-import ProjectList from '@/components/ProjectItem'
-import { client } from '@/lib/sanity.client'
+import ProjectList from '@components/ProjectItem'
+import { client } from '@lib/sanity.client'
 import styles from './skills.module.css'
 
 async function getSkills() {
