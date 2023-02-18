@@ -7,7 +7,7 @@ env:
   NODE_VERSION: 18
 jobs:
   linting:
-    name: Linting
+    name: ESLint 🔎
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS

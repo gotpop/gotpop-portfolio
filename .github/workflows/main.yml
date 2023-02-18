@@ -2,6 +2,7 @@ name: Cypress E2E Tests 🧪
 on: [push]
 jobs:
   cypress-run:
+    name: Cypress E2E Tests 🧪
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛒
