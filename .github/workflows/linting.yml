@@ -1,8 +1,5 @@
 name: ESLint 🔎
-on:
-  push:
-    branches:
-      - main
+on: [push]
 env:
   NODE_VERSION: 18
 jobs:
