@@ -1,7 +1,7 @@
 import { Key } from 'react'
-import Project from '@/components/ProjectItem'
-import { client } from '@/lib/sanity.client'
-import { getProjectsData } from '@/lib/sanity.queries'
+import Project from '@components/ProjectItem'
+import { client } from '@lib/sanity.client'
+import { getProjectsData } from '@lib/sanity.queries'
 import styles from './page.module.css'
 
 async function getProjects() {

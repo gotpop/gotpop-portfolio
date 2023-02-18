@@ -2,13 +2,13 @@ import {
   getProjectDataBySlug,
   getProjectDataSkills,
   getProjectsData
-} from '@/lib/sanity.queries'
+} from '@lib/sanity.queries'
 
-import Pagination from '@/components/Pagination'
+import Pagination from '@components/Pagination'
 import { PortableText } from '@portabletext/react'
-import ProjectSingle from '@/components/ProjectSingleItem'
-import SkillsList from '@/components/SkillsListItem'
-import { client } from '@/lib/sanity.client'
+import ProjectSingle from '@components/ProjectSingleItem'
+import SkillsList from '@components/SkillsListItem'
+import { client } from '@lib/sanity.client'
 import styles from './project.module.css'
 
 async function getProject(slug: string) {
