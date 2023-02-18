@@ -1,10 +1,10 @@
-name: StyleLint 🔎
+name: StyleLint 💅
 on: [push]
 env:
   NODE_VERSION: 18
 jobs:
-  linting:
-    name: StyleLint 🔎
+  linting-style:
+    name: StyleLint 💅
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS
@@ -16,9 +16,9 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           working-directory: ./frontend
-      - name: Code Checkout
+      - name: Code checkout 🛒
         uses: actions/checkout@v2
       - name: Install Dependencies
         run: cd ./frontend && npm i --legacy-peer-deps
-      - name: Code Linting
+      - name: Code linting 🏃‍♂️
         run: cd ./frontend && npm run lint:styles

@@ -5,9 +5,9 @@ jobs:
     name: Cypress E2E Tests 🧪
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛒
+      - name: Code checkout 🛒
         uses: actions/checkout@v2
-      - name: Cypress build & run 🏗️
+      - name: Cypress build & run 🏗️ 🏃‍♂️
         env:
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
           NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
