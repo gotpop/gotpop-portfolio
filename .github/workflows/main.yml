@@ -1,0 +1,17 @@
+name: Cypress E2E Tests 🧪
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛒
+        uses:
+          actions/checkout@v2
+          # with:
+          #   working-directory: frontend
+      - name: Cypress build & run 🏗️
+        uses: cypress-io/github-action@v4.2.0
+        with:
+          working-directory: ./frontend
+          build: npm run build
+          start: npm start

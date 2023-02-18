@@ -1,7 +1,6 @@
 import GetImage from '@/utils/getImage'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from './project.module.css'
 
 type PropsImport = {
   project: any
@@ -13,7 +12,7 @@ export default function Project({ project }: PropsImport) {
 
   return (
     <>
-      <Link className={styles.link} href={`/projects/${project.slug.current}`}>
+      <Link href={`/projects/${project.slug.current}`}>
         {imageProps ? (
           <Image
             src={imageProps.src}

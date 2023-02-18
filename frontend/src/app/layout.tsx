@@ -1,4 +1,3 @@
-import './globals.css'
 import '../styles/app.css'
 
 import { JSXElementConstructor, ReactElement } from 'react'
