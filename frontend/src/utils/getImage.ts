@@ -1,4 +1,4 @@
-import { client } from "client";
+import { client } from "@/lib/sanity.client";
 import { useNextSanityImage } from "next-sanity-image";
 
 type ImgProps = {

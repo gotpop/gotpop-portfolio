@@ -1,23 +1,22 @@
+import {
+  getCategoriesData,
+  getSkillData,
+  getTitleData
+} from '@/lib/sanity.queries'
+
 import ProjectList from '@/components/ProjectItem'
-import { client } from 'client'
-import { groq } from 'next-sanity'
+import { client } from '@/lib/sanity.client'
 import styles from './skill.module.css'
 
-async function getSkill(slug: any) {
-  const query = groq`*[_type == "project" && "${slug}" in categories[]->slug.current]{
-    title,
-    slug,
-    mainImage
-    }
-    `
-
+async function getSkill(slug: string) {
+  const query = getSkillData(slug)
   const data = await client.fetch(query)
 
   return data
 }
 
-async function getTitle(slug: any) {
-  const query = groq`*[_type == "category" && slug.current == "${slug}"]`
+async function getTitle(slug: string) {
+  const query = getTitleData(slug)
   const data = await client.fetch(query)
 
   return data[0]
@@ -41,8 +40,7 @@ export default async function Skill({ params }: any) {
 }
 
 export async function generateStaticParams() {
-  const query = groq`*[_type == "category"]`
-  const data = await client.fetch(query)
+  const data = await client.fetch(getCategoriesData)
 
   const theMap = data.map((category: { slug: any }) => ({
     slug: category.slug.current

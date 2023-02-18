@@ -1,19 +1,17 @@
+import { getCategoriesData, getProjectsData } from '@/lib/sanity.queries'
+
 import ProjectList from '@/components/ProjectItem'
-import SkillsList from '@/components/SkillsListItem'
-import { client } from 'client'
-import { groq } from 'next-sanity'
+import { client } from '@/lib/sanity.client'
 import styles from './skills.module.css'
 
 async function getSkills() {
-  const query = groq`*[_type == "category"]`
-  const data = await client.fetch(query)
+  const data = await client.fetch(getCategoriesData)
 
   return data
 }
 
 async function getProjects() {
-  const query = groq`*[_type == "project"]`
-  const data = await client.fetch(query)
+  const data = await client.fetch(getProjectsData)
 
   return data
 }
