@@ -4,7 +4,6 @@ import Grid from '../Grid'
 import GridWrap from '../GridWrap'
 import Link from 'next/link'
 import LogoSVG from '../LogoSVG'
-import { RiChatVoiceLine } from 'react-icons/ri'
 import styles from './Header.module.css'
 
 type Props = {
@@ -19,11 +18,7 @@ const Header = ({ vars }: Props) => {
           <>
             <LogoSVG />
             <nav className={styles.nav}>
-              {/* <Link href={`/about`}>
-                <span>About</span>
-                <RiChatVoiceLine />
-              </Link> */}
-              <Link href={`/skills`}>
+              <Link href={`/skills`} data-cy="link-skills">
                 <span>Skills</span>
                 <BiCode />
               </Link>
