@@ -1,0 +1,24 @@
+name: Cypress Tests 🧪
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛒
+        uses: actions/checkout@v2
+      - name: Cypress build & run 🏗️
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        uses: cypress-io/github-action@v4.2.0
+        with:
+          build: npm run build
+          start: npm start
+          working-directory: frontend
+      - name: Run Component tests 🔬
+        uses: cypress-io/github-action@v4
+        with:
+          install: false
+          component: true
+          working-directory: frontend
