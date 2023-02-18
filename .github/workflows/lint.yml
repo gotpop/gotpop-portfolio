@@ -22,10 +22,6 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
       - name: Install Dependencies
-        run:
-          cd ./frontend && npm i --legacy-peer-deps
-          # with:
-          #   node-version: ${{ env.NODE_VERSION }}
-          #   working-directory: ./frontend
+        run: cd ./frontend && npm i --legacy-peer-deps
       - name: Code Linting
         run: cd ./frontend && npm run lint
