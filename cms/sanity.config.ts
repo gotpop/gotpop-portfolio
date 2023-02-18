@@ -1,7 +1,7 @@
 import { defineConfig } from 'sanity'
 import { deskTool } from "sanity/desk";
-import { handleSchemaTypes } from './config/types';
 import { handleStructure } from "./config/structure";
+import { schemaTypes } from './schemas';
 import { visionTool } from '@sanity/vision'
 
 export default defineConfig({
@@ -15,6 +15,6 @@ export default defineConfig({
     }), visionTool()
   ],
   schema: {
-    types: (previousTypes) => handleSchemaTypes(previousTypes)
+    types: schemaTypes
   }
 })
