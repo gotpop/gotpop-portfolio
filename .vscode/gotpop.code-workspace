@@ -5,8 +5,18 @@
     }
   ],
   "settings": {
+    "spellchecker.ignoreFileExtensions": ["*.stylelintrc"],
     "workbench.colorTheme": "Tomorrow Night Blue",
     "eslint.workingDirectories": ["./frontend", "./portfolio"],
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "emmet.includeLanguages": {
+      "postcss": "css"
+    },
+    "emmet.syntaxProfiles": {
+      "postcss": "css"
+    },
+    "files.associations": {
+      "*.css": "postcss"
+    }
   }
 }

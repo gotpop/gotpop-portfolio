@@ -21,12 +21,12 @@
   @media (--ipad) {
     margin-bottom: 4rem;
   }
-}
 
-.content p {
-  font-size: var(--font-size-base);
-  color: var(--gray-700);
-  margin-top: 2rem;
+  & p {
+    font-size: var(--font-size-base);
+    color: var(--gray-700);
+    margin-top: 2rem;
+  }
 }
 
 .grid figure {

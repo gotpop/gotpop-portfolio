@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:styles": "stylelint --ignore-path .gitignore '{**/*,*}.{css,html}'",
+    "lint:styles": "stylelint --ignore-path .gitignore './src/**/*.css'",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test start http://localhost:3000 cypress",
