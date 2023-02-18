@@ -8,9 +8,11 @@ jobs:
     steps:
       - name: Checkout 🛒
         uses: actions/checkout@v2
+          with:
+            working-directory: frontend
       - name: Cypress build & run 🏗️
         uses: cypress-io/github-action@v4.2.0
         with:
           build: npm run build
           start: npm start
-          working-directory: frontend
+          # working-directory: frontend
