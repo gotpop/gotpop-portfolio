@@ -1,0 +1,31 @@
+name: ESLint 🔎
+on:
+  push:
+    branches:
+      - main
+env:
+  NODE_VERSION: 18
+jobs:
+  linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+          NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          working-directory: ./frontend
+      - name: Code Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run:
+          cd ./frontend && npm i --legacy-peer-deps
+          # with:
+          #   node-version: ${{ env.NODE_VERSION }}
+          #   working-directory: ./frontend
+      - name: Code Linting
+        run: cd ./frontend && npm run lint
