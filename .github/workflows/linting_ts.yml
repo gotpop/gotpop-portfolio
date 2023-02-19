@@ -2,7 +2,7 @@ name: ESLint 🔎
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   pull_request:
     types: [opened, synchronize]
 
