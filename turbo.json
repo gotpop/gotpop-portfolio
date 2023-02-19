@@ -31,7 +31,6 @@
     "lint": {
       "outputs": []
     },
-    "e2e": {},
     "lint:styles": {},
     "dev": {
       "cache": false
