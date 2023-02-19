@@ -21,4 +21,4 @@ jobs:
       - name: Install Dependencies
         run: cd ./apps/frontend && npm i --legacy-peer-deps
       - name: Code linting 🏃‍♂️
-        run: apps/npm run lint
+        run: cd ./apps/frontend && npm run lint
