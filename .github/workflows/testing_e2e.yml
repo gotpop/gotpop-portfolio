@@ -26,9 +26,19 @@ jobs:
         with:
           fetch-depth: 2
 
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+
       - name: Cypress build & run 🏗️ 🏃‍♂️
         uses: cypress-io/github-action@v4.2.0
         with:
           working-directory: ./apps/frontend
-          build: npm run build
-          start: npm start
+          build: pnpm run build
+          start: pnpm start
