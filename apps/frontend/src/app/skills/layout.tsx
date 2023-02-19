@@ -1,6 +1,8 @@
 import SkillsList from '@app/SkillsListItem'
 import { client } from '@lib/sanity.client'
 import { getCategoriesData } from '@lib/sanity.queries'
+import { Suspense } from 'react'
+import Loading from './loading'
 import styles from './skills.module.css'
 
 async function getSkills() {
@@ -18,7 +20,9 @@ export default async function SkillsLayout({
   return (
     <>
       <div className={styles.wrap}>
-        <SkillsList skills={skills} />
+        <Suspense fallback={<Loading />}>
+          <SkillsList skills={skills} />
+        </Suspense>
         {children}
       </div>
     </>
