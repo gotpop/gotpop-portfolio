@@ -19,6 +19,6 @@ jobs:
       - name: Code checkout 🛒
         uses: actions/checkout@v2
       - name: Install Dependencies
-        run: cd ./frontend && npm i --legacy-peer-deps
+        run: npm i --legacy-peer-deps
       - name: Code linting 🏃‍♂️
-        run: cd ./frontend && npm run lint
+        run: npm run lint
