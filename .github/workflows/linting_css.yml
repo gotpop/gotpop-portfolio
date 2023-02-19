@@ -1,24 +1,46 @@
 name: StyleLint 💅
-on: [push]
-env:
-  NODE_VERSION: 18
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
+
 jobs:
-  linting-style:
-    name: StyleLint 💅
+  build:
+    name: Build and StyleLint 💅
+    timeout-minutes: 15
     runs-on: ubuntu-latest
+    # To use Remote Caching, uncomment the next lines and follow the steps below.
+    # env:
+    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+    #  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    env:
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+      NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
+
     steps:
-      - name: Install NodeJS
-        uses: actions/setup-node@v2
-        env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
-          NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
+      - name: Check out code 🛒
+        uses: actions/checkout@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          working-directory: ./frontend
-      - name: Code checkout 🛒
-        uses: actions/checkout@v2
-      - name: Install Dependencies
-        run: npm i --legacy-peer-deps
-      - name: Code linting 🏃‍♂️
-        run: npm run lint:styles
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Lint 🏃‍♂️
+        run: pnpm lint:styles
