@@ -2,10 +2,10 @@ import '../styles/app.css'
 
 import { ReactElement, Suspense } from 'react'
 
-import Footer from '@components/Footer'
+import Footer from '@app/Footer'
 import Grid from '@components/Grid'
 import GridWrap from '@components/GridWrap'
-import Header from '@components/Header'
+import Header from '@app/Header'
 import { Inter } from '@next/font/google'
 import Loading from './loading'
 import siteStyles from './site.module.css'

@@ -1,9 +1,9 @@
 import { BiCode } from 'react-icons/bi'
 import { CSSProperties } from 'react'
-import Grid from '../Grid'
-import GridWrap from '../GridWrap'
+import Grid from '../../components/Grid'
+import GridWrap from '../../components/GridWrap'
 import Link from 'next/link'
-import LogoSVG from '../LogoSVG'
+import LogoSVG from '../../components/LogoSVG'
 import styles from './Header.module.css'
 
 type Props = {
