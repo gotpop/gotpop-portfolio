@@ -1,0 +1,13 @@
+.social {
+  grid-column: 3 / 11;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.link {
+  color: var(--white);
+}
