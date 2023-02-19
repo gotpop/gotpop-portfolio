@@ -2,7 +2,7 @@ name: Cypress E2E Tests 🧪
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   pull_request:
     types: [opened, synchronize]
 
