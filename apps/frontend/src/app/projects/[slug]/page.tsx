@@ -4,10 +4,10 @@ import {
   getProjectsData
 } from '@lib/sanity.queries'
 
-import Pagination from '@components/Pagination'
+import Pagination from '@app/Pagination'
 import { PortableText } from '@portabletext/react'
-import ProjectSingle from '@components/ProjectSingleItem'
-import SkillsList from '@components/SkillsListItem'
+import ProjectSingle from '@app/ProjectSingleItem'
+import SkillsList from '@app/SkillsListItem'
 import { SlugProps } from '@lib/sanity.types'
 import { SlugValue } from '@sanity/types'
 import { client } from '@lib/sanity.client'

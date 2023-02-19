@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react'
-import Grid from '../../components/Grid'
-import GridWrap from '../../components/GridWrap'
-import Social from '@components/Social'
+import Grid from '@app/Grid'
+import GridWrap from '@app/GridWrap'
+import Social from '@app/Social'
 import styles from './Footer.module.css'
 
 type props = {

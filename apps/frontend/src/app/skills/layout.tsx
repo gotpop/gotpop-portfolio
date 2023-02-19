@@ -1,4 +1,4 @@
-import SkillsList from '@components/SkillsListItem'
+import SkillsList from '@app/SkillsListItem'
 import { client } from '@lib/sanity.client'
 import { getCategoriesData } from '@lib/sanity.queries'
 import styles from './skills.module.css'

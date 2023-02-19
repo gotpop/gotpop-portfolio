@@ -5,7 +5,7 @@ import {
   getTitleData
 } from '@lib/sanity.queries'
 
-import ProjectList from '@components/ProjectItem'
+import ProjectList from '@app/ProjectItem'
 import { SlugValue } from 'sanity'
 import { client } from '@lib/sanity.client'
 import styles from './skill.module.css'

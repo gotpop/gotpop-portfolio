@@ -1,4 +1,4 @@
-import Project from '@components/ProjectItem'
+import Project from '@app/ProjectItem'
 import { ProjectType } from '@lib/sanity.types'
 import { client } from '@lib/sanity.client'
 import { getProjectsData } from '@lib/sanity.queries'
