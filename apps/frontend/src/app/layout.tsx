@@ -1,11 +1,13 @@
 import '../styles/app.css'
 
+import { ReactElement, Suspense } from 'react'
+
 import Footer from '@components/Footer'
 import Grid from '@components/Grid'
 import GridWrap from '@components/GridWrap'
 import Header from '@components/Header'
 import { Inter } from '@next/font/google'
-import { ReactElement } from 'react'
+import Loading from './loading'
 import siteStyles from './site.module.css'
 import styles from './layout.module.css'
 
@@ -26,7 +28,9 @@ export default function RootLayout({ children }: { children: ReactElement }) {
           <Header />
           <GridWrap>
             <Grid>
-              <main className={styles.main}>{children}</main>
+              <main className={styles.main}>
+                <Suspense fallback={<Loading />}>{children}</Suspense>
+              </main>
             </Grid>
           </GridWrap>
           <Footer />
