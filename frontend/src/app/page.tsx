@@ -1,5 +1,5 @@
-import { Key } from 'react'
 import Project from '@components/ProjectItem'
+import { ProjectType } from '@lib/sanity.types'
 import { client } from '@lib/sanity.client'
 import { getProjectsData } from '@lib/sanity.queries'
 import styles from './page.module.css'
@@ -15,9 +15,9 @@ export default async function Home() {
 
   return (
     <div className={styles.grid}>
-      {projects.map((project: { _id: Key | null | undefined }) => (
+      {projects.map((project: ProjectType) => (
         <>
-          <Project key={project._id} project={project} />
+          <Project key={project.slug.current} project={project} />
         </>
       ))}
     </div>

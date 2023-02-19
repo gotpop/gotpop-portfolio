@@ -1,7 +1,7 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context"
-import { Router } from "next/router"
+import { ProjectType } from "@lib/sanity.types"
 
-export const calculatePrevNext = (projects: string | any[], index: number) => {
+export const calculatePrevNext = (projects: ProjectType[], index: number) => {
     const end = projects.length - 1
     let positionPrev
     let positionNext
@@ -18,8 +18,14 @@ export const calculatePrevNext = (projects: string | any[], index: number) => {
     }
 }
 
-export const handleKeyDown = (previous: undefined, next: undefined, router: AppRouterInstance | string[]) => (e: any) => {
-    return e.key === 'ArrowLeft' ? router.push(`/projects/${previous}`)
-        : e.key === 'ArrowRight' ? router.push(`/projects/${next}`)
+export const handleKeyDown = (
+    previous: string | undefined,
+    next: string | undefined,
+    router: AppRouterInstance
+) => (e: KeyboardEvent) => {
+    return e.key === 'ArrowLeft'
+        ? router.push(`/projects/${previous}`)
+        : e.key === 'ArrowRight'
+            ? router.push(`/projects/${next}`)
             : null
 }

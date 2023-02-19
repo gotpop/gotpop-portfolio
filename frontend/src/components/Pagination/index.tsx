@@ -5,24 +5,25 @@ import { calculatePrevNext, handleKeyDown } from '@utils/pagination'
 import { useEffect, useState } from 'react'
 
 import Link from 'next/link'
+import { ProjectType } from '@lib/sanity.types'
 import styles from './Pagination.module.css'
 import { useRouter } from 'next/navigation'
 
 type Props = {
-  projects: any
-  post: any
+  projects: ProjectType[]
+  post: ProjectType
 }
 
 export default function Pagination({ projects, post }: Props) {
-  const [next, setNext] = useState()
-  const [previous, setPrevious] = useState()
+  const [next, setNext] = useState<string>()
+  const [previous, setPrevious] = useState<string>()
   const router = useRouter()
 
-  const loopOver = (projects: any[]) =>
+  const loopOver = (projects: ProjectType[]) =>
     projects?.forEach((project, index) => setPrevNext(project, index))
 
-  const setPrevNext = (project: { _id: any }, index: number) => {
-    if (post._id !== project._id) return
+  const setPrevNext = (project: ProjectType, index: number) => {
+    if (post.slug.current !== project.slug.current) return
 
     const { previous, next } = calculatePrevNext(projects, index)
 
