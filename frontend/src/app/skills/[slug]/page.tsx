@@ -1,3 +1,4 @@
+import { ProjectType, SlugProps } from '@lib/sanity.types'
 import {
   getCategoriesData,
   getSkillData,
@@ -5,6 +6,7 @@ import {
 } from '@lib/sanity.queries'
 
 import ProjectList from '@components/ProjectItem'
+import { SlugValue } from 'sanity'
 import { client } from '@lib/sanity.client'
 import styles from './skill.module.css'
 
@@ -22,7 +24,7 @@ async function getTitle(slug: string) {
   return data[0]
 }
 
-export default async function Skill({ params }: any) {
+export default async function Skill({ params }: SlugProps) {
   const { slug } = params
   const projects = await getSkill(slug)
   const { title } = await getTitle(slug)
@@ -31,8 +33,8 @@ export default async function Skill({ params }: any) {
     <>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.grid}>
-        {projects.map((project: any, i: number) => (
-          <ProjectList key={i} project={project} />
+        {projects.map((project: ProjectType) => (
+          <ProjectList key={project.slug.current} project={project} />
         ))}
       </div>
     </>
@@ -42,9 +44,7 @@ export default async function Skill({ params }: any) {
 export async function generateStaticParams() {
   const data = await client.fetch(getCategoriesData)
 
-  const theMap = data.map((category: { slug: any }) => ({
+  return data.map((category: { slug: SlugValue }) => ({
     slug: category.slug.current
   }))
-
-  return theMap
 }

@@ -1,12 +1,13 @@
 import GetImage from '@utils/getImage'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ProjectType } from '@lib/sanity.types'
 
-type PropsImport = {
-  project: any
+type Props = {
+  project: ProjectType
 }
 
-export default function Project({ project }: PropsImport) {
+export default function Project({ project }: Props) {
   const { mainImage } = project
   const imageProps = GetImage(project.mainImage)
 
@@ -16,7 +17,6 @@ export default function Project({ project }: PropsImport) {
         {imageProps ? (
           <Image
             src={imageProps.src}
-            loader={mainImage.loader}
             alt={mainImage.alt || 'Thumbnail'}
             width={'600'}
             height={'400'}

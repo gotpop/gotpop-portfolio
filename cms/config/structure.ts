@@ -14,11 +14,11 @@ export const handleStructure = (S: StructureBuilder, context: StructureResolverC
                     S.editor().schemaType("siteconfig").documentId("siteconfig")
                 ),
             S.divider(),
-            orderableDocumentListDeskItem({ 
+            orderableDocumentListDeskItem({
                 icon: CodeBlockIcon,
-                type: 'category', 
+                type: 'category',
                 title: 'Skills',
-                S, 
+                S,
                 context
             }),
             orderableDocumentListDeskItem({

@@ -1,4 +1,5 @@
 import ProjectList from '@components/ProjectItem'
+import { ProjectType } from '@lib/sanity.types'
 import { client } from '@lib/sanity.client'
 import { getProjectsData } from '@lib/sanity.queries'
 import styles from './projects.module.css'
@@ -9,15 +10,15 @@ async function getProjects() {
   return data
 }
 
-export default async function About() {
+export default async function Projects() {
   const projects = await getProjects()
 
   return (
     <>
       <section className={styles.grid}>
-        {projects.map((project: any) => (
+        {projects.map((project: ProjectType) => (
           <>
-            <ProjectList key={project._id} project={project} />
+            <ProjectList key={project.slug.current} project={project} />
           </>
         ))}
       </section>

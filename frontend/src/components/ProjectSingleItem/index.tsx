@@ -1,8 +1,9 @@
 import GetImage from '@utils/getImage'
 import Image from 'next/image'
+import { ProjectType } from '@lib/sanity.types'
 
 type Props = {
-  project: any
+  project: ProjectType
 }
 
 export default function ProjectSingle({ project }: Props) {

@@ -8,6 +8,8 @@ import Pagination from '@components/Pagination'
 import { PortableText } from '@portabletext/react'
 import ProjectSingle from '@components/ProjectSingleItem'
 import SkillsList from '@components/SkillsListItem'
+import { SlugProps } from '@lib/sanity.types'
+import { SlugValue } from '@sanity/types'
 import { client } from '@lib/sanity.client'
 import styles from './project.module.css'
 
@@ -31,7 +33,7 @@ async function getProjects() {
   return data
 }
 
-export default async function Project({ params }: any) {
+export default async function Project({ params }: SlugProps) {
   const { slug } = params
   const project = await getProject(slug)
   const singleProject = project[0]
@@ -63,9 +65,7 @@ export default async function Project({ params }: any) {
 export async function generateStaticParams() {
   const data = await client.fetch(getProjectsData)
 
-  const theMap = data.map((project: { slug: any }) => ({
+  return data.map((project: { slug: SlugValue }) => ({
     slug: project.slug.current
   }))
-
-  return theMap
 }
