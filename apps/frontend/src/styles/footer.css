@@ -12,12 +12,12 @@
   scroll-snap-stop: always;
   margin-top: var(--local-top-margin);
 
-  @media (--ipad) {
+  @media (width > 600px) {
     border-radius: var(--local-border-radius);
     width: calc(100vw - var(--scrollbar-width));
   }
 
-  @media (--desktop) {
+  @media (width > 1200px) {
     --local-radius: var(--radius-xl);
   }
 }

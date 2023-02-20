@@ -14,6 +14,7 @@ export default function ProjectSingle({ project }: Props) {
     <>
       {imageProps ? (
         <Image
+          className="project__image"
           src={imageProps.src}
           loader={mainImage.loader}
           blurDataURL={mainImage.blurDataURL}
