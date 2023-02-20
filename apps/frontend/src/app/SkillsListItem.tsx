@@ -1,4 +1,6 @@
+// TODO typo! accessibility
 import { CategoryType } from '@lib/sanity.types'
+import Icon from '@components/icon'
 import Link from 'next/link'
 
 type Props = {
@@ -16,7 +18,8 @@ export default function SkillsList({ skills }: Props) {
               className="skills-list__link"
               href={`/skills/${skill.slug.current}`}
             >
-              {skill.title}
+              <span>{skill.title}</span>
+              <Icon icon={skill.slug.current} />
             </Link>
           )
         })}
