@@ -44,11 +44,11 @@ export default async function Project({ params }: SlugProps) {
 
   return (
     <div className="project__wrap">
+      <SkillsList skills={categories} />
       <div className="project">
         <article className="project__content">
           <h2 className="project__title">{singleProject.title}</h2>
           <PortableText value={singleProject.body} />
-          <SkillsList skills={categories} />
         </article>
         <figure className="project__figure">
           <ProjectSingle project={singleProject} />

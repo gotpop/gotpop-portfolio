@@ -3,14 +3,21 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  grid-column: span 12;
+  align-self: start;
 }
 
 .skills-list__link {
   background-color: var(--white);
   color: var(--grey-700);
-  padding: 0.6em 2em;
+  padding: 0.6em 1em;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 20px;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+
+  svg {
+    opacity: 0.5;
+  }
 }
