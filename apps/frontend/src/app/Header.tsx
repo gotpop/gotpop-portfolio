@@ -1,6 +1,6 @@
 import { BiCode } from 'react-icons/bi'
 import { CSSProperties } from 'react'
-import Grid from '../Grid'
+import Grid from './Grid'
 import GridWrap from '@app/GridWrap'
 import Link from 'next/link'
 import LogoSVG from '@app/LogoSVG'
