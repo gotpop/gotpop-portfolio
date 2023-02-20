@@ -1,0 +1,20 @@
+.pagination__wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  gap: var(--spacing);
+  margin-top: 2rem;
+}
+
+.pagination__link {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  background-color: var(--white);
+  border-radius: var(--radius);
+}

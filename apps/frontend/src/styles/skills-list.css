@@ -1,0 +1,16 @@
+.skills-list__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  grid-column: span 12;
+}
+
+.skills-list__link {
+  background-color: var(--white);
+  color: var(--grey-700);
+  padding: 0.6em 2em;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 10px;
+}

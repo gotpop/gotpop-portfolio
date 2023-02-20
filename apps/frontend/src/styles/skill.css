@@ -1,0 +1,37 @@
+.skill__grid {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column: span 12;
+
+  @media (width > 600px) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.skill__grid .project-link {
+  display: flex;
+  background-color: var(--gray-300);
+
+  @media (width > 600px) {
+    grid-column: span 6;
+  }
+}
+
+.skill__grid .project-link:nth-child(n + 3) {
+  @media (width > 600px) {
+    grid-column: span 3;
+  }
+}
+
+.skill__grid .project-link:nth-child(n + 7) {
+  @media (width > 600px) {
+    grid-column: span 4;
+  }
+}
+
+.skill__title {
+  text-transform: capitalize;
+  font-size: var(--font-size-md);
+  margin: 1rem 0 2rem 0;
+}
