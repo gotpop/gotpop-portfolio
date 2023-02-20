@@ -18,10 +18,8 @@ export default async function SkillsLayout({
 
   return (
     <>
-      <div className="grid">
-        <SkillsList skills={skills} />
-        {children}
-      </div>
+      <SkillsList skills={skills} />
+      {children}
     </>
   )
 }
