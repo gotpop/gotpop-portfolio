@@ -13,7 +13,7 @@ export default function Project({ project }: Props) {
 
   return (
     <>
-      <Link href={`/projects/${project.slug.current}`}>
+      <Link className="project-link" href={`/projects/${project.slug.current}`}>
         {imageProps ? (
           <Image
             src={imageProps.src}

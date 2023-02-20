@@ -2,7 +2,6 @@ import { CSSProperties } from 'react'
 import Grid from '@app/Grid'
 import GridWrap from '@app/GridWrap'
 import Social from '@app/Social'
-import styles from './Footer.module.css'
 
 type props = {
   vars: CSSProperties
@@ -10,12 +9,12 @@ type props = {
 
 const Footer = ({ vars }: props) => {
   return (
-    <footer className={styles.footer} style={vars}>
+    <footer className="footer" style={vars}>
       <GridWrap>
         <Grid>
           <>
             <Social />
-            <span className={styles.copyright}>
+            <span className="copyright">
               Copyright © {new Date().getFullYear()}. All rights reserved.
             </span>
           </>

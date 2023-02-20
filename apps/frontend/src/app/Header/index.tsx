@@ -4,7 +4,6 @@ import Grid from '../Grid'
 import GridWrap from '@app/GridWrap'
 import Link from 'next/link'
 import LogoSVG from '@app/LogoSVG'
-import styles from './Header.module.css'
 
 type Props = {
   vars: CSSProperties | undefined
@@ -12,12 +11,12 @@ type Props = {
 
 const Header = ({ vars }: Props) => {
   return (
-    <header className={styles.header} style={vars}>
+    <header className="header" style={vars}>
       <GridWrap>
         <Grid>
           <>
             <LogoSVG />
-            <nav className={styles.nav}>
+            <nav className="nav">
               <Link href={`/skills`} data-cy="link-skills">
                 <span>Skills</span>
                 <BiCode />

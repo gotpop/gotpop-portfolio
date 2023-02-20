@@ -1,15 +1,12 @@
 import '../styles/app.css'
 
-import { ReactElement, Suspense } from 'react'
+import { ReactElement } from 'react'
 
 import Footer from '@app/Footer'
 import Grid from '@app/Grid'
 import GridWrap from '@app/GridWrap'
 import Header from '@app/Header'
 import { Inter } from '@next/font/google'
-import Loading from './loading'
-import siteStyles from './site.module.css'
-import styles from './layout.module.css'
 
 const inter = Inter({
   subsets: ['latin']
@@ -24,13 +21,11 @@ export default function RootLayout({ children }: { children: ReactElement }) {
       */}
       <head />
       <body className={inter.className}>
-        <div className={siteStyles.site}>
+        <div className="site">
           <Header />
           <GridWrap>
             <Grid>
-              <main className={styles.main}>
-                <Suspense fallback={<Loading />}>{children}</Suspense>
-              </main>
+              <main className="main">{children}</main>
             </Grid>
           </GridWrap>
           <Footer />

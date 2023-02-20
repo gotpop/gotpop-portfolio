@@ -1,18 +1,13 @@
 import { CSSProperties } from 'react'
-// import { GiSpiralLollipop } from 'react-icons/gi'
 import Link from 'next/link'
-import styles from './LogoSVG.module.css'
-// import { useCloseMenu } from '@hooks/useCloseMenu'
 
 type Props = {
   vars: CSSProperties
 }
 
 const LogoSVG = ({ vars }: Props) => {
-  // const { handleCloseMenu } = useCloseMenu()
-
   return (
-    <Link className={styles.logo} href="/">
+    <Link className="logo" href="/">
       <h1 id="logo">
         <svg
           xmlns="http://www.w3.org/2000/svg"

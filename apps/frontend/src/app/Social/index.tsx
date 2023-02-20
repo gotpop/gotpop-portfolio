@@ -1,13 +1,16 @@
-import styles from './Social.module.css'
-
 export default function Social() {
   return (
     <>
-      <section className={styles.social}>
-        <nav className={styles.nav}>
-          <a className={styles.link} href="http://codepen.io/gotpop">
-            <span className={styles.icon}>
-              <svg className={styles.svg} width="50" height="50" name="codepen">
+      <section className="social">
+        <nav className="social__nav">
+          <a className="social__link" href="http://codepen.io/gotpop">
+            <span className="social__icon">
+              <svg
+                className="social__svg"
+                width="50"
+                height="50"
+                name="codepen"
+              >
                 <path
                   fill="currentColor"
                   d="M25 0C11.2 0 0 11.2 0 25s11.2 25 25 25 25-11.2 25-25S38.8 0 25 0zm0 45.9C13.5 45.9 4.1 36.5 4.1 25S13.5 4.1 25 4.1c11.5 0 20.9 9.4 20.9 20.9S36.5 45.9 25 45.9z"
@@ -19,10 +22,10 @@ export default function Social() {
               </svg>
             </span>
           </a>
-          <a className={styles.link} href="http://uk.linkedin.com/in/gotpop">
-            <span className={styles.icon}>
+          <a className="social__link" href="http://uk.linkedin.com/in/gotpop">
+            <span className="social__icon">
               <svg
-                className={styles.svg}
+                className="social__svg"
                 width="50"
                 height="50"
                 name="linkedin"
@@ -34,9 +37,9 @@ export default function Social() {
               </svg>
             </span>
           </a>
-          <a className={styles.link} href="https://github.com/gotpop">
-            <span className={styles.icon}>
-              <svg className={styles.svg} width="50" height="50" name="github">
+          <a className="social__link" href="https://github.com/gotpop">
+            <span className="social__icon">
+              <svg className="social__svg" width="50" height="50" name="github">
                 <path
                   fill="currentColor"
                   d="M25 0C11.2 0 0 11.5 0 25.6 0 37 7.2 46.6 17.1 50c1.2.2 1.7-.6 1.7-1.2V44c-7 1.6-8.4-3-8.4-3-1.1-3-2.8-3.8-2.8-3.8-2.3-1.6.2-1.6.2-1.6 2.5.2 3.8 2.6 3.8 2.6 2.2 3.9 5.8 2.8 7.3 2.1.2-1.7.9-2.8 1.6-3.4C14.9 36.3 9 34.1 9 24.3c0-2.8 1-5.1 2.6-6.9-.3-.6-1.1-3.3.2-6.8 0 0 2.1-.7 6.9 2.6 2-.6 4.1-.9 6.3-.9 2.1 0 4.3.3 6.3.9 4.8-3.3 6.9-2.6 6.9-2.6 1.4 3.5.5 6.1.2 6.8 1.6 1.8 2.6 4.1 2.6 6.9 0 9.8-5.8 12-11.4 12.6.9.8 1.7 2.4 1.7 4.7v7c0 .7.4 1.5 1.7 1.2 9.8-3.2 17-12.8 17-24.2C50 11.5 38.8 0 25 0z"

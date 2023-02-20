@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 
 import Link from 'next/link'
 import { ProjectType } from '@lib/sanity.types'
-import styles from './Pagination.module.css'
 import { useRouter } from 'next/navigation'
 
 type Props = {
@@ -42,13 +41,13 @@ export default function Pagination({ projects, post }: Props) {
 
   return (
     <>
-      <article className={styles.wrap}>
-        <div className={styles.pagination}>
-          <Link className={styles.link} href={`/projects/${previous}`}>
+      <article className="pagination__wrap">
+        <div className="pagination">
+          <Link className="pagination__link" href={`/projects/${previous}`}>
             <GrLinkPrevious />
             <span className="uppercase">Prev</span>
           </Link>
-          <Link className={styles.link} href={`/projects/${next}`}>
+          <Link className="pagination__link" href={`/projects/${next}`}>
             <span className="uppercase">Next</span>
             <GrLinkNext />
           </Link>
