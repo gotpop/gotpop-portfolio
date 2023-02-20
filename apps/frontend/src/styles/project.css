@@ -20,8 +20,8 @@
 }
 
 .project__title {
-  font-size: var(--font-size-md);
-  margin: 0 0 2rem 0;
+  font-size: var(--font-size-lg);
+  margin: 0 0 1rem 0;
 }
 
 .project__content {
@@ -31,11 +31,16 @@
 
   & p {
     font-size: var(--font-size-base);
-    color: var(--gray-700);
-    margin-top: 2rem;
+    color: var(--gray-600);
+    margin-bottom: 2rem;
   }
 }
 
-.project figure {
+.project__figure {
   margin: 0;
+}
+
+.project__image {
+  border-radius: var(--radius);
+  overflow: hidden;
 }

@@ -11,6 +11,7 @@ html {
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y proximity;
+  background-color: var(--hwb-grey-1);
 }
 
 body {
@@ -23,15 +24,10 @@ body {
 img {
   width: 100%;
   height: auto;
-  border-radius: 3px;
 }
 
 .main {
   padding: 4rem 0 6rem 0;
   min-height: 100vh;
   grid-column: span 12;
-}
-
-.site {
-  background-color: var(--hwb-grey-1);
 }

@@ -32,4 +32,6 @@ a {
 
 p {
   max-width: 500px;
+  line-height: 1.4em;
+  letter-spacing: 0.015em;
 }
