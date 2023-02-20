@@ -1,0 +1,20 @@
+.projects {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.projects a {
+  grid-column: span 6;
+  display: flex;
+  background-color: var(--gray-300);
+}
+
+.projects a:nth-child(n + 3) {
+  grid-column: span 3;
+}
+
+.projects a:nth-child(n + 7) {
+  grid-column: span 4;
+}

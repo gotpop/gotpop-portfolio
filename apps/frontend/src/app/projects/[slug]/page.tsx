@@ -4,14 +4,13 @@ import {
   getProjectsData
 } from '@lib/sanity.queries'
 
-import Pagination from '@components/Pagination'
+import Pagination from '@app/Pagination'
 import { PortableText } from '@portabletext/react'
-import ProjectSingle from '@components/ProjectSingleItem'
-import SkillsList from '@components/SkillsListItem'
+import ProjectSingle from './Project'
+import SkillsList from '@app/SkillsListItem'
 import { SlugProps } from '@lib/sanity.types'
 import { SlugValue } from '@sanity/types'
 import { client } from '@lib/sanity.client'
-import styles from './project.module.css'
 
 async function getProject(slug: string) {
   const query = getProjectDataBySlug(slug)
@@ -44,21 +43,19 @@ export default async function Project({ params }: SlugProps) {
   const projects = await getProjects()
 
   return (
-    <>
-      <div className={styles.wrap}>
-        <div className={styles.grid}>
-          <article className={styles.content}>
-            <h2 className={styles.title}>{singleProject.title}</h2>
-            <SkillsList skills={categories} />
-            <PortableText value={singleProject.body} />
-          </article>
-          <figure>
-            <ProjectSingle project={singleProject} />
-          </figure>
-        </div>
-        <Pagination post={singleProject} projects={projects} />
+    <div className="project__wrap">
+      <div className="project">
+        <article className="project__content">
+          <h2 className="project__title">{singleProject.title}</h2>
+          <SkillsList skills={categories} />
+          <PortableText value={singleProject.body} />
+        </article>
+        <figure>
+          <ProjectSingle project={singleProject} />
+        </figure>
       </div>
-    </>
+      <Pagination post={singleProject} projects={projects} />
+    </div>
   )
 }
 

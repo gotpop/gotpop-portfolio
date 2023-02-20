@@ -3,3 +3,21 @@
 @import "./media";
 @import "./global";
 @import "./typography";
+
+@import "./grid";
+@import "./grid-wrap";
+
+@import "./header.css";
+@import "./logo.css";
+@import "./footer.css";
+@import "./social.css";
+
+@import "./home.css";
+
+@import "./project.css";
+@import "./projects.css";
+@import "./pagination.css";
+
+@import "./skill.css";
+@import "./skills.css";
+@import "./skills-list.css";

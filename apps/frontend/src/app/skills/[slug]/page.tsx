@@ -5,10 +5,9 @@ import {
   getTitleData
 } from '@lib/sanity.queries'
 
-import ProjectList from '@components/ProjectItem'
+import ProjectList from '@app/ProjectItem'
 import { SlugValue } from 'sanity'
 import { client } from '@lib/sanity.client'
-import styles from './skill.module.css'
 
 async function getSkill(slug: string) {
   const query = getSkillData(slug)
@@ -31,8 +30,8 @@ export default async function Skill({ params }: SlugProps) {
 
   return (
     <>
-      <h2 className={styles.title}>{title}</h2>
-      <div className={styles.grid}>
+      <h2 className="skill__title">{title}</h2>
+      <div className="skill__grid">
         {projects.map((project: ProjectType) => (
           <ProjectList key={project.slug.current} project={project} />
         ))}

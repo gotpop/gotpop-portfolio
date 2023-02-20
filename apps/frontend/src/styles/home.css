@@ -1,0 +1,31 @@
+.home-grid {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column: span 12;
+
+  @media (width > 600px) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.home-grid .project-link {
+  display: flex;
+  background-color: var(--gray-300);
+
+  @media (width > 600px) {
+    grid-column: span 6;
+  }
+}
+
+.home-grid .project-link:nth-child(n + 3) {
+  @media (width > 600px) {
+    grid-column: span 3;
+  }
+}
+
+.home-grid .project-link:nth-child(n + 7) {
+  @media (width > 600px) {
+    grid-column: span 4;
+  }
+}

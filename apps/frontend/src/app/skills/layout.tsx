@@ -1,7 +1,7 @@
-import SkillsList from '@components/SkillsListItem'
+import SkillsList from '@app/SkillsListItem'
 import { client } from '@lib/sanity.client'
 import { getCategoriesData } from '@lib/sanity.queries'
-import styles from './skills.module.css'
+import { ReactNode } from 'react'
 
 async function getSkills() {
   const data = await client.fetch(getCategoriesData)
@@ -12,15 +12,14 @@ async function getSkills() {
 export default async function SkillsLayout({
   children
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   const skills = await getSkills()
+
   return (
     <>
-      <div className={styles.wrap}>
-        <SkillsList skills={skills} />
-        {children}
-      </div>
+      <SkillsList skills={skills} />
+      {children}
     </>
   )
 }
