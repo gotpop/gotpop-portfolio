@@ -42,9 +42,9 @@ jobs:
 
       - name: Start
         run: pnpm start
-        with:
-          wait-on: "http://localhost:3050"
-          wait-on-timeout: 130
+          with:
+            wait-on: "http://localhost:3050"
+            wait-on-timeout: 130
 
       - name: Test
         run: pnpm test
