@@ -41,8 +41,8 @@ jobs:
         run: pnpm build
 
       - name: Start
-        run: pnpm start
         uses: cypress-io/github-action@v5
+          start: pnpm start
 
       - name: Test
         run: pnpm test
