@@ -21,10 +21,24 @@ jobs:
       NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
 
     steps:
-      - name: Checkout
+      - name: Check out code 🛒
         uses: actions/checkout@v3
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - name: Cypress build & run 🏗️ 🏃‍♂️
         uses: cypress-io/github-action@v5
-        # working-directory: apps/frontend
+        with:
+          build: pnpm run build
+          start: pnpm start
+          # working-directory: apps/frontend
