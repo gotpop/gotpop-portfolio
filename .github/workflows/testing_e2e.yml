@@ -39,7 +39,7 @@ jobs:
       - name: Cypress build & run 🏗️ 🏃‍♂️
         uses: cypress-io/github-action@v5
         with:
-          build: pnpm run build
-          start: pnpm run start
+          # build: pnpm run build
+          # start: pnpm run start
           working-directory: apps/frontend
-          wait-on: "http://localhost:3000"
+          # wait-on: "http://localhost:3000"
