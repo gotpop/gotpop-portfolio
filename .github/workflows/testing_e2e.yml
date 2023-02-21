@@ -10,32 +10,23 @@ jobs:
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
     steps:
-      # - name: Checkout 🛒
-      #   uses: actions/checkout@v2
-
-      - name: Check out code
+      - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
-          fetch-depth: 2
+          version: latest
 
-      - uses: pnpm/action-setup@v2.0.1
+      - name: Cypress tests
+        # normally you would write
+        # uses: cypress-io/github-action@v5
+        uses: ./
+        # the parameters below are only necessary
+        # because we are running these examples in a monorepo
         with:
-          version: 6.32.2
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build
-        run: pnpm build
-
-      - name: Cypress build & run 🏗️
-        uses: cypress-io/github-action@v5
-        with:
-          build: pnpm run build
-          start: pnpm start
+          working-directory: apps/frontend
+          # just for full picture after installing Cypress
+          # print information about detected browsers, etc
+          # see https://on.cypress.io/command-line#cypress-info
+          build: npx cypress info
