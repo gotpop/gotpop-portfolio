@@ -43,9 +43,9 @@ jobs:
       - name: Start
         uses: cypress-io/github-action@v5
           start: pnpm start
+          test: pnpm test
 
-      - name: Test
-        run: pnpm test
+      # - name: Test
 #     env:
 #       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
 #       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
