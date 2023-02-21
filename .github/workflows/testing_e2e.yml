@@ -53,7 +53,7 @@ jobs:
           node-version: 18
           cache: "pnpm"
       - uses: cypress-io/github-action@v5
-        with:
+        # with:
           # working-directory: apps/frontend
           # build: pnpm build
           # start: pnpm start
