@@ -42,11 +42,11 @@ jobs:
 
       - name: Start
         uses: cypress-io/github-action@v5
+        with:
+          # working-directory: examples/wait-on
           start: pnpm start
-          test: pnpm test
+          wait-on: "http://localhost:3050"
+          wait-on-timeout: 130
 
-      # - name: Test
-#     env:
-#       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-#       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
-#       NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
+      - name: Test
+        run: pnpm test
