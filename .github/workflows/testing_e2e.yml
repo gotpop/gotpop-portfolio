@@ -10,7 +10,7 @@ jobs:
   build:
     name: Cypress E2E Tests 🧪
     timeout-minutes: 15
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     # To use Remote Caching, uncomment the next lines and follow the steps below.
     # env:
     #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -20,10 +20,6 @@ jobs:
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
 
-    # the example has Yarn workspace in its "root" folder
-    # examples/start-and-yarn-workspaces
-    # and tests in a subfolder like "workspace-1"
-    runs-on: ubuntu-22.04
     steps:
       - name: Check out code 🛒
         uses: actions/checkout@v3
@@ -40,35 +36,10 @@ jobs:
           node-version: 18
           cache: "pnpm"
 
-      - name: Single
-      - uses: cypress-io/github-action@v5
+      - name: Cypress build & run 🏗️ 🏃‍♂️
+        uses: cypress-io/github-action@v5
         with:
+          build: pnpm run build
+          start: pnpm start
           working-directory: apps/frontend
-          build: yarn run build
-          start: yarn start
           wait-on: "http://localhost:3000"
-
-      # - name: Cypress build & run 🏗️ 🏃‍♂️
-      #   uses: cypress-io/github-action@v5
-      # with:
-      #   build: pnpm run build
-      #   start: pnpm start
-      #   working-directory: apps/frontend
-      # - uses: actions/checkout@v3
-      # - uses: pnpm/action-setup@v2.0.1
-      #   with:
-      #     version: 6.32.2
-
-      # - name: Setup Node.js environment
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
-      #     cache: "pnpm"
-      # - uses: cypress-io/github-action@v5
-      #   # with:
-      #   # working-directory: apps/frontend
-      #   # build: pnpm build
-      #   # start: pnpm start
-      #   # wait-on: "http://localhost:3000"
-      # - run: pnpm build
-      # - run: pnpm start
