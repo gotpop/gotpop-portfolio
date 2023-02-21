@@ -15,24 +15,6 @@
         ".next/**"
       ]
     },
-    "web#build": {
-      "env": [
-        "^build",
-        "NEXT_PUBLIC_SANITY_DATASET",
-        "NEXT_PUBLIC_SANITY_PROJECT_ID"
-      ],
-      "outputs": [
-        ".next/**"
-      ]
-    },
-    "studio#build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "public/**"
-      ]
-    },
     "lint": {
       "outputs": []
     },

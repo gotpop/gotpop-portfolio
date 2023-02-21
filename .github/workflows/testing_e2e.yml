@@ -25,8 +25,20 @@ jobs:
     # and tests in a subfolder like "workspace-1"
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
+      - name: Check out code 🛒
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
 
       - name: Single
         uses: ./
@@ -35,21 +47,6 @@ jobs:
           build: yarn run build
           start: yarn start
           wait-on: "http://localhost:3000"
-
-      # - name: Check out code 🛒
-      #   uses: actions/checkout@v3
-      #   with:
-      #     fetch-depth: 2
-
-      # - uses: pnpm/action-setup@v2.0.1
-      #   with:
-      #     version: 6.32.2
-
-      # - name: Setup Node.js environment
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
-      #     cache: "pnpm"
 
       # - name: Cypress build & run 🏗️ 🏃‍♂️
       #   uses: cypress-io/github-action@v5
