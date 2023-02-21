@@ -41,7 +41,6 @@ jobs:
           cache: "pnpm"
 
       - name: Single
-        uses: ./
       - uses: cypress-io/github-action@v5
         with:
           working-directory: apps/frontend
