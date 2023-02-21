@@ -42,6 +42,7 @@ jobs:
 
       - name: Single
         uses: ./
+      - uses: cypress-io/github-action@v5
         with:
           working-directory: apps/frontend
           build: yarn run build
