@@ -40,6 +40,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Start
+        run: pnpm start
+
       - name: Test
         run: pnpm test
 #     env:
