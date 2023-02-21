@@ -38,7 +38,7 @@ jobs:
 
       - name: Cypress build & run 🏗️ 🏃‍♂️
         uses: cypress-io/github-action@v5
-        with:
-          build: pnpm run build
-          start: pnpm start
-          working-directory: apps/frontend
+        # with:
+        #   build: pnpm run build
+        #   start: pnpm start
+        #   working-directory: apps/frontend
