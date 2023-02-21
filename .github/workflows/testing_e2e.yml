@@ -1,10 +1,6 @@
-name: example-basic-pnpm
-on:
-  push:
-    branches:
-      - "main"
-  pull_request:
-  workflow_dispatch:
+name: Cypress Tests 🧪
+
+on: [push]
 
 jobs:
   cypress-run:
@@ -14,23 +10,11 @@ jobs:
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-
-      - name: Cypress tests
-        # normally you would write
-        uses: cypress-io/github-action@v5
-        # uses: ./
-        # the parameters below are only necessary
-        # because we are running these examples in a monorepo
+      - name: Checkout 🛒
+        uses: actions/checkout@v2
+      - name: Cypress build & run 🏗️
+        uses: cypress-io/github-action@v4.2.0
+        # build: npm run build
         with:
           working-directory: apps/frontend
-          # just for full picture after installing Cypress
-          # print information about detected browsers, etc
-          # see https://on.cypress.io/command-line#cypress-info
-          build: npx cypress info
+          start: npm start
