@@ -1,23 +1,20 @@
 name: Cypress Tests 🧪
-# name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   pull_request:
     types: [opened, synchronize]
 
 jobs:
   build:
-    name: Build and Test
+    name: Cypress Tests 🧪
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    # To use Remote Caching, uncomment the next lines and follow the steps below.
     env:
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
-
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -40,7 +37,7 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Test
+      - name: Start dev server & test
         run: |
           pnpm start & 
           pnpm test
