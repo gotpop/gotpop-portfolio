@@ -15,6 +15,6 @@ jobs:
       - name: Cypress build & run 🏗️
         uses: cypress-io/github-action@v4.2.0
         with:
-          working-directory: apps/frontend
+          working-directory: frontend
           build: npm run build
           start: npm start
