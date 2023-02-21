@@ -19,7 +19,16 @@
       "outputs": []
     },
     "lint:styles": {},
-    "start": {},
+    "start": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "cypress:headless": {
+      "dependsOn": [
+        "^start"
+      ]
+    },
     "dev": {
       "cache": false
     }

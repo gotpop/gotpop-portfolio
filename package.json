@@ -11,6 +11,7 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "start": "turbo run start",
+    "test": "turbo run cypress:headless",
     "lint:styles": "turbo run lint:styles",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
