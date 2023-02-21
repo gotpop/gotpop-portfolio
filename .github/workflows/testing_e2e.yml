@@ -42,6 +42,7 @@ jobs:
 
       - name: Start
         run: pnpm start
+        uses: ./
           with:
             wait-on: "http://localhost:3050"
             wait-on-timeout: 130
