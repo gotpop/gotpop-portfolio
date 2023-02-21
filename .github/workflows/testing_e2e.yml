@@ -41,4 +41,4 @@ jobs:
         with:
           build: pnpm run build
           start: pnpm start
-          working-directory: apps/frontend
+          # working-directory: apps/frontend
