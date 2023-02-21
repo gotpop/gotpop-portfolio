@@ -36,5 +36,5 @@ jobs:
 
       - name: Cypress build & run 🏗️
         uses: cypress-io/github-action@v5
-          with:
-            working-directory: apps/frontend
+        with:
+          working-directory: apps/frontend
