@@ -1,6 +1,13 @@
-name: Cypress Tests 🧪
+name: example-basic-pnpm
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+  workflow_dispatch:
 
-on: [push]
+jobs:
+
 
 jobs:
   cypress-run:
@@ -20,8 +27,8 @@ jobs:
 
       - name: Cypress tests
         # normally you would write
-        # uses: cypress-io/github-action@v5
-        uses: ./
+        uses: cypress-io/github-action@v5
+        # uses: ./
         # the parameters below are only necessary
         # because we are running these examples in a monorepo
         with:
