@@ -55,6 +55,6 @@ jobs:
       - uses: cypress-io/github-action@v5
         with:
           working-directory: apps/frontend
-          build: pnpm run build
+          build: pnpm build
           start: pnpm start
           wait-on: "http://localhost:3000"
