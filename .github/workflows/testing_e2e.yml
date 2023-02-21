@@ -1,4 +1,4 @@
-name: Cypress E2E Tests 🧪
+name: Cypress Tests 🧪
 
 on:
   push:
@@ -8,20 +8,15 @@ on:
 
 jobs:
   build:
-    name: Cypress E2E Tests 🧪
+    name: Cypress Tests 🧪
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    # To use Remote Caching, uncomment the next lines and follow the steps below.
-    # env:
-    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-    #  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     env:
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
-
     steps:
-      - name: Check out code 🛒
+      - name: Check out code
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
@@ -33,12 +28,16 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
           cache: "pnpm"
 
-      - name: Cypress build & run 🏗️ 🏃‍♂️
-        uses: cypress-io/github-action@v5
-        with:
-          build: pnpm run build
-          start: pnpm start
-          working-directory: apps/frontend
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Start dev server & test
+        run: |
+          pnpm start & 
+          pnpm test

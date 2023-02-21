@@ -2,6 +2,11 @@
   "npmClient": "pnpm",
   "pipeline": {
     "build": {
+      "env": [
+        "^build",
+        "NEXT_PUBLIC_SANITY_DATASET",
+        "NEXT_PUBLIC_SANITY_PROJECT_ID"
+      ],
       "dependsOn": [
         "^build"
       ],
@@ -10,28 +15,20 @@
         ".next/**"
       ]
     },
-    "web#build": {
-      "env": [
-        "^build",
-        "NEXT_PUBLIC_SANITY_DATASET",
-        "NEXT_PUBLIC_SANITY_PROJECT_ID"
-      ],
-      "outputs": [
-        ".next/**"
-      ]
-    },
-    "studio#build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "public/**"
-      ]
-    },
     "lint": {
       "outputs": []
     },
     "lint:styles": {},
+    "start": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "cypress:headless": {
+      "dependsOn": [
+        "^start"
+      ]
+    },
     "dev": {
       "cache": false
     }
