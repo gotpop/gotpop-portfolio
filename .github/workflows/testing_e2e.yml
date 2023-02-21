@@ -56,5 +56,5 @@ jobs:
         with:
           # working-directory: apps/frontend
           build: pnpm build
-          start: pnpm start
-          wait-on: "http://localhost:3000"
+          # start: pnpm start
+          # wait-on: "http://localhost:3000"
