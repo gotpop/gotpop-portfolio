@@ -2,6 +2,11 @@
   "npmClient": "pnpm",
   "pipeline": {
     "build": {
+      "env": [
+        "^build",
+        "NEXT_PUBLIC_SANITY_DATASET",
+        "NEXT_PUBLIC_SANITY_PROJECT_ID"
+      ],
       "dependsOn": [
         "^build"
       ],
@@ -32,6 +37,7 @@
       "outputs": []
     },
     "lint:styles": {},
+    "start": {},
     "dev": {
       "cache": false
     }
