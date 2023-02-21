@@ -42,10 +42,7 @@ jobs:
 
       - name: Start
         run: pnpm start
-        uses: ./
-          with:
-            wait-on: "http://localhost:3050"
-            wait-on-timeout: 130
+        uses: cypress-io/github-action@v5
 
       - name: Test
         run: pnpm test
